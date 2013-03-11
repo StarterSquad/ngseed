@@ -38,6 +38,7 @@ require.config({
     paths: {
         /* paths */
         'Specs': './tests/specs'
+        ,'Source': './source/js'
 
         /*named modules for app deps*/
         , 'angular': './source/js/libs/angular/1.1.3/angular'
