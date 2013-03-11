@@ -19,6 +19,10 @@ server {
         root  $host_path;
     }
 
+    location /build {
+        root  $host_path;
+    }
+
     location / {
         index  index.html index.htm;
     }
