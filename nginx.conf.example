@@ -1,0 +1,25 @@
+server {
+    listen 80;
+    server_name local.sq_seed.com;
+
+    charset utf-8;
+
+    # @FIXME update this path with yours
+    set $host_path "{{ABSOLUTE_PATH_TO_PROJECT_SOURCE}}";
+
+    # Path for static files
+    root $host_path/source;
+
+    expires -1;
+
+    # opt-in to the future
+    add_header "X-UA-Compatible" "IE=Edge,chrome=1";
+
+    location /assets/ {
+        root  $host_path;
+    }
+
+    location / {
+        index  index.html index.htm;
+    }
+}
