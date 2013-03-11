@@ -2,3 +2,4 @@
 .sass-cache
 nginx.conf
 errors.log
+build
