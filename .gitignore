@@ -1,2 +1,4 @@
 .idea
 .sass-cache
+nginx.conf
+errors.log
