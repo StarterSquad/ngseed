@@ -1,0 +1,34 @@
+@mixin position ($position, $coordinates: false) {
+
+  @if type-of($position) == list {
+    $coordinates: $position;
+  }
+  @else {
+    position: $position;
+  }
+
+  @if $coordinates {
+    $coordinates: unpack($coordinates);
+
+    $top:    nth($coordinates, 1);
+    $right:  nth($coordinates, 2);
+    $bottom: nth($coordinates, 3);
+    $left:   nth($coordinates, 4);
+
+    @if $top {
+      top: $top;
+    }
+
+    @if $right {
+      right: $right;
+    }
+
+    @if $bottom {
+      bottom: $bottom;
+    }
+
+    @if $left {
+      left: $left;
+    }
+  }
+}
