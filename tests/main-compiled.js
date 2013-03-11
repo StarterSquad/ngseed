@@ -5,7 +5,7 @@
 (function(global) {
     var original_define = global.define;
     // reg exp for testing if dependency is app file
-    var isAppFile = /^app\/(controllers|services|filters|directives)\//;
+    var isAppFile = /^Source\/(controllers|services|filters|directives)\//;
 
     // Override
     global.define = function(name, deps, callback) {
@@ -21,7 +21,7 @@
         if(deps instanceof Array && typeof callback == "function") {
             for(var i = 0; i < deps.length; i++) {
                 if(isAppFile.test(deps[i]))
-                    deps[i] = deps[i].replace('app/', '');
+                    deps[i] = deps[i].replace('Source/', '');
             }
         }
 
@@ -37,7 +37,8 @@
 require.config({
     paths: {
         /* paths */
-        'Specs': './tests/specs', 'Source': './source/js'
+        'Specs': './tests/specs'
+
         /*named modules for app deps*/
         , 'angular': './source/js/libs/angular/1.1.3/angular'
         , 'angular-resource': './source/js/libs/angular/1.1.3/angular-resource'
@@ -61,10 +62,10 @@ require.config({
 
 /* add yo specs here */
 require(['require', 'base/build/js/main-compiled-compressed.js'
-    ,'specs/services/index'
-    ,'specs/filters/index'
-    ,'specs/directives/index'
-    ,'specs/controllers/index'
+    ,'Specs/services/index'
+    ,'Specs/filters/index'
+    ,'Specs/directives/index'
+    ,'Specs/controllers/index'
    ], function () {
         dump('tests/main-compiled.js is starting requirejs');
         window.__testacular__.start();
