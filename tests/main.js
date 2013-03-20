@@ -1,6 +1,6 @@
 require.config({
-
-    paths: {
+    baseUrl: 'base/'
+    ,paths: {
         /* paths */
         'Specs': './tests/specs'
         ,'Source': './source/js'
@@ -34,5 +34,9 @@ require(['require'
     ,'Specs/directives/index'
     ], function () {
     dump('tests/main.js is starting requirejs');
-    window.__testacular__.start();
+    if (window.__testacular__) {
+        window.__testacular__.start();
+    } else {
+        window.__karma__.start();
+    }
 });
