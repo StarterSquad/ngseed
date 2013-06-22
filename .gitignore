@@ -3,3 +3,4 @@
 nginx.conf
 errors.log
 build
+node_modules
