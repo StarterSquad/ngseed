@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Browser Tests (assertion-error)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <p>To see results view console.</p>
+    <script src="../build/build.js"></script>
+    <script>
+      AssertionError = require('assertion-error');
+      (function runner (ctx) {
+        /*!
+         * Simple test runner.
+         */
+
+        var count = 0
+          , failures = []
+          , tests = [];
+
+        function test (name, fn) {
+          tests.push({ name: name, fn: fn });
+        }
+
+        function assert (pass, msg) {
+          if (!pass) throw new Error(msg);
+        }
+
+        ctx.suite = function (fn) {
+          fn(test, assert);
+          console.log('  Tests (%d)', tests.length);
+
+          tests.forEach(function (test) {
+            var err = false
+              , num = ++count;
+
+            try { test.fn(); }
+            catch (ex) { err = ex; }
+
+            if (err) {
+              console.log('  %d. [fail] %s', num, test.name);
+              failures.push({ num: num, err: err });
+            } else {
+              console.log('  %d. [pass] %s', num, test.name);
+            }
+          });
+
+          console.log('  Failures (%d)', failures.length);
+          failures.forEach(function (failure) {
+            console.log('  %d. %s', failure.num, failure.err.message);
+          });
+        };
+      })(this);
+    </script>
+    <script src="./test.js"></script>
+  </body>
+</html>

@@ -11,6 +11,7 @@ require.config({
         ,'domReady': './source/js/libs/requirejs-domready/domReady'
         /*named modules for test dependencies*/
         ,'angular-mocks': './source/js/libs/angular-mocks/angular-mocks'
+        ,'chai': './source/js/libs/chai/chai'
     }
     ,shim: {
         'angular': {
@@ -27,13 +28,20 @@ require.config({
 });
 
 /* add yo specs here */
-require(['require'
+require([
+    'chai'
+    ,'require'
     ,'Specs/controllers/index'
     ,'Specs/services/index'
     ,'Specs/filters/index'
     ,'Specs/directives/index'
-    ], function () {
+    ], function (chai) {
     dump('tests/main.js is starting requirejs');
+
+    // enables chai assertions
+    window.expect = chai.expect;
+    window.assert = chai.assert;
+
     if (window.__testacular__) {
         window.__testacular__.start();
     } else {

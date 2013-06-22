@@ -15,13 +15,13 @@ describe('home', function () {
 
    describe('check if controller is on it\'s place', function(){
        it('should have loaded the subject', function(){
-           expect(subject).toBeDefined();
+           expect(subject).to.exist;
        });
    });
 
    describe('check if scope is also on it\'s place', function () {
        it('should test scope to be defined', function () {
-           expect(scope).toBeDefined();
+           expect(scope).to.exist;
        });
    });
 
