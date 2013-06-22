@@ -27,4 +27,11 @@ There are several grunt tasks available:
 * `grunt karma:ci` starts karma test runner with `singleRun: true` enabled, good to use in CI scenarios
 * `grunt compass` compiles compass project
 * `grunt`, `grunt build` will build project into `build` directory. It compiles project into single file, minifies it and compiles styles.
-	
+
+## Libs update
+
+To update all the dependencies to latest compatible versions run `bower install`.
+
+## Tests
+
+Tests use Jasmin and Chai for assertions.
