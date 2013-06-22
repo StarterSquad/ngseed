@@ -5,12 +5,12 @@ require.config({
         'Specs': './tests/specs'
         ,'Source': './source/js'
         /*named modules for app deps*/
-        ,'angular': './source/js/libs/angular/1.1.3/angular'
-        ,'angular-resource': './source/js/libs/angular/1.1.3/angular-resource'
-        ,'async': './source/js/libs/requirejs/2.1.5/async'
-        ,'domReady': './source/js/libs/requirejs/2.1.5/domReady'
+        ,'angular': './source/js/libs/angular/angular'
+        ,'angular-resource': './source/js/libs/angular-resource/angular-resource'
+        ,'async': './source/js/libs/requirejs-plugins/src/async'
+        ,'domReady': './source/js/libs/requirejs-domready/domReady'
         /*named modules for test dependencies*/
-        ,'angular-mocks': './source/js/libs/angular/1.1.3/angular-mocks'
+        ,'angular-mocks': './source/js/libs/angular-mocks/angular-mocks'
     }
     ,shim: {
         'angular': {

@@ -8,10 +8,10 @@ require.config({
     paths: {
         /*named modules for src*/
         'libs': './libs',
-        'async': './libs/requirejs/2.1.5/async',
-        'domReady': './libs/requirejs/2.1.5/domReady',
-        'angular': './libs/angular/1.1.3/angular',
-        'angular-resource': './libs/angular/1.1.3/angular-resource'
+        'async': './libs/requirejs-plugins/src/async',
+        'domReady': './libs/requirejs-domready/domReady',
+        'angular': './libs/angular/angular',
+        'angular-resource': './libs/angular-resource/angular-resource'
     },
 
     /**
