@@ -49,9 +49,9 @@ module.exports = function (grunt) {
                 }
             }
         },
-        compass: {                  // Task
-            main: {                   // Target
-              options: {              // Target options
+        compass: {
+            main: {
+              options: {
                   config: 'config.rb'
               }
             }
