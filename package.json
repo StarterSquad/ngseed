@@ -1,0 +1,11 @@
+{
+  "name": "StarterSquad_AngularJS_RequireJS_Seed",
+  "version": "0.0.2",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-requirejs": "~0.4.1"
+  }
+}
