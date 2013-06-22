@@ -48,15 +48,23 @@ module.exports = function (grunt) {
                     'build/js/main.js': ['build/js/main-src.js']
                 }
             }
+        },
+        compass: {                  // Task
+            main: {                   // Target
+              options: {              // Target options
+                  config: 'config.rb'
+              }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
-    // Default task(s).
-    grunt.registerTask('build', ['copy', 'requirejs', 'uglify']);
+    grunt.registerTask('styles', ['compass']);
+    grunt.registerTask('build', ['copy', 'requirejs', 'uglify', 'styles']);
 
     grunt.registerTask('default', ['build']);
 
