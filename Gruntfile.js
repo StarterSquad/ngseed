@@ -10,7 +10,7 @@ module.exports = function (grunt) {
                     optimize: "none", // requirejs has own copy of uglifyjs that breaks the build
                     baseUrl: "source/js/",
                     mainConfigFile: "source/js/main.js",
-                    out: "build/js/main.js"
+                    out: "build/js/main-src.js"
                 }
             }
         },
@@ -37,14 +37,26 @@ module.exports = function (grunt) {
                      }
                 ]
             }
+        },
+        uglify: {
+            main: {
+                options: {
+                    sourceMap: 'build/js/source-map.js',
+                    mangle: false
+                },
+                files: {
+                    'build/js/main.js': ['build/js/main-src.js']
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Default task(s).
-    grunt.registerTask('build', ['copy', 'requirejs']);
+    grunt.registerTask('build', ['copy', 'requirejs', 'uglify']);
 
     grunt.registerTask('default', ['build']);
 
