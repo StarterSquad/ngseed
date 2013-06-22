@@ -10,6 +10,8 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     fssm (0.2.10)
+    oily_png (1.1.0)
+      chunky_png (~> 1.2.7)
     sass (3.2.6)
     sass-globbing (1.0.0)
       sass (>= 3.1)
@@ -21,4 +23,5 @@ PLATFORMS
 DEPENDENCIES
   bourbon (= 3.1.1)
   compass (= 0.12.2)
+  oily_png
   sass-globbing (= 1.0.0)
