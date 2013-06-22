@@ -1,5 +1,5 @@
 # Require any additional sass plugins here.
-require "bootstrap-sass"
+# require "bootstrap-sass"
 require "bourbon"
 require "sass-globbing"
 
