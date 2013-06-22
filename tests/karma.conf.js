@@ -13,7 +13,6 @@ files = [
   REQUIRE,
   REQUIRE_ADAPTER,
   'tests/main.js',
-  {pattern: 'tests/lib/**/*.js', included: false},
   {pattern: 'source/js/**/*.js', included: false},
   {pattern: 'tests/specs/**/*.js', included: false}
 ];
@@ -59,7 +58,7 @@ autoWatch = true;
 // - Safari (only Mac)
 // - PhantomJS
 // - IE (only Windows)
-browsers = ['ChromeCanary'];
+browsers = ['PhantomJS'];
 
 
 // If browser does not capture in given timeout [ms], kill it
