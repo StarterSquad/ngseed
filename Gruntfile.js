@@ -55,6 +55,17 @@ module.exports = function (grunt) {
                   config: 'config.rb'
               }
             }
+        },
+        karma: {
+            ci: { // runs tests one time in PhantomJS, good for continuous integration
+                configFile: 'tests/karma.conf.js',
+                singleRun: true,
+                browsers: ['PhantomJS']
+            },
+            unit: { // start testing server that listens for code updates
+                configFile: 'tests/karma.conf.js',
+                singleRun: false
+            }
         }
     });
 
@@ -62,9 +73,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('styles', ['compass']);
-    grunt.registerTask('build', ['copy', 'requirejs', 'uglify', 'styles']);
+    grunt.registerTask('build', ['copy', 'requirejs', 'uglify', 'compass']);
 
     grunt.registerTask('default', ['build']);
 
