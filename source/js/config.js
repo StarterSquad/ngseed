@@ -3,5 +3,5 @@
  */
 define(['angular'], function (ng) {
     'use strict';
-    return ng.module('SSQseed.constants', []).constant('config', {});
+    return ng.module('app.constants', []).constant('config', {});
 });

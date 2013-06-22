@@ -6,5 +6,5 @@
  **/
 define(['angular', '../config', '../services/index'], function (ng) {
     'use strict';
-    return ng.module('SSQseed.controllers', ['SSQseed.constants', 'SSQseed.services']);
+    return ng.module('app.controllers', ['app.constants', 'app.services']);
 });

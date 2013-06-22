@@ -5,7 +5,7 @@ describe('home', function () {
 
     beforeEach(function () {
 
-       module('SSQseed.controllers');
+       module('app.controllers');
 
        inject(function ($rootScope, $controller) {
            scope = $rootScope.$new();

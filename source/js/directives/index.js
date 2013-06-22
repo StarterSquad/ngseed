@@ -4,5 +4,5 @@
  **/
 define(['angular'], function (ng) {
     'use strict';
-    return ng.module('SSQseed.directives', ['SSQseed.services']);
+    return ng.module('app.directives', ['app.services']);
 });

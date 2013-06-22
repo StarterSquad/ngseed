@@ -6,5 +6,5 @@
  **/
 define(['angular', '../config', 'angular-resource'], function (ng) {
     'use strict';
-    return ng.module('SSQseed.services', ['ngResource', 'SSQseed.constants']);
+    return ng.module('app.services', ['ngResource', 'app.constants']);
 });

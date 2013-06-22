@@ -17,6 +17,6 @@ define([
 
     require(['domReady!'], function (document) {
         /* everything is loaded...go! */
-        return ng.bootstrap(document, ['SSQseed']);
+        return ng.bootstrap(document, ['app']);
     });
 });

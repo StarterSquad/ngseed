@@ -13,11 +13,11 @@ define([
 ], function (ng) {
     'use strict';
 
-    return ng.module('SSQseed', [
-        'SSQseed.constants',
-        'SSQseed.services',
-        'SSQseed.controllers',
-        'SSQseed.filters',
-        'SSQseed.directives'
+    return ng.module('app', [
+        'app.constants',
+        'app.services',
+        'app.controllers',
+        'app.filters',
+        'app.directives'
     ]);
 });
