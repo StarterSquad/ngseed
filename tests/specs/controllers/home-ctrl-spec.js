@@ -1,5 +1,8 @@
-define(['angular-mocks', 'Source/controllers/home-ctrl'], function () {
+define(['chai', 'angular-mocks', 'Source/controllers/home-ctrl'], function (chai) {
 describe('home', function () {
+
+    // wanna use chai assertions? enable it.
+    var expect = chai.expect;
 
     var scope, subject;
 

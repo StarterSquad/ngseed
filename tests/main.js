@@ -29,18 +29,13 @@ require.config({
 
 /* add yo specs here */
 require([
-    'chai'
     ,'require'
     ,'Specs/controllers/index'
     ,'Specs/services/index'
     ,'Specs/filters/index'
     ,'Specs/directives/index'
-    ], function (chai) {
+    ], function () {
     dump('tests/main.js is starting requirejs');
-
-    // enables chai assertions
-    window.expect = chai.expect;
-    window.assert = chai.assert;
 
     if (window.__testacular__) {
         window.__testacular__.start();
