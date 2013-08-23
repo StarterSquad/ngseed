@@ -35,11 +35,8 @@ require([
     ,'Specs/filters/index'
     ,'Specs/directives/index'
     ], function () {
-    dump('tests/main.js is starting requirejs');
 
-    if (window.__testacular__) {
-        window.__testacular__.start();
-    } else {
-        window.__karma__.start();
-    }
+    dump('tests/main.js is starting requirejs');
+    window.__karma__.start();
+
 });
