@@ -59,13 +59,14 @@ module.exports = function (grunt) {
         },
         karma: {
             ci: { // runs tests one time in PhantomJS, good for continuous integration
-                configFile: 'tests/karma.conf.js',
+                configFile: 'tests/karma-compiled.conf.js',
                 singleRun: true,
                 browsers: ['PhantomJS']
             },
             unit: { // start testing server that listens for code updates
                 configFile: 'tests/karma.conf.js',
-                singleRun: false
+                singleRun: false,
+                browsers: ['ChromeCanary']
             }
         }
     });
