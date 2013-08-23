@@ -7,7 +7,6 @@ require.config({
 
     paths: {
         /*named modules for src*/
-        'libs': './libs',
         'async': './libs/requirejs-plugins/src/async',
         'domReady': './libs/requirejs-domready/domReady',
         'angular': './libs/angular/angular',
