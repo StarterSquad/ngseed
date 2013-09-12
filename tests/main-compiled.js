@@ -58,15 +58,21 @@ require.config({
         'angular-mocks': {
             deps: ['angular']
         }
-    },
+    }
+});
 
-    deps: [
-        './build/js/main'
-        ,'Specs/services/index'
-        ,'Specs/filters/index'
-        ,'Specs/directives/index'
-        ,'Specs/controllers/index'
-    ],
 
-    callback: window.__karma__.start
+/* add yo specs here */
+require(['require',
+    './build/js/main'
+   ], function (require) {
+    dump('tests/main-compiled.js is starting requirejs');
+
+    // to ensure that source is already loaded before tests are tried to run
+    require([
+        'Specs/services/index',
+        'Specs/filters/index',
+        'Specs/directives/index',
+        'Specs/controllers/index'
+    ], window.__karma__.start);
 });
