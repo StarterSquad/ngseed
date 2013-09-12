@@ -1,0 +1,29 @@
+{
+    "paths": {
+        "async"             : "./libs/requirejs-plugins/src/async",
+        "domReady"          : "./libs/requirejs-domready/domReady",
+        "angular"           : "./libs/angular/angular",
+        "angular-resource"  : "./libs/angular-resource/angular-resource"
+    },
+
+    "shim": {
+        "angular": {
+            "exports": "angular"
+        },
+        "angular-mocks": {
+            "deps": ["angular"]
+        },
+        "angular-resource": {
+            "deps": ["angular"]
+        }
+    },
+
+    "wrap": true,
+    "name": "main",
+    "optimize": "none",
+    "baseUrl": "source/js",
+    "mainConfigFile": "source/js/main.js",
+    "out": "build/js/main-src.js",
+    "disabled/exclude": ["main.js"],
+    "disabled/insertRequire": ["./bootstrap"]
+}
