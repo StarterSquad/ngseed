@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/chaijs/chai.png?branch=master)](https://travis-ci.org/chaijs/chai)
+[![Build Status](https://travis-ci.org/chaijs/chai.png?branch=master)](https://travis-ci.org/chaijs/chai) [![Coverage Status](https://coveralls.io/repos/chaijs/chai/badge.png?branch=master)](https://coveralls.io/r/chaijs/chai?branch=master)
 
 [![Chai Documentation](http://chaijs.com/public/img/chai-logo.png)](http://chaijs.com)
 
@@ -15,41 +15,42 @@ thrown upon an assertion failing.
 ### Contributors
 
      project  : chai
-     repo age : 1 year, 6 months
-     active   : 133 days
-     commits  : 662
-     files    : 54
+     repo age : 1 year, 7 months
+     active   : 136 days
+     commits  : 678
+     files    : 55
      authors  :
-       490  Jake Luer               74.0%
-        66  Veselin Todorov         10.0%
-        43  Domenic Denicola        6.5%
+       504  Jake Luer               74.3%
+        66  Veselin Todorov         9.7%
+        43  Domenic Denicola        6.3%
          6  Ruben Verborgh          0.9%
-         5  Scott Nonnenberg        0.8%
-         5  Juliusz Gonera          0.8%
-         5  George Kats             0.8%
-         5  Jo Liss                 0.8%
+         5  Juliusz Gonera          0.7%
+         5  George Kats             0.7%
+         5  Scott Nonnenberg        0.7%
+         5  Jo Liss                 0.7%
          4  John Firebaugh          0.6%
-         4  Nick Heiner             0.6%
          4  josher19                0.6%
-         3  Jeff Barczewski         0.5%
-         2  Edwin Shao              0.3%
+         4  Nick Heiner             0.6%
+         3  Jeff Barczewski         0.4%
+         2  Ryunosuke SATO          0.3%
          2  Bartvds                 0.3%
          2  Teddy Cross             0.3%
-         2  Jakub Nešetřil        0.3%
-         1  piecioshka              0.2%
-         1  Benjamin Horsleben      0.2%
-         1  Brandon Payton          0.2%
-         1  Chris Connelly          0.2%
-         1  Chun-Yi                 0.2%
-         1  DD                      0.2%
-         1  Jeff Welch              0.2%
-         1  Kilian Ciuffolo         0.2%
-         1  Niklas Närhinen        0.2%
-         1  Paul Miller             0.2%
-         1  Sasha Koss              0.2%
-         1  Victor Costan           0.2%
-         1  Vinay Pulim             0.2%
-         1  Anand Patil             0.2%
+         2  Edwin Shao              0.3%
+         2  Jakub Nešetřil          0.3%
+         1  piecioshka              0.1%
+         1  Benjamin Horsleben      0.1%
+         1  Brandon Payton          0.1%
+         1  Chris Connelly          0.1%
+         1  Chun-Yi                 0.1%
+         1  DD                      0.1%
+         1  Jeff Welch              0.1%
+         1  Kilian Ciuffolo         0.1%
+         1  Niklas Närhinen         0.1%
+         1  Paul Miller             0.1%
+         1  Sasha Koss              0.1%
+         1  Victor Costan           0.1%
+         1  Vinay Pulim             0.1%
+         1  Anand Patil             0.1%
 
 ## License
 
