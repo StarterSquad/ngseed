@@ -10,17 +10,22 @@ module.exports = function (config) {
 // base path, that will be used to resolve files and exclude
         basePath: '..',
 
-        frameworks: ["jasmine", "requirejs"],
+        frameworks: ['jasmine', 'requirejs'],
+
+        plugins: [
+            "karma-script-launcher",
+            "karma-chrome-launcher",
+            "karma-jasmine",
+            "karma-requirejs",
+            "karma-phantomjs-launcher"
+        ],
 
 // list of files / patterns to load in the browser
         files: [
-            // all the party
-            {pattern: './source/js/libs/**/*.js', included: false}
             // all the sources, tests
-            , {pattern: './tests/specs/**/*.js', included: false}
+            { pattern: './tests/specs/**/*.js', included: false }
+            , { pattern: './build/js/**/*.js', included: false }
             , './tests/main-compiled.js'
-            , {pattern: './build/js/*.js', included: false}
-            , {pattern: './build/js/source-map.js', included: false}
         ],
 
 // list of files to exclude
@@ -29,7 +34,7 @@ module.exports = function (config) {
 // use dots reporter, as travis terminal does not support escaping sequences
 // possible values: 'dots', 'progress', 'junit'
 // CLI --reporters progress
-        reporters: ['progress'],
+        reporters: ['dots'],
 
 // web server port
 // CLI --port 9876
@@ -50,7 +55,7 @@ module.exports = function (config) {
 
 // enable / disable watching file and executing tests whenever any file changes
 // CLI --auto-watch --no-auto-watch
-        autoWatch: true,
+        autoWatch: false,
 
 // Start these browsers, currently available:
 // - Chrome
@@ -61,7 +66,7 @@ module.exports = function (config) {
 // - PhantomJS
 // - IE (only Windows)
 // CLI --browsers Chrome,Firefox,Safari
-        browsers: ['ChromeCanary'],
+        browsers: ['PhantomJS'],
 
 // If browser does not capture in given timeout [ms], kill it
 // CLI --capture-timeout 5000
@@ -69,7 +74,7 @@ module.exports = function (config) {
 
 // Auto run tests on start (when browsers are captured) and exit
 // CLI --single-run --no-single-run
-        singleRun: false,
+        singleRun: true,
 
 // report which specs are slower than 500ms
 // CLI --report-slower-than 500
