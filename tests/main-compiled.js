@@ -35,37 +35,38 @@
 })(this);
 
 require.config({
-    baseUrl: 'base/'
-    ,paths: {
+    baseUrl: 'base/',
+
+    paths: {
         /* paths */
-        'Specs': './tests/specs'
-        ,'Source': './source/js'
+        'Specs': './tests/specs',
 
         /*named modules for app deps*/
-        , 'angular': './source/js/libs/angular/angular'
-        , 'angular-resource': './source/js/libs/angular/angular-resource'
-        , 'async': './source/js/libs/requirejs-plugins/src/async'
-        , 'domReady': './source/js/libs/requirejs-domready/domReady'
+        'angular': './build/js/libs/angular/angular',
+        'angular-resource': './build/js/libs/angular/angular-resource',
+        'async': './build/js/libs/requirejs-plugins/src/async',
+        'domReady': './build/js/libs/requirejs-domready/domReady',
         /*named modules for test dependencies*/
-        , 'angular-mocks': './source/js/libs/angular-mocks/angular-mocks'
-        , 'chai': './source/js/libs/chai/chai'
-    }, shim: {
+        'angular-mocks': './build/js/libs/angular-mocks/angular-mocks',
+        'chai': './build/js/libs/chai/chai'
+    },
+
+    shim: {
         'angular': {
             exports: 'angular'
         },
         'angular-mocks': {
             deps: ['angular']
         }
-    }
-});
+    },
 
-/* add yo specs here */
-require(['./build/js/main'
-    ,'Specs/services/index'
-    ,'Specs/filters/index'
-    ,'Specs/directives/index'
-    ,'Specs/controllers/index'
-   ], function () {
-    dump('tests/main-compiled.js is starting requirejs');
-    window.__karma__.start();
+    deps: [
+        './build/js/main'
+        ,'Specs/services/index'
+        ,'Specs/filters/index'
+        ,'Specs/directives/index'
+        ,'Specs/controllers/index'
+    ],
+
+    callback: window.__karma__.start
 });
