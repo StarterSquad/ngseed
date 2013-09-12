@@ -18,9 +18,8 @@ module.exports = function (config) {
             {pattern: './source/js/libs/**/*.js', included: false}
             // all the sources, tests
             , {pattern: './tests/specs/**/*.js', included: false}
+            , {pattern: './build/js/*.js', included: false }
             , './tests/main-compiled.js'
-            , {pattern: './build/js/*.js', included: false}
-            , {pattern: './build/js/source-map.js', included: false}
         ],
 
 // list of files to exclude

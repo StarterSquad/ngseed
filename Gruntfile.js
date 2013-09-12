@@ -5,13 +5,7 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         requirejs: {
             compile: {
-                options: {
-                    name: "main",
-                    optimize: "none", // requirejs has own copy of uglifyjs that breaks the build
-                    baseUrl: "source/js/",
-                    mainConfigFile: "source/js/main.js",
-                    out: "build/js/main-src.js"
-                }
+                options: grunt.file.readJSON('source/js/build-config.json')
             }
         },
         copy: {
@@ -42,7 +36,7 @@ module.exports = function (grunt) {
             main: {
                 options: {
                     sourceMappingURL: './source-map.js',
-                    sourceMap: './build/js/source-map.js',
+                    sourceMap: 'build/js/source-map.js',
                     mangle: false
                 },
                 files: {
@@ -77,7 +71,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('build', ['copy', 'requirejs', 'uglify', 'compass']);
+    grunt.registerTask('build-js', ['copy', 'requirejs', 'uglify']);
+    grunt.registerTask('build-css', ['compass']);
+    grunt.registerTask('build', ['build-js', 'build-css']);
 
     grunt.registerTask('default', ['build']);
 

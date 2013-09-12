@@ -36,7 +36,6 @@
 
 require.config({
     baseUrl: 'base/'
-    ,basePath: './'
     ,paths: {
         /* paths */
         'Specs': './tests/specs'
@@ -48,12 +47,11 @@ require.config({
         , 'async': './source/js/libs/requirejs-plugins/src/async'
         , 'domReady': './source/js/libs/requirejs-domready/domReady'
         /*named modules for test dependencies*/
-        , 'angular-mocks': './source/js/libs/angular/1.1.3/angular-mocks'
+        , 'angular-mocks': './source/js/libs/angular-mocks/angular-mocks'
         , 'chai': './source/js/libs/chai/chai'
     }, shim: {
         'angular': {
-            exports: 'angular',
-            deps: []
+            exports: 'angular'
         },
         'angular-mocks': {
             deps: ['angular']
