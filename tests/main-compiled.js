@@ -1,4 +1,4 @@
-/*
+/**
  * Monkey patching for RequireJS 'define' method in order to remove ^app/ substring in
  * dependency path for controllers, filters, services and directives.
  */
@@ -33,6 +33,16 @@
     // when we try to run tests for compiled .js file
     global.define.amd = original_define.amd;
 })(this);
+
+/**
+ * another one monkey patch to prevent "no timestamp" error
+ * https://github.com/karma-runner/karma-requirejs/issues/6#issuecomment-23037725
+ */
+(function (global) {
+    for (var file in window.__karma__.files) {
+        global.__karma__.files[file.replace(/^\//, '')] = global.__karma__.files[file];
+    }
+} (this))
 
 require.config({
     baseUrl: 'base/',

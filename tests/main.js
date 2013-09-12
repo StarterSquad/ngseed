@@ -1,3 +1,13 @@
+/**
+ * another one monkey patch to prevent "no timestamp" error
+ * https://github.com/karma-runner/karma-requirejs/issues/6#issuecomment-23037725
+ */
+(function (global) {
+    for (var file in window.__karma__.files) {
+        global.__karma__.files[file.replace(/^\//, '')] = global.__karma__.files[file];
+    }
+})(this);
+
 require.config({
     baseUrl: 'base/',
 
