@@ -9,11 +9,19 @@ module.exports = function (config) {
 
         frameworks: ["jasmine", "requirejs"],
 
+        plugins: [
+            "karma-script-launcher",
+            "karma-chrome-launcher",
+            "karma-jasmine",
+            "karma-requirejs",
+            "karma-phantomjs-launcher"
+        ],
+
 // list of files / patterns to load in the browser
         files: [
             'tests/main.js',
-            {pattern: 'source/js/**/*.js', included: false},
-            {pattern: 'tests/specs/**/*.js', included: false}
+            { pattern: 'source/js/**/*.js', included: false },
+            { pattern: 'tests/specs/**/*.js', included: false }
         ],
 
 // list of files to exclude
@@ -24,7 +32,7 @@ module.exports = function (config) {
 
 // test results reporter to use
 // possible values: 'dots', 'progress', 'junit'
-        reporters: ['progress'],
+        reporters: ['dots'],
 
 
 // web server port
