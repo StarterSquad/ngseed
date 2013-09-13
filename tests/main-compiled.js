@@ -71,6 +71,9 @@ require.config({
     }
 });
 
+// let Angular know that we're bootstrapping manually
+// https://github.com/angular/angular.js/commit/603fe0d19608ffe1915d8bc23bf412912e7ee1ac
+window.name = "NG_DEFER_BOOTSTRAP!";
 
 /* add yo specs here */
 require(['require',
