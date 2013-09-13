@@ -9,7 +9,7 @@
 <html class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>AngularJS + RequireJS Seed</title>
+  <title>AngularJS + RequireJS Seed (0.2.0)</title>
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
@@ -20,6 +20,10 @@
 <!-- Scripts -->
 <script src="js/libs/requirejs/require.js" data-main="js/main.js"></script>
 <script>
+  // let Angular know that we're bootstrapping manually
+  // https://github.com/angular/angular.js/commit/603fe0d19608ffe1915d8bc23bf412912e7ee1ac
+  window.name = "NG_DEFER_BOOTSTRAP!";
+
   /**
    * configure RequireJS
    * prefer named modules to long paths, especially for version mgt
