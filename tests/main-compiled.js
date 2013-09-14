@@ -39,10 +39,24 @@
  * https://github.com/karma-runner/karma-requirejs/issues/6#issuecomment-23037725
  */
 (function (global) {
-    for (var file in window.__karma__.files) {
-        global.__karma__.files[file.replace(/^\//, '')] = global.__karma__.files[file];
+    var fileWithoutLeadingSlash;
+    // array where all spec files will be included
+    global.tests = [];
+
+    for (var file in global.__karma__.files) {
+        if (global.__karma__.files.hasOwnProperty(file)) {
+            // get rid of leading slash in file path - prevents "no timestamp" error
+            fileWithoutLeadingSlash = file.replace(/^\//, '');
+            global.__karma__.files[fileWithoutLeadingSlash] = global.__karma__.files[file];
+            delete global.__karma__.files[file];
+
+            // we get all the test files automatically and store to window.tests array
+            if (/spec\.js$/.test(fileWithoutLeadingSlash)) {
+                global.tests.push(fileWithoutLeadingSlash);
+            }
+        }
     }
-} (this))
+} (this));
 
 require.config({
     baseUrl: 'base/',
@@ -68,24 +82,21 @@ require.config({
         'angular-mocks': {
             deps: ['angular']
         }
+    },
+
+    deps: ['require', './build/js/main'],
+
+    callback: function (require) {
+        // to ensure that source is already loaded before tests are tried to run
+        require(
+            // array with all spec files
+            window.tests,
+            // callback
+            window.__karma__.start
+        );
     }
 });
 
 // let Angular know that we're bootstrapping manually
 // https://github.com/angular/angular.js/commit/603fe0d19608ffe1915d8bc23bf412912e7ee1ac
 window.name = "NG_DEFER_BOOTSTRAP!";
-
-/* add yo specs here */
-require(['require',
-    './build/js/main'
-   ], function (require) {
-    dump('tests/main-compiled.js is starting requirejs');
-
-    // to ensure that source is already loaded before tests are tried to run
-    require([
-        'Specs/services/index',
-        'Specs/filters/index',
-        'Specs/directives/index',
-        'Specs/controllers/index'
-    ], window.__karma__.start);
-});
