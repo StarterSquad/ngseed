@@ -4,17 +4,17 @@
  */
 
 define(['./app', './config'], function (app) {
-    'use strict';
-    app.config(function ($routeProvider) {
-        $routeProvider.when('/', {
-            templateUrl: '/js/modules/home/home.html',
-            controller: 'HomeController'
-        });
-
-        $routeProvider.otherwise({
-            redirectTo: '/'
-        });
-
-        //$locationProvider.html5Mode(true);
+  'use strict';
+  app.config(function ($routeProvider) {
+    $routeProvider.when('/', {
+      templateUrl: '/js/modules/home/home.html',
+      controller : 'HomeController'
     });
+
+    $routeProvider.otherwise({
+      redirectTo: '/'
+    });
+
+    //$locationProvider.html5Mode(true);
+  });
 });

@@ -1,3 +1,3 @@
 require(['./bootstrap'], function () {
-    //nothing to do here...see bootstrap.js
+  //nothing to do here...see bootstrap.js
 });

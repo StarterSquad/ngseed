@@ -3,14 +3,14 @@
  * this should be used for top-level module definitions only
  */
 define([
-    'angular',
-    './config',
-    './modules/home/index'
+  'angular',
+  './config',
+  './modules/home/index'
 ], function (ng) {
-    'use strict';
+  'use strict';
 
-    return ng.module('app', [
-        'app.constants',
-        'app.home'
-    ]);
+  return ng.module('app', [
+    'app.constants',
+    'app.home'
+  ]);
 });

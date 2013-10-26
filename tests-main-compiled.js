@@ -2,36 +2,37 @@
  * Monkey patching for RequireJS 'define' method in order to remove ^app/ substring in
  * dependency path for controllers, filters, services and directives.
  */
-(function(global) {
-    var original_define = global.define;
-    // reg exp for testing if dependency is app file
-    var isAppFile = /^Source\/modules\//;
+(function (global) {
+  var original_define = global.define;
+  // reg exp for testing if dependency is app file
+  var isAppFile = /^Source\/modules\//;
 
-    // Override
-    global.define = function(name, deps, callback) {
-        var args = Array.prototype.slice.apply(arguments);
+  // Override
+  global.define = function (name, deps, callback) {
+    var args = Array.prototype.slice.apply(arguments);
 
-        // Process only anonymous definitions
-        if(args.length != 2) {
-            return original_define.apply(null, args);
+    // Process only anonymous definitions
+    if (args.length != 2) {
+      return original_define.apply(null, args);
+    }
+
+    // basically deps and callback are defined only for specs for testing
+    var deps = args[0], callback = args[1];
+    if (deps instanceof Array && typeof callback == "function") {
+      for (var i = 0; i < deps.length; i++) {
+        if (isAppFile.test(deps[i])) {
+          deps[i] = deps[i].replace('Source/', '');
         }
+      }
+    }
 
-        // basically deps and callback are defined only for specs for testing
-        var deps = args[0], callback = args[1];
-        if(deps instanceof Array && typeof callback == "function") {
-            for(var i = 0; i < deps.length; i++) {
-                if(isAppFile.test(deps[i]))
-                    deps[i] = deps[i].replace('Source/', '');
-            }
-        }
+    original_define.apply(null, args);
+  };
 
-        original_define.apply(null, args);
-    };
-
-    // Enable AMD mode
-    // Without this code line libs such as 'moment' or 'accounting' aren't being loaded
-    // when we try to run tests for compiled .js file
-    global.define.amd = original_define.amd;
+  // Enable AMD mode
+  // Without this code line libs such as 'moment' or 'accounting' aren't being loaded
+  // when we try to run tests for compiled .js file
+  global.define.amd = original_define.amd;
 })(this);
 
 /**
@@ -39,58 +40,58 @@
  * https://github.com/karma-runner/karma-requirejs/issues/6#issuecomment-23037725
  */
 (function (global) {
-    var fileWithoutLeadingSlash;
-    // array where all spec files will be included
-    global.tests = [];
+  var fileWithoutLeadingSlash;
+  // array where all spec files will be included
+  global.tests = [];
 
-    for (var file in global.__karma__.files) {
-        if (global.__karma__.files.hasOwnProperty(file)) {
-            // get rid of leading slash in file path - prevents "no timestamp" error
-            fileWithoutLeadingSlash = file.replace(/^\//, '');
-            global.__karma__.files[fileWithoutLeadingSlash] = global.__karma__.files[file];
-            delete global.__karma__.files[file];
+  for (var file in global.__karma__.files) {
+    if (global.__karma__.files.hasOwnProperty(file)) {
+      // get rid of leading slash in file path - prevents "no timestamp" error
+      fileWithoutLeadingSlash = file.replace(/^\//, '');
+      global.__karma__.files[fileWithoutLeadingSlash] = global.__karma__.files[file];
+      delete global.__karma__.files[file];
 
-            // we get all the test files automatically and store to window.tests array
-            if (/spec\.js$/.test(fileWithoutLeadingSlash)) {
-                global.tests.push(fileWithoutLeadingSlash);
-            }
-        }
+      // we get all the test files automatically and store to window.tests array
+      if (/spec\.js$/.test(fileWithoutLeadingSlash)) {
+        global.tests.push(fileWithoutLeadingSlash);
+      }
     }
-} (this));
+  }
+}(this));
 
 require.config({
-    baseUrl: 'base/',
+  baseUrl: 'base/',
 
-    paths: {
-        'Specs': './tests/specs',
-        'angular': './build/js/libs/angular/angular',
-        'angular-resource': './build/js/libs/angular/angular-resource',
-        'async': './build/js/libs/requirejs-plugins/src/async',
-        'domReady': './build/js/libs/requirejs-domready/domReady',
-        'angular-mocks': './build/js/libs/angular-mocks/angular-mocks',
-        'jasmine-matchers': './build/js/libs/jasmine-matchers/dist/jasmine-matchers'
+  paths: {
+    'angular'         : './build/js/libs/angular/angular',
+    'angular-resource': './build/js/libs/angular/angular-resource',
+    'angular-mocks'   : './build/js/libs/angular-mocks/angular-mocks',
+    'async'           : './build/js/libs/requirejs-plugins/src/async',
+    'domReady'        : './build/js/libs/requirejs-domready/domReady',
+    'jasmine-matchers': './build/js/libs/jasmine-matchers/dist/jasmine-matchers',
+    'Specs'           : './tests/specs'
+  },
+
+  shim: {
+    'angular'      : {
+      exports: 'angular'
     },
-
-    shim: {
-        'angular': {
-            exports: 'angular'
-        },
-        'angular-mocks': {
-            deps: ['angular']
-        }
-    },
-
-    deps: ['require', './build/js/main'],
-
-    callback: function (require) {
-        // to ensure that source is already loaded before tests are tried to run
-        require(
-            // array with all spec files
-            window.tests,
-            // callback
-            window.__karma__.start
-        );
+    'angular-mocks': {
+      deps: ['angular']
     }
+  },
+
+  deps: ['require', './build/js/main'],
+
+  callback: function (require) {
+    // to ensure that source is already loaded before tests are tried to run
+    require(
+      // array with all spec files
+      window.tests,
+      // callback
+      window.__karma__.start
+    );
+  }
 });
 
 // let Angular know that we're bootstrapping manually

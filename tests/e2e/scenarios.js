@@ -21,19 +21,19 @@
 
  And I have no problem in using breakpoints and watches in Chrome JS debugger.
 
-*/
+ */
 
 describe('E2E: Testing App', function () {
-    "use strict";
+  "use strict";
 
-    beforeEach(function() {
-        browser().navigateTo('/');
-    });
+  beforeEach(function () {
+    browser().navigateTo('/');
+  });
 
-    describe('Home page', function () {
-        it('should set test binding', function () {
-            expect(element('[data-ng-view]').text()).toEqual("It's as easy as 2 * 2 = 4");
-        });
+  describe('Home page', function () {
+    it('should set test binding', function () {
+      expect(element('[data-ng-view]').text()).toEqual("It's as easy as 2 * 2 = 4");
     });
+  });
 
 });
