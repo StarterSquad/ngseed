@@ -12,6 +12,7 @@
     "angular-resource": "~1.0.7",
     "angular-mocks": "~1.0.7",
     "angular-scenario": "~1.0.7",
+    "jasmine-matchers": "https://github.com/JamieMason/Jasmine-Matchers.git",
     "requirejs": "latest",
     "requirejs-domready": "latest",
     "requirejs-text": "latest",

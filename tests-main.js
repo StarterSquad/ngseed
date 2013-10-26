@@ -32,7 +32,8 @@ require.config({
         'angular': './source/js/libs/angular/angular',
         'angular-resource': './source/js/libs/angular-resource/angular-resource',
         'async': './source/js/libs/requirejs-plugins/src/async',
-        'domReady': './source/js/libs/requirejs-domready/domReady'
+        'domReady': './source/js/libs/requirejs-domready/domReady',
+        'jasmine-matchers': './source/js/libs/jasmine-matchers/dist/jasmine-matchers'
     },
 
     shim: {

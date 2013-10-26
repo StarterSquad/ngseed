@@ -1,4 +1,8 @@
-define(['angular-mocks', 'Source/modules/home/home-ctrl'], function () {
+define([
+  'angular-mocks',
+  'jasmine-matchers',
+  'Source/modules/home/home-ctrl'
+], function () {
 describe('HomeController in app.home', function () {
 
     var scope, subject;
@@ -24,6 +28,12 @@ describe('HomeController in app.home', function () {
            expect(scope).toBeDefined();
        });
    });
+
+  describe('check custom jasmine matchers enabled', function () {
+    it('should check that toBeArrayOfSize(int) exists', function () {
+      expect([1, 2, 3]).toBeArrayOfSize(3);
+    });
+  });
 
 });
 });

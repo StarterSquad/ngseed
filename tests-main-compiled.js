@@ -62,17 +62,13 @@ require.config({
     baseUrl: 'base/',
 
     paths: {
-        /* paths */
         'Specs': './tests/specs',
-
-        /*named modules for app deps*/
         'angular': './build/js/libs/angular/angular',
         'angular-resource': './build/js/libs/angular/angular-resource',
         'async': './build/js/libs/requirejs-plugins/src/async',
         'domReady': './build/js/libs/requirejs-domready/domReady',
-        /*named modules for test dependencies*/
         'angular-mocks': './build/js/libs/angular-mocks/angular-mocks',
-        'chai': './build/js/libs/chai/chai'
+        'jasmine-matchers': './build/js/libs/jasmine-matchers/dist/jasmine-matchers'
     },
 
     shim: {
