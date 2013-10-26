@@ -53,12 +53,12 @@ module.exports = function (grunt) {
         },
         karma: {
             ci: { // runs tests one time in PhantomJS, good for continuous integration
-                configFile: 'tests/karma-compiled.conf.js'
+                configFile: 'karma-compiled.conf.js'
             },
             unit: { // start testing server that listens for code updates
-                configFile: 'tests/karma.conf.js',
+                configFile: 'karma.conf.js',
                 singleRun: false,
-                browsers: ['ChromeCanary']
+                browsers: ['Chrome']
             }
         }
     });

@@ -23,19 +23,16 @@
 
 */
 
-function appAngular() {
-    return document.getElementsByTagName('iframe')[0].contentWindow.angular;
-}
-
-describe('Test app', function () {
+describe('E2E: Testing App', function () {
     "use strict";
 
-    describe('home page', function () {
-        describe('search bar', function () {
-            // FIXME so we can't use two async dsl scenarios without page reloading
-            beforeEach(function() {
-                browser().navigateTo('/source/index.html');
-            });
+    beforeEach(function() {
+        browser().navigateTo('/');
+    });
+
+    describe('Home page', function () {
+        it('should set test binding', function () {
+            expect(element('[data-ng-view]').text()).toEqual("It's as easy as 2 * 2 = 4");
         });
     });
 

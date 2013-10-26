@@ -26,17 +26,13 @@ require.config({
     baseUrl: 'base/',
 
     paths: {
-        /* paths */
-        'Specs': './tests/specs',
-        'Source': './source/js',
-        /*named modules for app deps*/
+        'Source': 'source/js',
+        'angular-mocks': 'source/js/libs/angular-mocks/angular-mocks',
+        'angular-scenario': 'source/js/libs/angular-scenario/angular-scenario',
         'angular': './source/js/libs/angular/angular',
         'angular-resource': './source/js/libs/angular-resource/angular-resource',
         'async': './source/js/libs/requirejs-plugins/src/async',
-        'domReady': './source/js/libs/requirejs-domready/domReady',
-        /*named modules for test dependencies*/
-        'angular-mocks': './source/js/libs/angular-mocks/angular-mocks',
-        'chai': './source/js/libs/chai/chai'
+        'domReady': './source/js/libs/requirejs-domready/domReady'
     },
 
     shim: {

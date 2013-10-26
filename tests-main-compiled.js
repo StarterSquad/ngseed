@@ -5,7 +5,7 @@
 (function(global) {
     var original_define = global.define;
     // reg exp for testing if dependency is app file
-    var isAppFile = /^Source\/(controllers|services|filters|directives)\//;
+    var isAppFile = /^Source\/modules\//;
 
     // Override
     global.define = function(name, deps, callback) {

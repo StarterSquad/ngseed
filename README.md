@@ -34,4 +34,4 @@ To update all the dependencies to latest compatible versions run `bower install`
 
 ## Tests
 
-Tests use Jasmin and Chai (optional, can be enabled per spec) for assertions.
+Tests use Jasmin for assertions.

@@ -1,14 +1,10 @@
-// Sample Testacular configuration file, that contain pretty much all the available options
-// It's used for running client tests on Travis (http://travis-ci.org/#!/vojtajina/testacular)
-// Most of the options can be overriden by cli arguments (see testacular --help)
-//
-// For all available config options and default values, see:
-// https://github.com/vojtajina/testacular/blob/stable/lib/config.js#L54
+// Karma configuration to run tests against built application
+// Usually used in CI workflows
 module.exports = function (config) {
     config.set({
 
 // base path, that will be used to resolve files and exclude
-        basePath: '..',
+        basePath: './',
 
         frameworks: ['jasmine', 'requirejs'],
 
@@ -23,9 +19,9 @@ module.exports = function (config) {
 // list of files / patterns to load in the browser
         files: [
             // all the sources, tests
-            { pattern: './tests/specs/**/*.js', included: false }
-            , { pattern: './build/js/**/*.js', included: false }
-            , './tests/main-compiled.js'
+            { pattern: 'source/js/modules/**/*.spec.js', included: false },
+            { pattern: 'build/js/**/*.js', included: false },
+            'tests-main-compiled.js'
         ],
 
 // list of files to exclude

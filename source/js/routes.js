@@ -7,8 +7,8 @@ define(['./app', './config'], function (app) {
     'use strict';
     app.config(function ($routeProvider) {
         $routeProvider.when('/', {
-            templateUrl: 'partials/home.html',
-            controller: 'homeCtrl'
+            templateUrl: '/js/modules/home/home.html',
+            controller: 'HomeController'
         });
 
         $routeProvider.otherwise({
