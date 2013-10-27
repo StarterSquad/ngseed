@@ -60,17 +60,30 @@ module.exports = function (grunt) {
         singleRun : false,
         browsers  : ['Chrome']
       }
+    },
+    autoprefixer: {
+      options    : {
+        browsers: ['> 1%']
+      },
+      single_file: {
+        options: {
+          // Target-specific options go here.
+        },
+        src    : 'assets/css/style.css',
+        dest   : 'assets/css/style.css'
+      }
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('build-js', ['copy', 'requirejs', 'uglify']);
-  grunt.registerTask('build-css', ['compass']);
+  grunt.registerTask('build-css', ['compass', 'autoprefixer']);
   grunt.registerTask('build', ['build-js', 'build-css']);
 
   grunt.registerTask('default', ['build']);
