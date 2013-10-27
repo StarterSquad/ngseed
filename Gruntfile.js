@@ -35,9 +35,10 @@ module.exports = function (grunt) {
     uglify   : {
       main: {
         options: {
+          mangle          : false,
+          report          : 'min',
           sourceMappingURL: './source-map.js',
-          sourceMap       : 'build/js/source-map.js',
-          mangle          : false
+          sourceMap       : 'build/js/source-map.js'
         },
         files  : {
           'build/js/main.js': ['build/js/main-src.js']
