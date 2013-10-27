@@ -72,6 +72,16 @@ module.exports = function (grunt) {
         src    : 'assets/css/style.css',
         dest   : 'assets/css/style.css'
       }
+    },
+    csso: {
+      compress: {
+        options: {
+          report: 'min'
+        },
+        files: {
+          'assets/css/style.css': ['assets/css/style.css']
+        }
+      }
     }
   });
 
@@ -80,10 +90,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-csso');
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('build-js', ['copy', 'requirejs', 'uglify']);
-  grunt.registerTask('build-css', ['compass', 'autoprefixer']);
+  grunt.registerTask('build-css', ['compass', 'autoprefixer', 'csso']);
   grunt.registerTask('build', ['build-js', 'build-css']);
 
   grunt.registerTask('default', ['build']);
