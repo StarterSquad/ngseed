@@ -58,11 +58,14 @@ module.exports = function (grunt) {
     },
     karma    : {
       ci  : { // runs tests one time in PhantomJS, good for continuous integration
-        configFile: 'karma-compiled.conf.js'
+        autoWatch: false,
+        configFile: 'karma-compiled.conf.js',
+        browsers  : ['PhantomJS']
       },
-      unit: { // start testing server that listens for code updates
+      watch: { // used in grunt watch context
+        background: true,
         configFile: 'karma.conf.js',
-        singleRun : false,
+        singleRun: false,
         browsers  : ['Chrome']
       }
     },
@@ -83,6 +86,37 @@ module.exports = function (grunt) {
           'build/js/main.js': ['build/js/main-src.js']
         }
       }
+    },
+    watch: {
+      livereload: {
+        options: {
+          livereload: true
+        },
+        files: [
+          'assets/css/*.css',
+          'source/js/*.js',
+          'source/js/modules/**/*.js',
+          '!source/js/modules/**/*.spec.js'
+        ]
+      },
+      scripts: {
+        files: ['source/js/*.js', 'source/js/modules/**/*.js'],
+        tasks: ['karma:watch:run'],
+        options: {
+          interrupt: true
+        }
+      },
+      sass: {
+        files: ['source/scss/**/*'],
+        tasks: ['css:compile'],
+        options: {
+          interrupt: true
+        }
+      }
+    },
+    css: {
+      compile: ['compass', 'autoprefixer'],
+      compress: ['csso']
     }
   });
 
@@ -91,11 +125,17 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-csso');
   grunt.loadNpmTasks('grunt-karma');
 
+  // register css task to have option to separate styles compilation and build
+  grunt.registerMultiTask('css', function () {
+    grunt.task.run(this.data);
+  });
+
   grunt.registerTask('build-js', ['copy', 'requirejs', 'uglify']);
-  grunt.registerTask('build-css', ['compass', 'autoprefixer', 'csso']);
+  grunt.registerTask('build-css', ['css']);
   grunt.registerTask('build', ['build-js', 'build-css']);
 
   grunt.registerTask('default', ['build']);
