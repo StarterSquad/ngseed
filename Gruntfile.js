@@ -3,9 +3,23 @@ module.exports = function (grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg      : grunt.file.readJSON('package.json'),
-    requirejs: {
-      compile: {
-        options: grunt.file.readJSON('source/js/build-config.json')
+    autoprefixer: {
+      options    : {
+        browsers: ['> 1%']
+      },
+      single_file: {
+        options: {
+          // Target-specific options go here.
+        },
+        src    : 'assets/css/style.css',
+        dest   : 'assets/css/style.css'
+      }
+    },
+    compass  : {
+      main: {
+        options: {
+          config: 'config.rb'
+        }
       }
     },
     copy     : {
@@ -32,23 +46,13 @@ module.exports = function (grunt) {
         ]
       }
     },
-    uglify   : {
-      main: {
+    csso: {
+      compress: {
         options: {
-          mangle          : false,
-          report          : 'min',
-          sourceMappingURL: './source-map.js',
-          sourceMap       : 'build/js/source-map.js'
+          report: 'min'
         },
-        files  : {
-          'build/js/main.js': ['build/js/main-src.js']
-        }
-      }
-    },
-    compass  : {
-      main: {
-        options: {
-          config: 'config.rb'
+        files: {
+          'assets/css/style.css': ['assets/css/style.css']
         }
       }
     },
@@ -62,25 +66,21 @@ module.exports = function (grunt) {
         browsers  : ['Chrome']
       }
     },
-    autoprefixer: {
-      options    : {
-        browsers: ['> 1%']
-      },
-      single_file: {
-        options: {
-          // Target-specific options go here.
-        },
-        src    : 'assets/css/style.css',
-        dest   : 'assets/css/style.css'
+    requirejs: {
+      compile: {
+        options: grunt.file.readJSON('source/js/build-config.json')
       }
     },
-    csso: {
-      compress: {
+    uglify   : {
+      main: {
         options: {
-          report: 'min'
+          mangle          : false,
+          report          : 'min',
+          sourceMappingURL: './source-map.js',
+          sourceMap       : 'build/js/source-map.js'
         },
-        files: {
-          'assets/css/style.css': ['assets/css/style.css']
+        files  : {
+          'build/js/main.js': ['build/js/main-src.js']
         }
       }
     }
