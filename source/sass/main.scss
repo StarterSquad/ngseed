@@ -1,0 +1,18 @@
+// Meta
+@import 'main/variables';
+@import 'main/functions';
+@import 'main/mixins';
+
+// HTML5-ready alternative to CSS resets
+// http://necolas.github.io/normalize.css/
+@import 'main/normalize';
+
+// MCSS layers
+// http://operatino.github.io/MCSS/en/
+@import 'main/base';
+@import 'main/project';
+@import 'main/cosmetic';
+
+// Reserved just for hacky code
+// http://csswizardry.com/2013/04/shame-css/
+@import 'main/shame';
