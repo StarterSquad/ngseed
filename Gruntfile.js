@@ -11,15 +11,28 @@ module.exports = function (grunt) {
         options: {
           // Target-specific options go here.
         },
-        src    : 'assets/css/style.css',
-        dest   : 'assets/css/style.css'
+        src    : 'assets/css/main.css',
+        dest   : 'assets/css/main.css'
       }
     },
-    compass  : {
+    sass: {
       main: {
         options: {
-          config: 'config.rb'
-        }
+          bundleExec: true,
+          require: [
+            './source/sass/sass_extensions.rb',
+            'sass-globbing'
+          ]
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'source/sass/',
+            src: ['*.scss', '!_*.scss'],
+            dest: 'assets/css/',
+            ext: '.css'
+          }
+        ]
       }
     },
     copy     : {
@@ -52,7 +65,7 @@ module.exports = function (grunt) {
           report: 'min'
         },
         files: {
-          'assets/css/style.css': ['assets/css/style.css']
+          'assets/css/main.css': ['assets/css/main.css']
         }
       }
     },
@@ -107,7 +120,7 @@ module.exports = function (grunt) {
         }
       },
       sass: {
-        files: ['source/scss/**/*'],
+        files: ['source/sass/**/*'],
         tasks: ['css:compile'],
         options: {
           interrupt: true
@@ -115,13 +128,13 @@ module.exports = function (grunt) {
       }
     },
     css: {
-      compile: ['compass', 'autoprefixer'],
+      compile: ['sass', 'autoprefixer'],
       compress: ['csso']
     }
   });
 
   grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-uglify');

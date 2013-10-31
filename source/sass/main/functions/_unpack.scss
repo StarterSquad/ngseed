@@ -1,0 +1,12 @@
+// Unpack the named list according to the standard CSS shorthand notation.
+//
+// The second parameter is target length of an unpacked list.
+
+@function unpack($shorthand, $length: 4) {
+  @for $i from 1 through $length {
+    @if (length($shorthand) < $i) {
+      $shorthand: append($shorthand, nth($shorthand, floor($i / 2)));
+    }
+  }
+  @return $shorthand;
+}
