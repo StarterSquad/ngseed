@@ -1,0 +1,8 @@
+// Embed `background-image` and include `background-size` for the named HIDPI
+// image.
+
+@mixin hidpi-inline($image-path) {
+  @include image-size($image-path, 2);
+  background-image: inline-asset($image-path);
+  background-size: image-width($image-path) / 2 image-height($image-path) / 2
+}
