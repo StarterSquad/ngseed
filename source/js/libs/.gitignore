@@ -4,3 +4,5 @@ requirejs/docs
 requirejs/dist
 jasmine-matchers/test
 jasmine-matchers/src
+jasmine/spec
+jasmine/src

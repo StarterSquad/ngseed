@@ -9,11 +9,11 @@ module.exports = function (config) {
     frameworks: ['jasmine', 'requirejs'],
 
     plugins         : [
-      "karma-script-launcher",
-      "karma-chrome-launcher",
-      "karma-jasmine",
-      "karma-requirejs",
-      "karma-phantomjs-launcher"
+      'karma-script-launcher',
+      'karma-chrome-launcher',
+      'karma-jasmine',
+      'karma-requirejs',
+      'karma-phantomjs-launcher'
     ],
 
 // list of files / patterns to load in the browser

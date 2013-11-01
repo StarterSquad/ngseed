@@ -10,6 +10,7 @@ module.exports = function (config) {
 
     plugins         : [
       'karma-script-launcher',
+      'karma-coverage',
       'karma-chrome-launcher',
       'karma-jasmine',
       'karma-requirejs',
@@ -18,6 +19,7 @@ module.exports = function (config) {
 
 // list of files / patterns to load in the browser
     files           : [
+      'source/js/libs/jasmine/lib/jasmine-core/jasmine-html.js',
       'tests-main.js',
       { pattern: 'source/js/**/*.js', included: false }
     ],
@@ -25,11 +27,23 @@ module.exports = function (config) {
 // list of files to exclude
     exclude         : [ 'source/js/main.js' ],
 
+    preprocessors: {
+       // source files, that you wanna generate coverage for
+       // do not include tests or libraries
+       // (these files will be instrumented by Istanbul)
+       'source/js/modules/**/*.js': ['coverage']
+    },
+
+    // optionally, configure the reporter
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    },
 
 // test results reporter to use
 // possible values: 'dots', 'progress', 'junit'
 // CLI --reporters progress
-    reporters       : ['dots'],
+    reporters       : ['dots', 'coverage'],
 
 // web server port
 // CLI --port 9876
@@ -61,7 +75,7 @@ module.exports = function (config) {
 // - PhantomJS
 // - IE (only Windows)
 // CLI --browsers Chrome,Firefox,Safari
-    browsers        : ['ChromeCanary'],
+    browsers        : ['Chrome'],
 
 // If browser does not capture in given timeout [ms], kill it
 // CLI --capture-timeout 5000

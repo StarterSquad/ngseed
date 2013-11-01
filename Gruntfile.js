@@ -75,6 +75,12 @@ module.exports = function (grunt) {
         configFile: 'karma-compiled.conf.js',
         browsers  : ['PhantomJS']
       },
+      unit: { // start testing server that listens for code updates
+        autoWatch: false,
+        configFile: 'karma.conf.js',
+        singleRun : true,
+        browsers  : ['Chrome']
+      },
       watch: { // used in grunt watch context
         background: true,
         configFile: 'karma.conf.js',
