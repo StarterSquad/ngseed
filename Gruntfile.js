@@ -88,6 +88,18 @@ module.exports = function (grunt) {
         browsers  : ['Chrome']
       }
     },
+    ngdoc: {
+      options: {
+        dest: 'docs',
+        html5Mode: true,
+        startPage: '/api',
+        title: 'My Documentation'
+      },
+      source: {
+        src: ['source/js/modules/**/*.js'],
+        title: 'Source Docs'
+      }
+    },
     requirejs: {
       compile: {
         options: grunt.file.readJSON('source/js/build-config.json')
@@ -147,6 +159,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-csso');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-ngdoc');
 
   // register css task to have option to separate styles compilation and build
   grunt.registerMultiTask('css', function () {
