@@ -115,6 +115,8 @@ module.exports = function (grunt) {
           'assets/css/*.css',
           'source/js/*.js',
           'source/js/modules/**/*.js',
+          'source/index.html',
+          'source/js/**/*.html',
           '!source/js/modules/**/*.spec.js'
         ]
       },
