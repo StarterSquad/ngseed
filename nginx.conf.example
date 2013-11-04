@@ -26,4 +26,8 @@ server {
     location / {
         index  index.html index.htm;
     }
+
+    location /tests {
+        root  $host_path;
+    }
 }

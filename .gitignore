@@ -3,4 +3,6 @@
 nginx.conf
 errors.log
 build
+coverage
 node_modules
+test-results-*.xml

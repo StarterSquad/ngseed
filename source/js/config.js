@@ -2,6 +2,6 @@
  * defines constants for application
  */
 define(['angular'], function (ng) {
-    'use strict';
-    return ng.module('app.constants', []).constant('config', {});
+  'use strict';
+  return ng.module('app.constants', []).constant('config', {});
 });
