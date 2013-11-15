@@ -8,15 +8,6 @@ module.exports = function (config) {
 
     frameworks: ['jasmine', 'requirejs'],
 
-    plugins         : [
-      'karma-script-launcher',
-      'karma-coverage',
-      'karma-chrome-launcher',
-      'karma-jasmine',
-      'karma-requirejs',
-      'karma-phantomjs-launcher'
-    ],
-
 // list of files / patterns to load in the browser
     files           : [
       'source/js/libs/jasmine/lib/jasmine-core/jasmine-html.js',
