@@ -1,9 +1,9 @@
 {
   "paths": {
-    "angular"         : "./libs/angular/angular",
-    "angular-resource": "./libs/angular-resource/angular-resource",
-    "async"           : "./libs/requirejs-plugins/src/async",
-    "domReady"        : "./libs/requirejs-domready/domReady"
+    "angular"         : "../vendor/angular/angular",
+    "angular-resource": "../vendor/angular-resource/angular-resource",
+    "async"           : "../vendor/requirejs-plugins/src/async",
+    "domReady"        : "../vendor/requirejs-domready/domReady"
   },
 
   "shim": {

@@ -1,0 +1,8 @@
+jasmine/spec
+jasmine/src
+jasmine-matchers/src
+jasmine-matchers/test
+requirejs/dist
+requirejs/docs
+requirejs/tests
+requirejs-plugins/examples

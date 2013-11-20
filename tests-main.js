@@ -26,21 +26,20 @@ require.config({
   baseUrl: 'base/',
 
   paths: {
-    'angular'         : './source/js/libs/angular/angular',
-    'angular-mocks'   : 'source/js/libs/angular-mocks/angular-mocks',
-    'angular-resource': './source/js/libs/angular-resource/angular-resource',
-    'angular-scenario': 'source/js/libs/angular-scenario/angular-scenario',
-    'async'           : './source/js/libs/requirejs-plugins/src/async',
-    'domReady'        : './source/js/libs/requirejs-domready/domReady',
-    'jasmine-matchers': './source/js/libs/jasmine-matchers/dist/jasmine-matchers',
-    'Source'          : 'source/js'
+    'angular'         : './source/vendor/angular/angular',
+    'angular-mocks'   : './source/vendor/angular-mocks/angular-mocks',
+    'angular-resource': './source/vendor/angular-resource/angular-resource',
+    'angular-scenario': './source/vendor/angular-scenario/angular-scenario',
+    'async'           : './source/vendor/requirejs-plugins/src/async',
+    'domReady'        : './source/vendor/requirejs-domready/domReady',
+    'Source'          : './source/js'
   },
 
   shim: {
-    'angular'         : {
+    'angular': {
       exports: 'angular'
     },
-    'angular-mocks'   : {
+    'angular-mocks': {
       deps: ['angular']
     },
     'angular-resource': {

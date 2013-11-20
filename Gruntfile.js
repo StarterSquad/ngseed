@@ -1,5 +1,7 @@
 module.exports = function (grunt) {
 
+  var assetsDir = 'source/assets/';
+
   // Project configuration.
   grunt.initConfig({
     pkg      : grunt.file.readJSON('package.json'),
@@ -11,8 +13,8 @@ module.exports = function (grunt) {
         options: {
           // Target-specific options go here.
         },
-        src    : 'assets/css/main.css',
-        dest   : 'assets/css/main.css'
+        src    : assetsDir + 'css/main.css',
+        dest   : assetsDir + 'css/main.css'
       }
     },
     sass: {
@@ -29,7 +31,7 @@ module.exports = function (grunt) {
             expand: true,
             cwd: 'source/sass/',
             src: ['*.scss', '!_*.scss'],
-            dest: 'assets/css/',
+            dest: assetsDir + 'css/',
             ext: '.css'
           }
         ]
@@ -40,21 +42,21 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd   : 'source/partials/',
-            src   : ['**/*'],
-            dest  : 'build/partials'
-          },
-          {
-            expand: true,
             cwd   : 'source/',
             src   : ['index.html'],
             dest  : 'build/'
           },
           {
             expand: true,
-            cwd   : 'source/js/libs/',
+            cwd   : assetsDir,
             src   : ['**/*'],
-            dest  : 'build/js/libs/'
+            dest  : 'build/assets/'
+          },
+          {
+            expand: true,
+            cwd   : 'source/vendor/',
+            src   : ['**/*'],
+            dest  : 'build/vendor/'
           }
         ]
       }
@@ -65,7 +67,7 @@ module.exports = function (grunt) {
           report: 'min'
         },
         files: {
-          'assets/css/main.css': ['assets/css/main.css']
+          'source/assets/css/main.css': [assetsDir + 'css/main.css']
         }
       }
     },
@@ -112,16 +114,14 @@ module.exports = function (grunt) {
           livereload: true
         },
         files: [
-          'assets/css/*.css',
-          'source/js/*.js',
-          'source/js/modules/**/*.js',
+          assetsDir + 'css/*.css',
           'source/index.html',
-          'source/js/**/*.html',
-          '!source/js/modules/**/*.spec.js'
+          'source/js/**/*',
+          '!source/js/**/*.spec.js'
         ]
       },
       scripts: {
-        files: ['source/js/*.js', 'source/js/modules/**/*.js'],
+        files: ['source/js/**/*.js'],
         tasks: ['karma:watch:run'],
         options: {
           interrupt: true

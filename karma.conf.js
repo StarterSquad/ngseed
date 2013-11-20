@@ -10,13 +10,19 @@ module.exports = function (config) {
 
 // list of files / patterns to load in the browser
     files           : [
-      'source/js/libs/jasmine/lib/jasmine-core/jasmine-html.js',
       'tests-main.js',
-      { pattern: 'source/js/**/*.js', included: false }
+      { pattern: 'source/vendor/jasmine-matchers/dist/jasmine-matchers.js', included: true },
+      { pattern: 'source/js/**/*.js', included: false },
+      { pattern: 'source/js/**/*.map', included: false },
+      { pattern: 'source/vendor/**/*.js', included: false },
+      { pattern: 'source/vendor/**/*.map', included: false },
     ],
 
 // list of files to exclude
-    exclude         : [ 'source/js/main.js' ],
+    exclude         : [
+      'source/js/main.js',
+      'source/vendor/**/*spec.js'
+    ],
 
     preprocessors: {
        // source files, that you wanna generate coverage for

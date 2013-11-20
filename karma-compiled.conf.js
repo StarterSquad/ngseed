@@ -11,9 +11,12 @@ module.exports = function (config) {
 // list of files / patterns to load in the browser
     files           : [
       // all the sources, tests
-      { pattern: 'source/js/modules/**/*.spec.js', included: false },
-      { pattern: 'build/js/**/*.js', included: false },
-      'tests-main-compiled.js'
+      'tests-main-compiled.js',
+      { pattern: 'source/vendor/jasmine-matchers/dist/jasmine-matchers.js', included: true },
+      { pattern: 'source/js/**/*.spec.js', included: false },
+      { pattern: 'build/js/**/*', included: false },
+      { pattern: 'build/vendor/**/*.js', included: false },
+      { pattern: 'build/vendor/**/*.map', included: false }
     ],
 
 // list of files to exclude

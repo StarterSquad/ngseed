@@ -1,6 +1,5 @@
 define([
   'angular-mocks',
-  'jasmine-matchers',
   'Source/modules/home/home-ctrl'
 ], function () {
   describe('HomeController in app.home', function () {

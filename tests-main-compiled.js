@@ -63,12 +63,11 @@ require.config({
   baseUrl: 'base/',
 
   paths: {
-    'angular'         : './build/js/libs/angular/angular',
-    'angular-resource': './build/js/libs/angular/angular-resource',
-    'angular-mocks'   : './build/js/libs/angular-mocks/angular-mocks',
-    'async'           : './build/js/libs/requirejs-plugins/src/async',
-    'domReady'        : './build/js/libs/requirejs-domready/domReady',
-    'jasmine-matchers': './build/js/libs/jasmine-matchers/dist/jasmine-matchers',
+    'angular'         : './build/vendor/angular/angular',
+    'angular-resource': './build/vendor/angular/angular-resource',
+    'angular-mocks'   : './build/vendor/angular-mocks/angular-mocks',
+    'async'           : './build/vendor/requirejs-plugins/src/async',
+    'domReady'        : './build/vendor/requirejs-domready/domReady',
     'Specs'           : './tests/specs'
   },
 
