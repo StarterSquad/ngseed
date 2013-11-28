@@ -1,12 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
+<html>
 <head>
   <meta charset="utf-8">
   <title>AngularJS + RequireJS Seed (0.2.1)</title>
@@ -43,10 +36,10 @@
      * require some fine tuning to dependency mgt'
      */
     shim: {
-      'angular'         : {
+      'angular': {
         exports: 'angular'
       },
-      'angular-mocks'   : {
+      'angular-mocks': {
         deps: ['angular']
       },
       'angular-resource': {
