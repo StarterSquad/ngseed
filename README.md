@@ -78,3 +78,21 @@ To update all the dependencies to latest compatible versions run `bower install`
 ## Tests
 
 Tests use Jasmin for assertions.
+
+### E2E Tests
+
+[Protractor](https://github.com/angular/protractor) is used to provide way to do e2e tests.
+To install cd to client folder and run:
+
+    npm install -g protractor
+    // This installs selenium standalone server and chromedriver to ./selenium
+    ./node_modules/protractor/bin/install_selenium_standalone
+    // Start the server with
+    ./selenium/start
+    // to run tests
+    protractor p.conf.js
+
+So far e2e tests are intended to be run against `http://republiq.dev` domain. It can be changed in `p.conf.js`.
+Later on environment config will be applied.
+
+Checkout [Protractor docs](https://github.com/angular/protractor/blob/master/docs/) for more information.
