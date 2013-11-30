@@ -4,17 +4,17 @@ module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    pkg      : grunt.file.readJSON('package.json'),
+    pkg: grunt.file.readJSON('package.json'),
     autoprefixer: {
-      options    : {
+      options: {
         browsers: ['> 1%']
       },
       single_file: {
         options: {
           // Target-specific options go here.
         },
-        src    : assetsDir + 'css/main.css',
-        dest   : assetsDir + 'css/main.css'
+        src: assetsDir + 'css/main.css',
+        dest: assetsDir + 'css/main.css'
       }
     },
     sass: {
@@ -37,7 +37,7 @@ module.exports = function (grunt) {
         ]
       }
     },
-    copy     : {
+    copy: {
       main: {
         files: [
           {
@@ -71,23 +71,46 @@ module.exports = function (grunt) {
         }
       }
     },
-    karma    : {
-      ci  : { // runs tests one time in PhantomJS, good for continuous integration
-        autoWatch: false,
+    karma: {
+      ci: { // runs tests one time in PhantomJS, good for continuous integration
+        autoWatch : false,
         configFile: 'karma-compiled.conf.js',
         browsers  : ['PhantomJS']
       },
       unit: { // start testing server that listens for code updates
-        autoWatch: false,
+        autoWatch : true,
+        configFile: 'karma.conf.js',
+        singleRun : false,
+        browsers  : ['PhantomJS']
+      },
+      unitSingleRun: {
+        autoWatch : false,
         configFile: 'karma.conf.js',
         singleRun : true,
-        browsers  : ['Chrome']
+        browsers  : ['PhantomJS']
       },
       watch: { // used in grunt watch context
         background: true,
         configFile: 'karma.conf.js',
-        singleRun: false,
+        singleRun : false,
         browsers  : ['Chrome']
+      }
+    },
+    // requires selenium to be started first ./selenium/start
+    protractor: {
+      options: {
+        configFile: "p.conf.js",
+        keepAlive: true, // If false, the grunt process stops when the test fails.
+        args: {
+          baseUrl: 'http://local.sq_seed.com', // Arguments passed to the command
+          specs: ['source/js/**/*.e2e.js']
+        }
+      },
+      source: {},
+      build: {
+        args: {
+          baseUrl: 'http://local.sq_seed.com/build'
+        }
       }
     },
     requirejs: {
@@ -95,7 +118,7 @@ module.exports = function (grunt) {
         options: grunt.file.readJSON('source/js/build-config.json')
       }
     },
-    uglify   : {
+    uglify: {
       main: {
         options: {
           mangle          : false,
@@ -103,7 +126,7 @@ module.exports = function (grunt) {
           sourceMappingURL: './source-map.js',
           sourceMap       : 'build/js/source-map.js'
         },
-        files  : {
+        files: {
           'build/js/main.js': ['build/js/main-src.js']
         }
       }
@@ -149,6 +172,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-csso');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-protractor-runner');
 
   // register css task to have option to separate styles compilation and build
   grunt.registerMultiTask('css', function () {
@@ -157,7 +181,11 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build-js', ['copy', 'requirejs', 'uglify']);
   grunt.registerTask('build-css', ['css']);
-  grunt.registerTask('build', ['build-js', 'build-css']);
+  grunt.registerTask('build', [
+    'karma:unitSingleRun', 'protractor:source', // test source
+    'build-css', 'build-js',                    // build
+    'karma:ci', 'protractor:build'              // test build
+  ]);
 
   grunt.registerTask('default', ['build']);
 
