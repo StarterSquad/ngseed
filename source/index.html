@@ -11,41 +11,16 @@
 <div data-ng-view></div>
 
 <!-- Scripts -->
-<script src="vendor/requirejs/require.js" data-main="js/main.js"></script>
+<script src="vendor/requirejs/require.js"></script>
 <script>
-  // let Angular know that we're bootstrapping manually
-  // https://github.com/angular/angular.js/commit/603fe0d19608ffe1915d8bc23bf412912e7ee1ac
-  window.name = "NG_DEFER_BOOTSTRAP!";
+  // obtain requirejs config
+  require(['require', './js/config-require'], function (require, config) {
 
-  /**
-   * configure RequireJS
-   * prefer named modules to long paths, especially for version mgt
-   * or 3rd party libraries
-   */
-  require.config({
+    // update global require config
+    window.require.config(config);
 
-    paths: {
-      'angular'         : '../vendor/angular/angular',
-      'angular-resource': '../vendor/angular-resource/angular-resource',
-      'async'           : '../vendor/requirejs-plugins/src/async',
-      'domReady'        : '../vendor/requirejs-domready/domReady'
-    },
-
-    /**
-     * for libs that either do not support AMD out of the box, or
-     * require some fine tuning to dependency mgt'
-     */
-    shim: {
-      'angular': {
-        exports: 'angular'
-      },
-      'angular-mocks': {
-        deps: ['angular']
-      },
-      'angular-resource': {
-        deps: ['angular']
-      }
-    }
+    // load app
+    require(['./js/main.js']);
   });
 </script>
 

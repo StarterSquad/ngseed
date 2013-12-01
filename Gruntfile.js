@@ -1,6 +1,23 @@
 module.exports = function (grunt) {
 
-  var assetsDir = 'source/assets/';
+  var assetsDir = 'source/assets/',
+    shell = require('shelljs');
+
+  function readBuildConfig () {
+    var configRequire = require('./source/js/config-require.js');
+    var configBuild = {
+      baseUrl               : 'source/js',
+      name                  : 'main',
+      optimize              : 'none',
+      out                   : 'build/js/main-src.js',
+      wrap                  : true
+    };
+
+    configBuild.shim = configRequire.shim;
+    configBuild.paths = configRequire.paths;
+
+    return configBuild;
+  }
 
   // Project configuration.
   grunt.initConfig({
@@ -45,6 +62,12 @@ module.exports = function (grunt) {
             cwd   : 'source/',
             src   : ['index.html'],
             dest  : 'build/'
+          },
+          {
+            expand: true,
+            cwd   : 'source/js',
+            src   : ['config-require.js'],
+            dest  : 'build/js'
           },
           {
             expand: true,
@@ -115,7 +138,7 @@ module.exports = function (grunt) {
     },
     requirejs: {
       compile: {
-        options: grunt.file.readJSON('source/js/build-config.json')
+        options: readBuildConfig()
       }
     },
     uglify: {
@@ -174,18 +197,24 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-protractor-runner');
 
+  // Adds additional require(['main']) call to start built app
+  grunt.registerTask('modifyBuildIndex', 'Adds js code required to start built app.', function () {
+    shell.sed(
+      '-i',
+      "require(['./js/main.js'])",
+      "require(['./js/main.js'], function () { require(['main']); })",
+      'build/index.html'
+    );
+  });
+
   // register css task to have option to separate styles compilation and build
   grunt.registerMultiTask('css', function () {
     grunt.task.run(this.data);
   });
 
-  grunt.registerTask('build-js', ['copy', 'requirejs', 'uglify']);
+  grunt.registerTask('build-js', ['copy', 'modifyBuildIndex', 'requirejs', 'uglify']);
   grunt.registerTask('build-css', ['css']);
-  grunt.registerTask('build', [
-    'karma:unitSingleRun', 'protractor:source', // test source
-    'build-css', 'build-js',                    // build
-    'karma:ci', 'protractor:build'              // test build
-  ]);
+  grunt.registerTask('build', ['build-css', 'build-js', 'karma:ci', 'protractor:build']);
 
   grunt.registerTask('default', ['build']);
 
