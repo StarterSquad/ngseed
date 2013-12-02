@@ -25,5 +25,5 @@
   "mainConfigFile"        : "source/js/main.js",
   "out"                   : "build/js/main-src.js",
   "disabled/exclude"      : ["main.js"],
-  "disabled/insertRequire": ["./bootstrap"]
+  "disabled/insertRequire": ["./main"]
 }
