@@ -16,6 +16,7 @@
     "requirejs": "latest",
     "requirejs-domready": "latest",
     "requirejs-text": "latest",
-    "requirejs-plugins": "latest"
+    "requirejs-plugins": "latest",
+    "font-awesome": "latest"
   }
 }
