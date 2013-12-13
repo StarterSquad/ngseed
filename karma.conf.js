@@ -20,7 +20,6 @@ module.exports = function (config) {
 
 // list of files to exclude
     exclude         : [
-      'source/js/main.js',
       'source/vendor/**/*spec.js'
     ],
 
