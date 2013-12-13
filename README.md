@@ -92,7 +92,7 @@ To install cd to client folder and run:
     // to run tests
     protractor p.conf.js
 
-So far e2e tests are intended to be run against `http://republiq.dev` domain. It can be changed in `p.conf.js`.
+So far e2e tests are intended to be run against domain that is set in config of protractor task in Grunfile.
 Later on environment config will be applied.
 
 Checkout [Protractor docs](https://github.com/angular/protractor/blob/master/docs/) for more information.
