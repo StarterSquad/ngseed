@@ -9,7 +9,7 @@ module SassExtensions::Functions
     uri = URI.parse(filename.value)
     # Process the path part of the URI instance:
     uri.path = SassExtensions::AssetManager.absolute_url_to(uri.path)
-    Sass::Script::String.new("url('#{ url.to_s }')")
+    Sass::Script::String.new("url('#{ uri.to_s }')")
   end
 
   Sass::Script::Functions.declare :asset_url, args: [:filename]
