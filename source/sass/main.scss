@@ -16,3 +16,7 @@
 // Reserved just for hacky code
 // http://csswizardry.com/2013/04/shame-css/
 @import 'main/shame';
+
+// Font-awesome
+$fa-font-path: "/assets/fonts";
+@import '../vendor/font-awesome/scss/font-awesome';
