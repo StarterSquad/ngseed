@@ -7,7 +7,7 @@ define([
   'angular',
   './app',
   './routes'
-], function (require, ng) {
+], function (require, angular) {
   'use strict';
 
   /*place operations that need to initialize prior to app start here
@@ -16,7 +16,6 @@ define([
 
   require(['domReady!'], function (document) {
     /* everything is loaded...go! */
-    ng.bootstrap(document, ['app']);
-    ng.resumeBootstrap();
+    angular.bootstrap(document, ['app']);
   });
 });

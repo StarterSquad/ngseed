@@ -2,6 +2,7 @@
   "name"           : "StarterSquad_AngularJS_RequireJS_Seed",
   "version"        : "0.3.0",
   "devDependencies": {
+    "amdefine"                  : "latest",
     "grunt"                     : "latest",
     "grunt-autoprefixer"        : "latest",
     "grunt-contrib-sass"        : "latest",
@@ -11,7 +12,7 @@
     "grunt-csso"                : "latest",
     "grunt-karma"               : "latest",
     "grunt-protractor-runner"   : "latest",
-    "karma"                     : "latest",
+    "karma"                     : "~0.10.0",
     "karma-chrome-launcher"     : "latest",
     "karma-firefox-launcher"    : "latest",
     "karma-html2js-preprocessor": "latest",
@@ -21,6 +22,7 @@
     "karma-script-launcher"     : "latest",
     "grunt-contrib-watch"       : "latest",
     "karma-coverage"            : "latest",
-    "protractor"                : "latest"
+    "protractor"                : "latest",
+    "shelljs"                   : "latest"
   }
 }
