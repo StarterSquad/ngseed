@@ -65,6 +65,13 @@ To make development faster and more automated there are several grunt tasks avai
 
   Feeds css file to [csso](https://github.com/t32k/grunt-csso)
 
+### Versioning
+
+* `bumpVersion`
+
+  Works with gitglow releases.
+  E.g. when you're on `release/0.4.4` branch it will update cache beaters to follow version.
+
 ### Build
 
 * `grunt`, `grunt build`
@@ -78,3 +85,21 @@ To update all the dependencies to latest compatible versions run `bower install`
 ## Tests
 
 Tests use Jasmin for assertions.
+
+### E2E Tests
+
+[Protractor](https://github.com/angular/protractor) is used to provide way to do e2e tests.
+To install cd to client folder and run:
+
+    npm install -g protractor
+    // This installs selenium standalone server and chromedriver to ./selenium
+    ./node_modules/protractor/bin/install_selenium_standalone
+    // Start the server with
+    ./selenium/start
+    // to run tests
+    protractor p.conf.js
+
+So far e2e tests are intended to be run against domain that is set in config of protractor task in Grunfile.
+Later on environment config will be applied.
+
+Checkout [Protractor docs](https://github.com/angular/protractor/blob/master/docs/) for more information.

@@ -59,31 +59,15 @@
   }
 }(this));
 
-require.config({
-  baseUrl: 'base/',
 
-  paths: {
-    'angular'         : './build/js/libs/angular/angular',
-    'angular-resource': './build/js/libs/angular/angular-resource',
-    'angular-mocks'   : './build/js/libs/angular-mocks/angular-mocks',
-    'async'           : './build/js/libs/requirejs-plugins/src/async',
-    'domReady'        : './build/js/libs/requirejs-domready/domReady',
-    'jasmine-matchers': './build/js/libs/jasmine-matchers/dist/jasmine-matchers',
-    'Specs'           : './tests/specs'
-  },
+require(['base/source/js/config-require'], function (config) {
+  'use strict';
 
-  shim: {
-    'angular'      : {
-      exports: 'angular'
-    },
-    'angular-mocks': {
-      deps: ['angular']
-    }
-  },
+  // improve config
+  config.baseUrl = 'base/';
+  config.deps = ['require', './build/js/main'];
 
-  deps: ['require', './build/js/main'],
-
-  callback: function (require) {
+  config.callback = function (require) {
     // to ensure that source is already loaded before tests are tried to run
     require(
       // array with all spec files
@@ -91,9 +75,17 @@ require.config({
       // callback
       window.__karma__.start
     );
-  }
-});
+  };
 
-// let Angular know that we're bootstrapping manually
-// https://github.com/angular/angular.js/commit/603fe0d19608ffe1915d8bc23bf412912e7ee1ac
-window.name = "NG_DEFER_BOOTSTRAP!";
+  // adapt paths to work with built app
+  for (var i in config.paths) {
+    config.paths[i] = config.paths[i].replace('../vendor', './build/vendor');
+  }
+
+  // add config for test dependencies
+  config.paths['angular-mocks'] = './build/vendor/angular-mocks/angular-mocks';
+  config.shim['angular-mocks'] = ['angular'];
+
+  // apply config to require
+  window.require.config(config);
+});

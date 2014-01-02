@@ -22,34 +22,26 @@
   }
 })(this);
 
-require.config({
-  baseUrl: 'base/',
+require(['base/source/js/config-require'], function (config) {
+  'use strict';
 
-  paths: {
-    'angular'         : './source/js/libs/angular/angular',
-    'angular-mocks'   : 'source/js/libs/angular-mocks/angular-mocks',
-    'angular-resource': './source/js/libs/angular-resource/angular-resource',
-    'angular-scenario': 'source/js/libs/angular-scenario/angular-scenario',
-    'async'           : './source/js/libs/requirejs-plugins/src/async',
-    'domReady'        : './source/js/libs/requirejs-domready/domReady',
-    'jasmine-matchers': './source/js/libs/jasmine-matchers/dist/jasmine-matchers',
-    'Source'          : 'source/js'
-  },
+  // improve config
+  config.baseUrl = 'base/';
+  config.deps = window.tests;
+  config.callback = window.__karma__.start;
 
-  shim: {
-    'angular'         : {
-      exports: 'angular'
-    },
-    'angular-mocks'   : {
-      deps: ['angular']
-    },
-    'angular-resource': {
-      deps: ['angular']
-    }
-  },
+  // adapt paths to work with built app
+  for (var i in config.paths) {
+    config.paths[i] = config.paths[i].replace('../vendor', './source/vendor');
+  }
 
-  // array with all spec files
-  deps: window.tests,
+  // add config for test dependencies
+  config.paths['angular-mocks'] = './source/vendor/angular-mocks/angular-mocks';
+  config.shim['angular-mocks'] = ['angular'];
 
-  callback: window.__karma__.start
+  // alias
+  config.paths['Source'] = './source/js';
+
+  // apply config to require
+  window.require.config(config);
 });

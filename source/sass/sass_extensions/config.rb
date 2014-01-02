@@ -4,6 +4,7 @@ module SassExtensions::Config
 
   @defaults = {
     asset_paths: [],
+    base_path: '.',
     relative_assets: false,
   }
 
@@ -15,6 +16,11 @@ module SassExtensions::Config
   # Return asset load paths
   def self.asset_paths
     @asset_paths
+  end
+
+  # Return asset base path
+  def self.base_path
+    @base_path
   end
 
   # Load configuration from the named YAML file

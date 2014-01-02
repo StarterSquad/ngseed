@@ -15,19 +15,11 @@ server {
     # opt-in to the future
     add_header "X-UA-Compatible" "IE=Edge,chrome=1";
 
-    location /assets/ {
-        root  $host_path;
-    }
-
     location /build {
         root  $host_path;
     }
 
     location / {
-        index  index.html index.htm;
-    }
-
-    location /tests {
-        root  $host_path;
+        index  index.html;
     }
 }

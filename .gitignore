@@ -2,7 +2,8 @@
 .sass-cache
 nginx.conf
 errors.log
-build
-coverage
+/build
+/coverage
 node_modules
 test-results-*.xml
+/selenium
