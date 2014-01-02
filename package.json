@@ -1,6 +1,6 @@
 {
   "name"           : "StarterSquad_AngularJS_RequireJS_Seed",
-  "version"        : "0.3.0",
+  "version"        : "0.4.0",
   "devDependencies": {
     "amdefine"                  : "latest",
     "grunt"                     : "latest",
