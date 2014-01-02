@@ -207,6 +207,30 @@ module.exports = function (grunt) {
     );
   });
 
+  // Plays perfect with gitflow releases
+  grunt.registerTask('bumpVersion', 'Updates cache beater.', function () {
+    // get current branch name
+    var branch = shell.exec('git rev-parse --abbrev-ref HEAD', {silent:true}).output;
+
+    // verify we're on a release branch
+    if (/^release\/.*/.test(branch)) {
+      var newVersion = branch.split('/')[1].trim();
+
+      var updateJson = function (file) {
+        shell.sed('-i', /("version"[ ]*:[ ]*")([^"]*)(",)/g, '$1' + newVersion + '$3', file);
+      };
+
+      // update client index html
+      shell.sed('-i', /(bust=v)(\d*\.?)*/g, '$1' + newVersion, './source/index.html');
+      updateJson('./bower.json');
+      updateJson('./package.json');
+
+      grunt.log.ok('Successfully bumped to ' + newVersion);
+    } else {
+      grunt.log.error('This task should be executed on a release branch!');
+    }
+  });
+
   // register css task to have option to separate styles compilation and build
   grunt.registerMultiTask('css', function () {
     grunt.task.run(this.data);

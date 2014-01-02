@@ -65,6 +65,13 @@ To make development faster and more automated there are several grunt tasks avai
 
   Feeds css file to [csso](https://github.com/t32k/grunt-csso)
 
+### Versioning
+
+* `bumpVersion`
+
+  Works with gitglow releases.
+  E.g. when you're on `release/0.4.4` branch it will update cache beaters to follow version.
+
 ### Build
 
 * `grunt`, `grunt build`
