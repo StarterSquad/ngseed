@@ -1,8 +1,13 @@
 {
   "name"           : "StarterSquad_AngularJS_RequireJS_Seed",
   "version"        : "0.4.0",
+
   "devDependencies": {
     "amdefine"                  : "latest",
+    "protractor"                : "latest",
+    "shelljs"                   : "latest",
+    "autoprefixer"              : "latest",
+    "diff"                      : "latest",
     "grunt"                     : "latest",
     "grunt-autoprefixer"        : "latest",
     "grunt-contrib-sass"        : "latest",
@@ -21,8 +26,6 @@
     "karma-requirejs"           : "latest",
     "karma-script-launcher"     : "latest",
     "grunt-contrib-watch"       : "latest",
-    "karma-coverage"            : "latest",
-    "protractor"                : "latest",
-    "shelljs"                   : "latest"
+    "karma-coverage"            : "latest"
   }
 }

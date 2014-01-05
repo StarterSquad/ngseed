@@ -236,6 +236,8 @@ module.exports = function (grunt) {
     grunt.task.run(this.data);
   });
 
+  grunt.registerTask('test', ['karma:unitSingleRun', 'karma:ci', 'protractor:source', 'protractor:build']);
+
   grunt.registerTask('build-js', ['copy', 'modifyBuildIndex', 'requirejs', 'uglify']);
   grunt.registerTask('build-css', ['css']);
   grunt.registerTask('build', ['build-css', 'build-js', 'karma:ci', 'protractor:build']);
