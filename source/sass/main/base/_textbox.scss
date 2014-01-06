@@ -1,0 +1,17 @@
+// Textbox
+// =======
+
+.tx {
+  @include size(100% none);
+  border-radius: 2px;
+  border: 1px solid #c2c2c2;
+  box-shadow: inset 0 2px 3px -1px #efefef;
+  display: block;
+  height: 24px;
+  padding: 3px;
+}
+
+textarea.tx {
+  height: auto;
+  resize: none;
+}

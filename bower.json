@@ -9,13 +9,14 @@
   ],
   "dependencies": {
     "angular": "=1.2.14",
-    "angular-resource": "=1.2.14",
     "angular-mocks": "=1.2.14",
+    "angular-resource": "=1.2.14",
     "angular-ui-router": "=0.2.7",
     "jasmine-matchers": "https://github.com/JamieMason/Jasmine-Matchers.git#=1.20.0",
+    "normalize-css": "latest",
     "requirejs": "=2.1.9",
     "requirejs-domready": "latest",
-    "requirejs-text": "=2.0.10",
-    "requirejs-plugins": "=1.0.2"
+    "requirejs-plugins": "=1.0.2",
+    "requirejs-text": "=2.0.10"
   }
 }

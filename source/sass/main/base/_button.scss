@@ -1,0 +1,43 @@
+// Button
+// ======
+
+.btn {
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  display: inline-block;
+  height: 24px;
+  padding: 3px 12px;
+  text-shadow: 0 1px rgba(#FFF, 0.8);
+  transition: opacity 0.15s;
+
+  &:hover {
+    background: linear-gradient(#FFF, #efefef);
+  }
+
+  &:active {
+    background: linear-gradient(#fafafa, #e8e8e8);
+    border-color: #c0c0c0;
+    box-shadow: inset 0 1px 1px rgba(#000, 0.2);
+  }
+
+  &[disabled] {
+    opacity: 0.66;
+  }
+
+  &,
+  &[disabled] {
+    background: linear-gradient(#fafafa, #e8e8e8);
+    border-color: #eaeaea #c0c0c0 #707070;
+    box-shadow: none;
+  }
+}
+
+.btn {
+
+  &.__block {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}

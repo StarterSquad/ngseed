@@ -1,0 +1,29 @@
+// Elastic
+// =======
+
+.elastic {
+  display: table;
+  width: 100%;
+}
+
+.elastic_col {
+  display: table-cell;
+  vertical-align: top;
+
+  & + & {
+    padding-left: $layout-gutter;
+  }
+
+  &.__shrink {
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+.elastic_row {
+  display: table-cell;
+
+  &.__shrink {
+    height: 1px;
+  }
+}
