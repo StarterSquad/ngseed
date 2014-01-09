@@ -1,6 +1,7 @@
 module.exports = function (grunt) {
 
   var assetsDir = 'source/assets/',
+    serverName = 'http://local.sq_seed.com',
     shell = require('shelljs');
 
   function readBuildConfig () {
@@ -125,14 +126,14 @@ module.exports = function (grunt) {
         configFile: "p.conf.js",
         keepAlive: true, // If false, the grunt process stops when the test fails.
         args: {
-          baseUrl: 'http://local.sq_seed.com', // Arguments passed to the command
+          baseUrl: serverName, // Arguments passed to the command
           specs: ['source/js/**/*.e2e.js']
         }
       },
       source: {},
       build: {
         args: {
-          baseUrl: 'http://local.sq_seed.com/build'
+          baseUrl: serverName + '/build'
         }
       }
     },
