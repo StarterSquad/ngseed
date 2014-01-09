@@ -8,10 +8,10 @@
     "components"
   ],
   "dependencies": {
-    "angular": "=1.0.7",
-    "angular-resource": "=1.0.7",
-    "angular-mocks": "=1.0.7",
-    "angular-scenario": "=1.0.7",
+    "angular": "=1.2.14",
+    "angular-resource": "=1.2.14",
+    "angular-mocks": "=1.2.14",
+    "angular-ui-router": "=0.2.7",
     "jasmine-matchers": "https://github.com/JamieMason/Jasmine-Matchers.git#=1.20.0",
     "requirejs": "=2.1.9",
     "requirejs-domready": "latest",
