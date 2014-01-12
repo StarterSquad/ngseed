@@ -142,15 +142,20 @@ module.exports = function (grunt) {
       }
     },
     uglify: {
-      main: {
+      app: {
         options: {
-          mangle          : false,
-          report          : 'min',
-          sourceMappingURL: './source-map.js',
-          sourceMap       : 'build/js/source-map.js'
+          mangle: false,
+          report: 'min'
         },
         files: {
+          'build/js/config-require.js': ['build/js/config-require.js'],
           'build/js/main.js': ['build/js/main-src.js']
+        }
+      },
+      libs: {
+        files: {
+          'build/vendor/requirejs/require.js': ['build/vendor/requirejs/require.js'],
+          'build/vendor/requirejs-domready/domReady.js': ['build/vendor/requirejs-domready/domReady.js']
         }
       }
     },
