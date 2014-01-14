@@ -1,6 +1,7 @@
 module.exports = function (grunt) {
 
   var assetsDir = 'source/assets/',
+    serverName = 'http://local.sq_seed.com',
     shell = require('shelljs');
 
   function readBuildConfig () {
@@ -125,14 +126,14 @@ module.exports = function (grunt) {
         configFile: "p.conf.js",
         keepAlive: true, // If false, the grunt process stops when the test fails.
         args: {
-          baseUrl: 'http://local.sq_seed.com', // Arguments passed to the command
+          baseUrl: serverName, // Arguments passed to the command
           specs: ['source/js/**/*.e2e.js']
         }
       },
       source: {},
       build: {
         args: {
-          baseUrl: 'http://local.sq_seed.com/build'
+          baseUrl: serverName + '/build'
         }
       }
     },
@@ -241,10 +242,12 @@ module.exports = function (grunt) {
     grunt.task.run(this.data);
   });
 
+  grunt.registerTask('test', ['karma:unitSingleRun', 'karma:ci', 'protractor:source', 'protractor:build']);
+
   grunt.registerTask('build-js', ['copy', 'modifyBuildIndex', 'requirejs', 'uglify']);
   grunt.registerTask('build-css', ['css']);
-  grunt.registerTask('build', ['build-css', 'build-js', 'karma:ci', 'protractor:build']);
+  grunt.registerTask('build', ['build-css', 'build-js']);
 
-  grunt.registerTask('default', ['build']);
+  grunt.registerTask('default', ['build', 'test']);
 
 };
