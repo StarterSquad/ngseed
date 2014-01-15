@@ -103,3 +103,8 @@ So far e2e tests are intended to be run against domain that is set in config of 
 Later on environment config will be applied.
 
 Checkout [Protractor docs](https://github.com/angular/protractor/blob/master/docs/) for more information.
+
+## Future Releases
+
+You can checkout planned new features on the [Trello Board](https://trello.com/b/XXevXg3l/angular-require-seed).
+Also feel free to create feature requests on github issues.
