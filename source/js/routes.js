@@ -5,7 +5,7 @@
 
 define(['./app', './config'], function (app) {
   'use strict';
-  app.config(function ($routeProvider) {
+  app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {
       templateUrl: '/js/modules/home/home.html',
       controller : 'HomeController'
@@ -16,5 +16,5 @@ define(['./app', './config'], function (app) {
     });
 
     //$locationProvider.html5Mode(true);
-  });
+  }]);
 });
