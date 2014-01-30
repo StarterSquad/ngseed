@@ -1,3 +1,5 @@
+Encoding.default_external = "UTF-8"
+
 require 'yaml'
 
 module SassExtensions::Config
