@@ -1,14 +1,29 @@
-# https://github.com/h5bp/server-configs-nginx
 
+
+# development config ('build' subdomain goes to /build, otherwise to /source)
+map $subdomain $root_folder {
+  default source;
+  'build' build;
+}
+
+
+# production config ('debug' subdomain goes to /source, otherwise to /build)
+#map $subdomain $root_folder {
+#  default build;
+#  'debug' source;
+#}
+
+
+# https://github.com/h5bp/server-configs-nginx
 server {
   listen 80;
-  server_name ngseed.dev;
+  server_name ~^(?P<subdomain>.+?)?\.?ngseed\.dev$;
 
   # @FIXME update this path with yours
   set $host_path "{{ABSOLUTE_PATH_TO_PROJECT_SOURCE}}";
 
   # Path for static files
-  root $host_path/source;
+  root $host_path/$root_folder;
 
   # Locations go before directives for easier reading
 
