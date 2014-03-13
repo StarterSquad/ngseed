@@ -1,17 +1,34 @@
 // Textbox
 // =======
 
-.tx {
-  @include size(100% none);
-  border-radius: 2px;
-  border: 1px solid #c2c2c2;
-  box-shadow: inset 0 2px 3px -1px #efefef;
+.txbox {
+  @extend .txbox.__m, .txbox.__white;
+  border-style: solid;
+  border-width: 1px;
   display: block;
-  height: 24px;
-  padding: 3px;
-}
+  width: 100%;
 
-textarea.tx {
-  height: auto;
-  resize: none;
+  &:focus {
+    box-shadow: 0 0 6px 2px rgba($color-yellow, 0.7);
+    outline: 0;
+  }
+
+  // Modifiers
+  // ---------
+
+  // ### Sizes
+
+  &.__m {
+    @include font-height(13px, 16px);
+    padding: 5px 10px;
+  }
+
+  // ### Colours
+
+  &.__white {
+    border-color: #999 #BBB #DDD;
+    box-shadow:
+      inset 0 1px 1px rgba(#000, 0.1),
+      0 1px 0 rgba(#FFF, 0.2);
+  }
 }
