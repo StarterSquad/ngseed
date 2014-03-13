@@ -2,42 +2,72 @@
 // ======
 
 .btn {
+  @extend .btn.__m, .btn.__white;
   border-radius: 3px;
   border-style: solid;
   border-width: 1px;
+  cursor: pointer;
   display: inline-block;
-  height: 24px;
-  padding: 3px 12px;
-  text-shadow: 0 1px rgba(#FFF, 0.8);
-  transition: opacity 0.15s;
+  text-align: center;
+  text-decoration: none;
 
-  &:hover {
-    background: linear-gradient(#FFF, #efefef);
+  &:focus {
+    box-shadow: 0 0 6px 2px rgba($color-yellow, 0.7);
+    outline: 0;
   }
 
-  &:active {
-    background: linear-gradient(#fafafa, #e8e8e8);
-    border-color: #c0c0c0;
-    box-shadow: inset 0 1px 1px rgba(#000, 0.2);
+  &:disabled {
+    cursor: default !important;
+    opacity: 0.6;
+    pointer-events: none;
   }
 
-  &[disabled] {
-    opacity: 0.66;
+  // Modifiers
+  // ---------
+
+  // ### Sizes
+
+  &.__m {
+    @include font-height(13px, 16px);
+    padding: 5px 12px;
   }
 
-  &,
-  &[disabled] {
-    background: linear-gradient(#fafafa, #e8e8e8);
-    border-color: #eaeaea #c0c0c0 #707070;
-    box-shadow: none;
+  &.__xl {
+    @include font-height(18px, 22px);
+    padding: 12px 24px;
   }
-}
 
-.btn {
+  // ### Colours
+
+  &.__white {
+    background: linear-gradient(#FFF, #EEE);
+    border-color: #CCC #AAA #999;
+    box-shadow: 0 1px 0 rgba(#000, 0.07);
+    color: #333;
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(#FFF, #f5f5f5);
+    }
+
+    &.__active,
+    &:active:not(:disabled) {
+      background: linear-gradient(#f5f5f5, #EEE);
+      border-top-color: #888;
+      box-shadow:
+        inset 0 1px 3px -1px rgba(#000, 0.5),
+        0 1px 0 rgba(#FFF, 0.2);
+    }
+
+    &.__active,
+    &.__active:hover {
+      background: linear-gradient(#FEA, #fff6d5);
+    }
+  }
+
+  // ### Misc.
 
   &.__block {
     display: block;
-    text-align: center;
     width: 100%;
   }
 }
