@@ -28,7 +28,7 @@ $grid-gutter-half: $layout-gutter / 2;
 
 @for $i from 1 through $grid-columns {
 
-  .#{escape($i)} {
+  .#{escape-css($i)} {
     @extend %grid-columns-all;
     width: $i * $grid-column-width;
   }
@@ -38,22 +38,22 @@ $grid-gutter-half: $layout-gutter / 2;
 
   $grid-current-column-width: $i * $grid-column-width;
 
-  .#{escape('++#{$i}')} {
+  .#{escape-css('++#{$i}')} {
     @extend %grid-columns-all;
     margin-left: $grid-current-column-width;
   }
 
-  .#{escape('#{$i}++')} {
+  .#{escape-css('#{$i}++')} {
     @extend %grid-columns-all;
     margin-right: $grid-current-column-width;
   }
 
-  .#{escape('--#{$i}')} {
+  .#{escape-css('--#{$i}')} {
     @extend %grid-columns-push-pull;
     left: -$grid-current-column-width;
   }
 
-  .#{escape('#{$i}--')} {
+  .#{escape-css('#{$i}--')} {
     @extend %grid-columns-push-pull;
     left: $grid-current-column-width;
   }
