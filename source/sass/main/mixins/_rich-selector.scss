@@ -19,5 +19,5 @@ $rich-selector-id: 0;
     }
   }
 
-  $rich-selector-id: ($rich-selector-id + 1);
+  $rich-selector-id: ($rich-selector-id + 1) !global;
 }
