@@ -1,0 +1,16 @@
+// Cosmetic
+// ========
+
+@mixin cosmetic($module, $property, $map: false) {
+
+  @if not $map {
+    $map: $property;
+    $property: $module;
+  }
+
+  @each $key, $value in $map {
+    .#{$module}-#{$key} {
+      #{$property}: if($value, $value, $key) !important;
+    }
+  }
+}
