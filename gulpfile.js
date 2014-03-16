@@ -57,7 +57,6 @@ gulp.task('copy', ['sass'], function () {
   return es.concat(
     // update index.html to work when built
     gulp.src(['source/index.html'])
-      .pipe(replace("require(['./js/main.js'])", "require(['./js/main.js'], function () { require(['main']); })"))
       .pipe(gulp.dest('build')),
     // copy config-require
     gulp.src(['source/js/config-require.js'])
@@ -88,6 +87,7 @@ gulp.task('js', function () {
   var configRequire = require('./source/js/config-require.js');
   var configBuild = {
     baseUrl: 'source/js',
+    insertRequire: ['main'],
     name: 'main',
     wrap: true
   };
