@@ -7,7 +7,6 @@ define({
   // Here paths are set relative to `/source/js` folder
   paths: {
     'angular'       : '../vendor/angular/angular',
-    'angular-mocks' : '../vendor/angular-mocks/angular-mocks',
     'async'         : '../vendor/requirejs-plugins/src/async',
     'domReady'      : '../vendor/requirejs-domready/domReady',
     'ngResource'    : '../vendor/angular-resource/angular-resource',
@@ -18,7 +17,6 @@ define({
     'angular': {
       'exports': 'angular'
     },
-    'angular-mocks': ['angular'],
     'ngResource': ['angular'],
     'ui.router' : ['angular']
   }
