@@ -63,6 +63,9 @@ gulp.task('copy', ['sass'], function () {
     gulp.src(['source/js/config-require.js'])
       .pipe(uglify().on('error', handleError))
       .pipe(gulp.dest('build/js')),
+    // copy template files
+    gulp.src(['source/js/**/*.html'])
+      .pipe(gulp.dest('build/js')),
     // copy vendor files
     gulp.src(['source/vendor/**/*'])
       .pipe(gulp.dest('build/vendor')),
