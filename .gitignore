@@ -7,3 +7,4 @@ errors.log
 node_modules
 test-results-*.xml
 /selenium
+/source/vendor
