@@ -86,15 +86,14 @@ gulp.task('js', function () {
   var configBuild = {
     baseUrl: 'source/js',
     name: 'main',
-    optimize: 'none',
-    out: 'main.js',
     wrap: true
   };
   var config = _(configBuild).extend(configRequire);
 
-  return rjs(config)
+  return gulp.src(['source/js/main.js'])
+    .pipe(rjs(config).on('error', handleError))
     .pipe(uglify().on('error', handleError))
-    .pipe(gulp.dest('./build/js/'))
+    .pipe(gulp.dest('build/js/'))
     .pipe(livereload(server));
 });
 
