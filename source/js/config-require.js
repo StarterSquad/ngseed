@@ -6,22 +6,20 @@ if (typeof define !== 'function') {
 define({
   // Here paths are set relative to `/source/js` folder
   paths: {
-    'angular'               : '../vendor/angular/angular',
-    'angular-resource'      : '../vendor/angular-resource/angular-resource',
-    'angular-mocks'         : '../vendor/angular-mocks/angular-mocks',
-    'angular-ui-router'     : '../vendor/angular-ui-router/release/angular-ui-router',
-    'async'                 : '../vendor/requirejs-plugins/src/async',
-    'domReady'              : '../vendor/requirejs-domready/domReady'
+    'angular'       : '../vendor/angular/angular',
+    'angular-mocks' : '../vendor/angular-mocks/angular-mocks',
+    'async'         : '../vendor/requirejs-plugins/src/async',
+    'domReady'      : '../vendor/requirejs-domready/domReady',
+    'ngResource'    : '../vendor/angular-resource/angular-resource',
+    'ui.router'     : '../vendor/angular-ui-router/release/angular-ui-router'
   },
 
   shim: {
     'angular': {
       'exports': 'angular'
     },
-    'angular-ui-router' : {
-      'deps': ['angular']
-    },
     'angular-mocks': ['angular'],
-    'angular-resource': ['angular']
+    'ngResource': ['angular'],
+    'ui.router' : ['angular']
   }
 });

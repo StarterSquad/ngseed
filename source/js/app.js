@@ -4,7 +4,7 @@
  */
 define([
   'angular',
-  'angular-ui-router',
+  'ui.router',
   './config',
   './modules/home/index'
 ], function (ng) {
@@ -14,5 +14,8 @@ define([
     'app.constants',
     'app.home',
     'ui.router'
-  ]);
+  ]).config(['$urlRouterProvider', function ($urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+  }]);
+
 });
