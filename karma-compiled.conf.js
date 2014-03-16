@@ -3,7 +3,6 @@ module.exports = function (config) {
 
     files: [
       'tests-main-compiled.js',
-      { pattern: 'source/vendor/jasmine-matchers/dist/jasmine-matchers.js', included: true },
       { pattern: 'source/js/config-require.js', included: false },
       { pattern: 'source/js/**/*.spec.js', included: false },
       { pattern: 'build/js/**/*', included: false },

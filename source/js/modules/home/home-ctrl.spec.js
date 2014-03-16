@@ -28,11 +28,5 @@ define([
       });
     });
 
-    describe('check custom jasmine matchers enabled', function () {
-      it('should check that toBeArrayOfSize(int) exists', function () {
-        expect([1, 2, 3]).toBeArrayOfSize(3);
-      });
-    });
-
   });
 });

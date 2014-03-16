@@ -6,17 +6,18 @@ if (typeof define !== 'function') {
 define({
   // Here paths are set relative to `/source/js` folder
   paths: {
-    'angular': '../vendor/angular/angular',
-    'angular-resource': '../vendor/angular-resource/angular-resource',
-    'async': '../vendor/requirejs-plugins/src/async',
-    'domReady': '../vendor/requirejs-domready/domReady'
+    'angular'       : '../vendor/angular/angular',
+    'async'         : '../vendor/requirejs-plugins/src/async',
+    'domReady'      : '../vendor/requirejs-domready/domReady',
+    'ngResource'    : '../vendor/angular-resource/angular-resource',
+    'ui.router'     : '../vendor/angular-ui-router/release/angular-ui-router'
   },
 
   shim: {
     'angular': {
       'exports': 'angular'
     },
-    'angular-mocks': ['angular'],
-    'angular-resource': ['angular']
+    'ngResource': ['angular'],
+    'ui.router' : ['angular']
   }
 });
