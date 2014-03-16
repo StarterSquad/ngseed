@@ -1,6 +1,5 @@
 var _ = require('underscore');
 var autoprefix = require('gulp-autoprefixer');
-var csso = require('gulp-csso');
 var es = require('event-stream');
 var gulp = require('gulp');
 var karma = require('gulp-karma');
@@ -13,6 +12,11 @@ var sass = require('gulp-ruby-sass');
 var spawn = require('child_process').spawn;
 var uglify = require('gulp-uglify');
 var webdriver = require('gulp-protractor').webdriver;
+
+var handleError = function (err) {
+  console.log(err.name, ' in ', err.plugin, ': ', err.message);
+  this.emit('end');
+};
 
 var server = lr();
 
@@ -57,7 +61,7 @@ gulp.task('copy', ['sass'], function () {
       .pipe(gulp.dest('build')),
     // copy config-require
     gulp.src(['source/js/config-require.js'])
-      .pipe(uglify())
+      .pipe(uglify().on('error', handleError))
       .pipe(gulp.dest('build/js')),
     // copy vendor files
     gulp.src(['source/vendor/**/*'])
@@ -67,11 +71,11 @@ gulp.task('copy', ['sass'], function () {
       .pipe(gulp.dest('build/assets')),
     // minify requirejs
     gulp.src(['build/vendor/requirejs/require.js'])
-      .pipe(uglify())
+      .pipe(uglify().on('error', handleError))
       .pipe(gulp.dest('build/vendor/requirejs')),
     // minify domReady
     gulp.src(['build/vendor/requirejs-domready/domReady.js'])
-      .pipe(uglify())
+      .pipe(uglify().on('error', handleError))
       .pipe(gulp.dest('build/vendor/requirejs-domready'))
   );
 });
@@ -89,7 +93,7 @@ gulp.task('js', function () {
   var config = _(configBuild).extend(configRequire);
 
   return rjs(config)
-    .pipe(uglify())
+    .pipe(uglify().on('error', handleError))
     .pipe(gulp.dest('./build/js/'))
     .pipe(livereload(server));
 });
@@ -100,7 +104,7 @@ gulp.task('karma', function () {
     .pipe(karma({
       configFile: 'karma.conf.js',
       action: 'watch'
-    }));
+    }).on('error', handleError));
 });
 
 gulp.task('karma-ci', function () {
@@ -108,7 +112,7 @@ gulp.task('karma-ci', function () {
     .pipe(karma({
       configFile: 'karma-compiled.conf.js',
       action: 'run'
-    }));
+    }).on('error', handleError));
 });
 
 // Sass
@@ -119,10 +123,10 @@ gulp.task('sass', function () {
       require: [
         './source/sass/sass_extensions.rb',
         'sass-globbing'
-      ]
-    }))
-    .pipe(autoprefix())
-    .pipe(csso())
+      ],
+      style: 'compressed'
+    }).on('error', handleError))
+    .pipe(autoprefix().on('error', handleError))
     .pipe(gulp.dest('source/assets/css'))
     .pipe(livereload(server));
 });
@@ -141,10 +145,7 @@ gulp.task('protractor-ci', function () {
 gulp.task('webdriver', webdriver);
 
 // Watch
-gulp.task('watch', function () {
-  gulp.run('sass');
-  gulp.run('karma');
-
+gulp.task('watch', ['sass', 'karma'], function () {
   gulp.watch('source/sass/**/*.scss', function () {
     gulp.run('sass');
   });
