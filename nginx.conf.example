@@ -1,5 +1,3 @@
-
-
 # development config ('build' subdomain goes to /build, otherwise to /source)
 map $subdomain $root_folder {
   default source;
