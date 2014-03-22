@@ -71,6 +71,9 @@ Vendor update
 
 Tests use Jasmin for assertions.
 
+You can write tests in both Coffee and JS
+(see `/source/js/modules/home/home-ctrl.spec.js` and `/source/js/modules/home/home-ctrl.spec.coffee`).
+
 ### E2E Tests
 
 [Protractor](https://github.com/angular/protractor) is used to provide way to do E2E tests. To install go to `client`

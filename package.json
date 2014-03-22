@@ -5,6 +5,7 @@
   "version": "0.0.3",
   "devDependencies": {
     "amdefine": "latest",
+    "coffee-script": "latest",
     "event-stream": "latest",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
@@ -17,6 +18,7 @@
     "gulp-uglify": "latest",
     "gulp-util": "latest",
     "karma": "latest",
+    "karma-coffee-preprocessor": "latest",
     "karma-chrome-launcher": "latest",
     "karma-coverage": "latest",
     "karma-firefox-launcher": "latest",

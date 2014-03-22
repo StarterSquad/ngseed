@@ -4,12 +4,14 @@ module.exports = function (config) {
     files: [
       'tests-main.js',
       { pattern: 'source/js/**/*.js', included: false },
+      { pattern: 'source/js/**/*.coffee', included: false },
       { pattern: 'source/js/**/*.map', included: false },
       { pattern: 'source/vendor/**/*.js', included: false },
       { pattern: 'source/vendor/**/*.map', included: false },
     ],
     exclude: [
       'source/vendor/**/*spec.js',
+      'source/vendor/**/*spec.coffee'
     ],
 
     browsers: ['PhantomJS'],
@@ -20,11 +22,13 @@ module.exports = function (config) {
       // 'coverage',
     ],
     preprocessors: {
-      // Source files, that you wanna generate coverage for.
-      // Do not include tests or libraries (these files
-      // will be instrumented by Istanbul):
-      //
-      // 'source/js/modules/**/*.js': ['coverage'],
+      //'source/js/modules/**/*.js': 'coverage',
+      'source/js/modules/**/*.spec.coffee': 'coffee'
+    },
+    coffeePreprocessor: {
+      transformPath: function (filepath) {
+        return filepath.replace(/spec\.coffee$/, 'coffee.spec.js');
+      }
     },
     // Optionally, configure the reporter:
     //
