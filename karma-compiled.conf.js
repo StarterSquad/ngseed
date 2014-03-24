@@ -5,6 +5,7 @@ module.exports = function (config) {
       'tests-main-compiled.js',
       { pattern: 'source/js/config-require.js', included: false },
       { pattern: 'source/js/**/*.spec.js', included: false },
+      { pattern: 'source/js/**/*.spec.coffee', included: false },
       { pattern: 'build/js/**/*', included: false },
       { pattern: 'build/vendor/**/*.js', included: false },
       { pattern: 'build/vendor/**/*.map', included: false },
@@ -13,6 +14,10 @@ module.exports = function (config) {
 
     browsers: ['PhantomJS'],
     // Chrome, ChromeCanary, Firefox, IE (only Windows), Opera, PhantomJS, Safari (only Mac)
+
+    preprocessors: {
+      'source/js/modules/**/*.spec.coffee': 'coffee'
+    },
 
     basePath: './',
     captureTimeout: 60000,

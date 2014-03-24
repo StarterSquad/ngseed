@@ -1,3 +1,7 @@
+/**
+ * You can also write tests in CoffeeScript, see home-ctrl.spec.coffee
+ */
+
 define([
   'angular-mocks',
   'Source/modules/home/home-ctrl'
