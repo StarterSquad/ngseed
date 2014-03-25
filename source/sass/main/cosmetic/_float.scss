@@ -1,14 +1,5 @@
 // Float
 // =====
 
-.clear {
-  clear: both;
-}
-
-.float-l {
-  float: left;
-}
-
-.float-r {
-  float: right;
-}
+@include cosmetic('clear', both);
+@include cosmetic('float', left right);
