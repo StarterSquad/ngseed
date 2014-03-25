@@ -13,6 +13,10 @@
     outline: 0;
   }
 
+  &.__invalid:not(:focus) {
+    color: $color-red;
+  }
+
   // Modifiers
   // ---------
 
