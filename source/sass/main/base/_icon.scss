@@ -1,0 +1,19 @@
+// Icon
+// ====
+
+.ic {
+  @include position(relative, 1px none none);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: inline-block;
+  line-height: 1;
+
+  @each $icon in (
+  ) {
+    $icon-path: "base/icon/#{$icon}.png";
+    &.__#{$icon} {
+      @include image-size($icon-path);
+      background-image: inline-asset($icon-path);
+    }
+  }
+}
