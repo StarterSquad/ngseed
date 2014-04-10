@@ -26,6 +26,7 @@ module.exports = function (config) {
       'source/js/modules/**/*.spec.coffee': 'coffee'
     },
     coffeePreprocessor: {
+      options: { sourceMap: true },
       transformPath: function (filepath) {
         return filepath.replace(/spec\.coffee$/, 'coffee.spec.js');
       }
