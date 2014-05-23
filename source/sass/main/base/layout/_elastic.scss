@@ -4,26 +4,33 @@
 .elastic {
   display: table;
   width: 100%;
-}
 
-.elastic_col {
-  display: table-cell;
-  vertical-align: top;
+  &_col {
+    display: table-cell;
+    vertical-align: top;
 
-  & + & {
-    padding-left: $layout-gutter;
+    & + & {
+      padding-left: $layout-gutter;
+    }
+
+    &.__shrink {
+      white-space: nowrap;
+      width: 1px;
+    }
   }
 
-  &.__shrink {
-    white-space: nowrap;
-    width: 1px;
+  &_row {
+    display: table-row;
+
+    &.__shrink {
+      height: 1px;
+    }
   }
-}
 
-.elastic_row {
-  display: table-cell;
+  // Modifiers
+  // ---------
 
-  &.__shrink {
-    height: 1px;
+  &.__justify {
+    table-layout: fixed;
   }
 }
