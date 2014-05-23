@@ -1,0 +1,19 @@
+// Header
+// ======
+
+.header,
+.header-push {
+  height: 96px;
+}
+
+.header {
+  @include position(fixed, 0 0 none);
+  background: #FFF;
+  padding: 24px 0;
+
+  &_logo {}
+
+  &_menu {
+    margin-top: 9px;
+  }
+}

@@ -1,15 +1,13 @@
 // Link
 // ====
 
-%link,
 .link {
   cursor: pointer;
 }
 
-%link,
 .link,
 .link_u {
-  background-position: 0 95%;
+  background-position: 0 100%;
   background-repeat: repeat-x;
   text-decoration: none;
 }
@@ -17,7 +15,6 @@
 // Modifiers
 // ---------
 
-%link,
 .link {
 
   // ### Colors
@@ -38,6 +35,14 @@
     @include link-color($color-blue);
   }
 
+  &.__white {
+    @include link-color(rgba(#FFF, 0.9));
+
+    &:hover {
+      @include link-color(#FFF);
+    }
+  }
+
   // ### Styles
   // These are left empty and exist here only for reference.
   // Declarations are fully stated in the `link-color` mixin.
@@ -47,6 +52,15 @@
   // ### Complex link
 
   &.__complex {
-    background: none !important;
+    background-image: none !important;
+
+    // ### Expanded link
+
+    &.__expanded {
+      margin-bottom: -12px;
+      margin-top: -12px;
+      padding-bottom: 12px;
+      padding-top: 12px;
+    }
   }
 }

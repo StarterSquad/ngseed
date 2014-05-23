@@ -5,7 +5,9 @@
   @extend .txbox.__m, .txbox.__white;
   border-style: solid;
   border-width: 1px;
+  cursor: text;
   display: block;
+  transition: 0.33s opacity;
   width: 100%;
 
   &:focus {

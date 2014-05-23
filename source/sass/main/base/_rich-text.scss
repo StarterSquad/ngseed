@@ -92,7 +92,7 @@
 // ----
 
 @include rich-selector(a) {
-  @extend %link, %link.__blue;
+  @extend .link, .link.__blue;
 }
 
 @include rich-selector(img) {

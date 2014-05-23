@@ -14,9 +14,14 @@ html {
 }
 
 // Remove text-shadow in selection highlight: h5bp.com/i
-// Customize the background color to match your design.
+// The rest of styles matches ones Chrome has set by default.
 
 ::selection {
-  background: rgba($color-blue, 0.2);
+  background: rgba(#0073ff, 0.8);
+  color: #FFF;
   text-shadow: none;
+}
+
+label[for] {
+  cursor: pointer;
 }

@@ -1,4 +1,4 @@
-base_path: 'source'
+base_path: '.'
 asset_paths:
-  - 'assets/fonts/'
-  - 'assets/images/'
+  - 'source/assets/fonts/'
+  - 'source/assets/images/'
