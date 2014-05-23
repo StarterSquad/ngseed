@@ -1,3 +1,4 @@
+*.sublime-*
 .idea
 .sass-cache
 /build
