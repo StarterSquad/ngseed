@@ -5,7 +5,7 @@ define(['angular', './module'], function (angular, module) {
       function unindent (text) {
 
         // Remove leading newlines and trailing whitespace:
-        text = text.replace(/^\n+/, '').replace(/\s+$/, '');
+        text = text.replace(/^\s*\n/, '').replace(/\s+$/, '');
 
         // Detect number of spaces used for indentation:
         var indentation = text.match(/^( *)/)[1].length;
@@ -25,7 +25,14 @@ define(['angular', './module'], function (angular, module) {
         link: function (scope, element) {
           var example = element.children('.example_main').clone();
           example.find('.ng-scope').removeClass('ng-scope');
-          example.find('.example-label').parent().html('');
+          example.find('.example-label').each(function () {
+            var item = $(this);
+            if (item.children().length > 0) {
+              item.children().unwrap();
+            } else {
+              item.parent().html('');
+            }
+          });
           scope.content = unindent(example.html());
         }
       };
