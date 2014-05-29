@@ -38,3 +38,11 @@
       0 1px 0 rgba(#FFF, 0.2);
   }
 }
+
+select.txbox {
+  cursor: default;
+}
+
+textarea.txbox {
+  resize: none;
+}
