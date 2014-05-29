@@ -1,54 +1,101 @@
-<h2>Mixins</h2>
+<div class="rich">
 
-<h3>
-  cosmetic($module, $map)
-  <br>
-  cosmetic($module, $property, $map)
-</h3>
+  <h2>Mixins</h2>
 
-<h3>font-face($family, $filename, $weight: normal, $style: normal)</h3>
+  <h3>
+    cosmetic($module, $values)
+    <br>
+    cosmetic($module, $property, $values)
+  </h3>
+  <p>Creates a cosmetic module for setting a single property.</p>
+  <p>If the <code>$property</code> is not provided, it is supposed to be equal to the module name.</p>
+  <p>The <code>$values</code> could be either list or map. In the first case, the suffix of the module name would be the same as value, otherwise an item’s key stands for it.</p>
+  <pre>@include cosmetic('float', (left, right));
+@include cosmetic('margin', ('m': 32px, 'l': 128px));
+@include cosmetic('valign', 'vertical-align', (bottom, top));</pre>
+  <h4>CSS output</h4>
+  <pre>.float-left {
+  float: left !important;
+}
 
-<h3>font-height($font-size, $line-height)</h3>
-<p>Shorthand notation for setting font metrics of an element.</p>
-<pre>@include font-height(12px, 1.62);</pre>
-<h4>CSS output</h4>
-<pre>font-size: 12px;
+.float-right {
+  float: right !important;
+}
+
+.margin-m {
+  margin: 32px !important;
+}
+
+.margin-l {
+  margin: 128px !important;
+}
+
+.valign-bottom {
+  vertical-align: bottom !important;
+}
+
+.valign-top {
+  vertical-align: top !important;
+}</pre>
+
+  <h3>font-face($family, $filename, $weight: normal, $style: normal)</h3>
+  <p>Allows easier custom fonts integration.</p>
+  <pre>@include font-face('Open Sans', 'OpenSans-Regular');</pre>
+  <h4>CSS output</h4>
+  <pre>@font-face {
+  font-family: 'Open Sans';
+  src: url("/assets/fonts/OpenSans-Regular.eot");
+  src:
+    url("/assets/fonts/OpenSans-Regular.eot?#iefix") format('embedded-opentype'),
+    url("/assets/fonts/OpenSans-Regular.woff") format('woff'),
+    url("/assets/fonts/OpenSans-Regular.ttf") format('truetype'),
+    url("/assets/fonts/OpenSans-Regular.svg#Open%20Sans") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}</pre>
+
+  <h3>font-height($font-size, $line-height)</h3>
+  <p>Shorthand notation for setting font metrics of an element.</p>
+  <pre>@include font-height(12px, 1.62);</pre>
+  <h4>CSS output</h4>
+  <pre>font-size: 12px;
 line-height: 1.62;</pre>
 
-<h3>hidpi-image($image-path)</h3>
-<p>Includes <code>background-image</code> and <code>background-size</code> for the named <abbr class="small-caps">HIDPI</abbr> image.</p>
+  <h3>hidpi-image($image-path)</h3>
+  <p>Includes <code>background-image</code> and <code>background-size</code> for the named <abbr class="small-caps">HIDPI</abbr> image.</p>
 
-<h3>hidpi-inline($image-path)</h3>
-<p>Embeds <code>background-image</code> and include <code>background-size</code> for the named <abbr class="small-caps">HIDPI</abbr> image.</p>
+  <h3>hidpi-inline($image-path)</h3>
+  <p>Embeds <code>background-image</code> and include <code>background-size</code> for the named <abbr class="small-caps">HIDPI</abbr> image.</p>
 
-<h3>image-size($image-path, $factor: 1)</h3>
-<p>Sets the <code>width</code> and <code>height</code> of an element to the dimensions of the named image.</p>
-<p>The second paramater is a divisor which is applied onto both dimensions.</p>
+  <h3>image-size($image-path, $factor: 1)</h3>
+  <p>Sets the <code>width</code> and <code>height</code> of an element to the dimensions of the named image.</p>
+  <p>The second paramater is a divisor which is applied onto both dimensions.</p>
 
-<h3>link-color($color)</h3>
+  <h3><s>link-color($color)</s></h3>
 
-<h3>
-  position($position, $coordinates: none)
-  <br>
-  position($coordinates)
-</h3>
-<p>Shorthand notation for setting position of an element.</p>
-<p>The first parameter is optional and sets <code>position</code> of an element (<code>absolute</code>, <code>relative</code>, etc.)</p>
-<p>The second parameter is a space delimited list of offsets (<code>top</code>, <code>right</code> etc.) that follows the standard CSS shorthand notation.</p>
-<p>Offsets passed as <code>none</code> are not being output.</p>
-<pre>@include position(absolute, 12px 0 none);</pre>
-<h4>CSS output</h4>
-<pre>position: absolute;
+  <h3>
+    position($position, $coordinates: none)
+    <br>
+    position($coordinates)
+  </h3>
+  <p>Shorthand notation for setting position of an element.</p>
+  <p>The first parameter is optional and sets <code>position</code> of an element (<code>absolute</code>, <code>relative</code>, etc.)</p>
+  <p>The second parameter is a space delimited list of offsets (<code>top</code>, <code>right</code> etc.) that follows the standard CSS shorthand notation.</p>
+  <p>Offsets passed as <code>none</code> are not being output.</p>
+  <pre>@include position(absolute, 12px 0 none);</pre>
+  <h4>CSS output</h4>
+  <pre>position: absolute;
 top: 12px;
 right: 0;
 left: 0;</pre>
 
-<h3>reject($property, $value, $filters)</h3>
-<p>Includes property only if it's value is not in the list of filters.</p>
+  <h3>reject($property, $value, $filters)</h3>
+  <p>Includes property only if it's value is not in the list of filters.</p>
 
-<h3>rich-selector($elements...)</h3>
+  <h3><s>rich-selector($elements...)</s></h3>
 
-<h3>size($size)</h3>
-<p>Shorthand notation for setting size of an element.</p>
-<p>The only parameter is a space delimited <code>width</code> and <code>height</code>. If <code>height</code> is omitted, it is considered to equal <code>width</code>.</p>
-<p>Dimensions passed as <code>none</code> are not being output.</p>
+  <h3>size($size)</h3>
+  <p>Shorthand notation for setting size of an element.</p>
+  <p>The only parameter is a space delimited <code>width</code> and <code>height</code>. If <code>height</code> is omitted, it is considered to equal <code>width</code>.</p>
+  <p>Dimensions passed as <code>none</code> are not being output.</p>
+</div>

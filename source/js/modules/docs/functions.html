@@ -1,35 +1,38 @@
-<h2>Functions</h2>
+<div class="rich">
 
-<h3>asset-url($filename)</h3>
-<p>Returns an absolute URL to the named file.</p>
-<pre>asset-url('flowers.png') //=> url('/assets/images/media/flowers.png')</pre>
+  <h2>Functions</h2>
 
-<h3>escape-css($data)</h3>
-<p>Returns a string containing the escaped version of the provided data for use as a CSS identifier.</p>
-<pre>escape-css('1a2b3c') //=> '#\31 a2b3c'</pre>
+  <h3>asset-url($filename)</h3>
+  <p>Returns an absolute URL to the named file.</p>
+  <pre>asset-url('flowers.png') //=> url('/assets/images/media/flowers.png')</pre>
 
-<h3>escape-url($data)</h3>
-<p>Returns a string containing the escaped version of the provided data for use as an URL identifier.</p>
-<pre>escape-url('100% Love') //=> '100%25+Love'</pre>
+  <h3>escape-css($data)</h3>
+  <p>Returns a string containing the escaped version of the provided data for use as a CSS identifier.</p>
+  <pre>escape-css('1a2b3c') //=> '#\31 a2b3c'</pre>
 
-<h3>image-height($filename)</h3>
-<p>Returns the height of the named image.</p>
-<pre>image-height('flowers.png') //=> 240px</pre>
+  <h3>escape-url($data)</h3>
+  <p>Returns a string containing the escaped version of the provided data for use as an URL identifier.</p>
+  <pre>escape-url('100% Love') //=> '100%25+Love'</pre>
 
-<h3>image-width($filename)</h3>
-<p>Returns the width of the named image.</p>
-<pre>image-width('flowers.png') //=> 320px</pre>
+  <h3>image-height($filename)</h3>
+  <p>Returns the height of the named image.</p>
+  <pre>image-height('flowers.png') //=> 240px</pre>
 
-<h3>inline-asset($filename)</h3>
-<p>Embeds the contents of the named asset directly inside a stylesheet.</p>
-<pre>inline-asset('flowers.png') //=> url('data:image/png;base64,...')</pre>
+  <h3>image-width($filename)</h3>
+  <p>Returns the width of the named image.</p>
+  <pre>image-width('flowers.png') //=> 320px</pre>
 
-<h3>inline-stroke($color, $spacing: 0)</h3>
-<p>Returns a base64-encoded picture of a stoke described by the passed properties.</p>
-<pre>inline-stroke(rgba(#C00, 0.2), 2px) //=> url('data:image/png;base64,...')</pre>
+  <h3>inline-asset($filename)</h3>
+  <p>Embeds the contents of the named asset directly inside a stylesheet.</p>
+  <pre>inline-asset('flowers.png') //=> url('data:image/png;base64,...')</pre>
 
-<h3>unpack($shorthand, $length: 4)</h3>
-<p>Unpacks the named list according to the standard CSS shorthand notation.</p>
-<p>The second parameter is target length of an unpacked list.</p>
-<pre>unpack(5px 2px) #=> 5px 2px 5px 2px
+  <h3>inline-stroke($color, $spacing: 0)</h3>
+  <p>Returns a base64-encoded picture of a stoke described by the passed properties.</p>
+  <pre>inline-stroke(rgba(#C00, 0.2), 2px) //=> url('data:image/png;base64,...')</pre>
+
+  <h3>unpack($shorthand, $length: 4)</h3>
+  <p>Unpacks the named list according to the standard CSS shorthand notation.</p>
+  <p>The second parameter is target length of an unpacked list.</p>
+  <pre>unpack(5px 2px) #=> 5px 2px 5px 2px
 unpack(100%, 2) //=> 100% 100%</pre>
+</div>

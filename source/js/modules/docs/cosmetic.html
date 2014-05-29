@@ -1,1 +1,64 @@
-<h2>Cosmetic layer</h2>
+<div class="rich">
+
+  <h2>Cosmetic layer</h2>
+  <p><b>Cosmetic layer</b> or <b>third layer</b> consists of simple, slightly affecting styles:</p>
+  <ul>
+    <li>text colors,</li>
+    <li>low-level <abbr class="small-caps">OOCSS</abbr> – few properties per <abbr class="small-caps">CSS</abbr> class (e.g. <code>margin-top-xl</code>, <code>width-l</code>),</li>
+    <li>global modifiers and etc.</li>
+  </ul>
+  <p>Layer can be nonexistent in some cases of methodology usage, but in big projects, this layer allows to solve the duplicate styling issue and to describe rare, non-project conditions, going <abbr class="small-caps">DRY</abbr>.</p>
+
+  <h3>Float</h3>
+
+  <h4>clear-(*)</h4>
+  <p>Sets <code>clear</code> property of an element.</p>
+  <p><code>(*)</code> should be either <code>none</code>, <code>left</code>, <code>right</code> or <code>both</code>.</p>
+
+  <h4>float-(*)</h4>
+  <p>Sets <code>float</code> property of an element.</p>
+  <p><code>(*)</code> should be either <code>none</code>, <code>left</code> or <code>right</code>.</p>
+
+  <h3>Sizes</h3>
+
+  <h4>
+    width-(size)
+    <br>
+    height-(size)
+  </h4>
+  <p>Sets <code>width</code> or <code>height</code> property of an element.</p>
+  <p><code>(size)</code> should be either <code>auto</code>, <code>xxs</code>, <code>xs</code>, <code>s</code>, <code>m</code>, <code>l</code>, <code>xl</code>, <code>xxl</code> or <code>none</code> for zero value.</p>
+
+  <h4>
+    <br>
+    margin-(size)
+    <br>
+    margin-(direction)-(size)
+    <br>
+    padding-(size)
+    <br>
+    padding-(direction)-(size)
+  </h4>
+
+  <p>Sets <code>margin</code> or <code>padding</code> property of an element, setting all sides at once (e.g. <code>margin-xs</code>) or one particular side (e.g. <code>margin-top-xs</code>).</p>
+  <p><code>(size)</code> should be either <code>xxs</code>, <code>xs</code>, <code>s</code>, <code>m</code>, <code>l</code>, <code>xl</code>, <code>xxl</code> or <code>none</code> for zero value.</p>
+  <p><code>(direction)</code> should be either <code>top</code>, <code>right</code>, <code>bottom</code> or <code>left</code>.</p>
+
+  <h3>Text</h3>
+
+  <h4>text-(alignment)</h4>
+  <p>Sets <code>text-align</code> property of an element.</p>
+  <p><code>(alignment)</code> should be either <code>left</code>, <code>center</code>, <code>right</code> or <code>justify</code>.</p>
+
+  <h4>text-bound</h4>
+  <p>Sets <code>max-width</code> property of an element with a value dependant on it’s <code>font-size</code>. This limits the maximum number of words in a single line to keep better readability.</p>
+  <pre>.text-bound {
+  max-width: 48em !important;
+}</pre>
+
+  <h3>Vertical-align</h3>
+
+  <h4>valign-(alignment)</h4>
+  <p>Sets <code>vertical-align</code> property of an element.</p>
+  <p><code>(alignment)</code> should be either <code>baseline</code>, <code>bottom</code>, <code>middle</code> or <code>top</code>.</p>
+</div>

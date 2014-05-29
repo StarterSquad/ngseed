@@ -1,1 +1,1 @@
-define(['./example-directive'], function () {});
+define(['./example-ctrl', './example-directive'], function () {});
