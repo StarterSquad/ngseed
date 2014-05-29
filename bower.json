@@ -8,16 +8,16 @@
     "components"
   ],
   "dependencies": {
-    "angular": "=1.2.14",
-    "angular-mocks": "=1.2.14",
-    "angular-resource": "=1.2.14",
-    "angular-ui-router": "=0.2.7",
+    "angular": "=1.2.16",
+    "angular-mocks": "=1.2.16",
+    "angular-resource": "=1.2.16",
+    "angular-ui-router": "=0.2.10",
     "jasmine-matchers": "https://github.com/JamieMason/Jasmine-Matchers.git#=1.20.0",
     "jquery": "=2.1.1",
-    "normalize-css": "latest",
-    "requirejs": "=2.1.9",
-    "requirejs-domready": "latest",
+    "normalize-css": "=3.0.1",
+    "requirejs": "=2.1.13",
+    "requirejs-domready": "=2.0.1",
     "requirejs-plugins": "=1.0.2",
-    "requirejs-text": "=2.0.10"
+    "requirejs-text": "=2.0.12"
   }
 }
