@@ -1,5 +1,5 @@
 {
-  "name": "StarterSquad AngularJS + RequireJS Seed",
+  "name": "ngseed",
   "version": "0.4.0",
   "main": "source/index.html",
   "ignore": [
