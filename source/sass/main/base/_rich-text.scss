@@ -9,10 +9,21 @@
 @include rich-selector(h1, h2, h3, h4, h5, h6) {
   line-height: 1.1;
   margin: 36px 0 12px;
+}
 
-  &:first-child {
-    margin-top: 0;
-  }
+.rich:first-child h1:first-child,
+.rich:first-child h2:first-child,
+.rich:first-child h3:first-child,
+.rich:first-child h4:first-child,
+.rich:first-child h5:first-child,
+.rich:first-child h6:first-child,
+.rich_h1:first-child,
+.rich_h2:first-child,
+.rich_h3:first-child,
+.rich_h4:first-child,
+.rich_h5:first-child,
+.rich_h6:first-child {
+  margin-top: 0;
 }
 
 @include rich-selector(h1) {
