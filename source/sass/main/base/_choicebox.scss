@@ -1,0 +1,49 @@
+// Two options for checkbox/radio containers
+// =========================================
+//
+// ## Block
+//
+//     div.(checkbox|radio)-block
+//       label
+//         input(type="checkbox|radio")
+//         | Caption
+//
+// ## Inline
+//
+//     label.(checkbox|radio)-inline
+//       input(type="checkbox|radio")
+//       | Caption
+//
+
+.checkbox-block,
+.checkbox-inline,
+.radio-block,
+.radio-inline {
+  @include font-height(13px, 1.1);
+  padding-left: 20px;
+}
+
+.checkbox-block > label > input,
+.checkbox-inline > input,
+.radio-block > label > input,
+.radio-inline > input {
+  float: left;
+  margin: 2px 0 0 -20px;
+}
+
+.checkbox-block,
+.radio-block {
+  display: block;
+  min-height: 20px;
+
+  > label {
+    cursor: pointer;
+  }
+}
+
+.checkbox-inline,
+.radio-inline {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
