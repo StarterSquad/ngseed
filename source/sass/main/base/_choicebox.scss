@@ -28,7 +28,7 @@
 .radio-block > label > input,
 .radio-inline > input {
   float: left;
-  margin: 2px 0 0 -20px;
+  margin: 1px 0 0 -20px;
 }
 
 .checkbox-block,
@@ -46,4 +46,8 @@
   cursor: pointer;
   display: inline-block;
   vertical-align: middle;
+
+  & + & {
+    margin-left: 20px;
+  }
 }
