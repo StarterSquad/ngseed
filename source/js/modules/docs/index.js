@@ -1,0 +1,1 @@
+define(['./example-directive'], function () {});

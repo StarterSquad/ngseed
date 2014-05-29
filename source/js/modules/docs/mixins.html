@@ -1,0 +1,54 @@
+<h2>Mixins</h2>
+
+<h3>
+  cosmetic($module, $map)
+  <br>
+  cosmetic($module, $property, $map)
+</h3>
+
+<h3>font-face($family, $filename, $weight: normal, $style: normal)</h3>
+
+<h3>font-height($font-size, $line-height)</h3>
+<p>Shorthand notation for setting font metrics of an element.</p>
+<pre>@include font-height(12px, 1.62);</pre>
+<h4>CSS output</h4>
+<pre>font-size: 12px;
+line-height: 1.62;</pre>
+
+<h3>hidpi-image($image-path)</h3>
+<p>Includes <code>background-image</code> and <code>background-size</code> for the named <abbr class="small-caps">HIDPI</abbr> image.</p>
+
+<h3>hidpi-inline($image-path)</h3>
+<p>Embeds <code>background-image</code> and include <code>background-size</code> for the named <abbr class="small-caps">HIDPI</abbr> image.</p>
+
+<h3>image-size($image-path, $factor: 1)</h3>
+<p>Sets the <code>width</code> and <code>height</code> of an element to the dimensions of the named image.</p>
+<p>The second paramater is a divisor which is applied onto both dimensions.</p>
+
+<h3>link-color($color)</h3>
+
+<h3>
+  position($position, $coordinates: none)
+  <br>
+  position($coordinates)
+</h3>
+<p>Shorthand notation for setting position of an element.</p>
+<p>The first parameter is optional and sets <code>position</code> of an element (<code>absolute</code>, <code>relative</code>, etc.)</p>
+<p>The second parameter is a space delimited list of offsets (<code>top</code>, <code>right</code> etc.) that follows the standard CSS shorthand notation.</p>
+<p>Offsets passed as <code>none</code> are not being output.</p>
+<pre>@include position(absolute, 12px 0 none);</pre>
+<h4>CSS output</h4>
+<pre>position: absolute;
+top: 12px;
+right: 0;
+left: 0;</pre>
+
+<h3>reject($property, $value, $filters)</h3>
+<p>Includes property only if it's value is not in the list of filters.</p>
+
+<h3>rich-selector($elements...)</h3>
+
+<h3>size($size)</h3>
+<p>Shorthand notation for setting size of an element.</p>
+<p>The only parameter are space delimited <code>width</code> and <code>height</code>. If <code>height</code> is omitted, it is considered to equal <code>width</code>.</p>
+<p>Dimensions passed as <code>none</code> are not being output.</p>

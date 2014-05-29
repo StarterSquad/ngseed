@@ -1,0 +1,583 @@
+<h2>Base layer</h2>
+
+<p><b>Base layer</b> or <b>first layer</b> is a core part of an interface. It is based on most reusable and abstract constructions:</p>
+<ul>
+  <li>forms,</li>
+  <li>buttons,</li>
+  <li>navigation blocks etc.</li>
+</ul>
+<p>Base layer styles must be integrated with designer’s style guides as close as possible. As modules of first layer are meant to be reused across all website interfaces, they must look appropriate and fit to other interface parts without modification.</p>
+
+<h3>Layout</h3>
+
+<h4>Wrap</h4>
+
+<pre>&lt;div class=&quot;wrap&quot;&gt;&lt;/div&gt;</pre>
+
+<h4>Section</h4>
+
+<example>
+  <div class="section">
+    <div class="example-label">section</div>
+  </div>
+  <div class="section">
+    <div class="example-label">section</div>
+  </div>
+  <div class="section">
+    <div class="example-label">section</div>
+  </div>
+</example>
+
+<h4>Grid</h4>
+
+<example>
+  <div class="grid section">
+    <div class="1"><div class="example-label">1</div></div>
+    <div class="1"><div class="example-label">1</div></div>
+    <div class="1"><div class="example-label">1</div></div>
+    <div class="1"><div class="example-label">1</div></div>
+    <div class="1"><div class="example-label">1</div></div>
+    <div class="1"><div class="example-label">1</div></div>
+    <div class="1"><div class="example-label">1</div></div>
+    <div class="1"><div class="example-label">1</div></div>
+    <div class="1"><div class="example-label">1</div></div>
+    <div class="1"><div class="example-label">1</div></div>
+    <div class="1"><div class="example-label">1</div></div>
+    <div class="1"><div class="example-label">1</div></div>
+  </div>
+  <div class="grid section">
+    <div class="8"><div class="example-label">8</div></div>
+    <div class="4"><div class="example-label">4</div></div>
+  </div>
+  <div class="grid section">
+    <div class="4"><div class="example-label">4</div></div>
+    <div class="4"><div class="example-label">4</div></div>
+    <div class="4"><div class="example-label">4</div></div>
+  </div>
+  <div class="grid section">
+    <div class="6"><div class="example-label">6</div></div>
+    <div class="6"><div class="example-label">6</div></div>
+  </div>
+</example>
+
+<example>
+  <div class="grid section">
+    <div class="4">
+      <div class="example-label">4</div>
+    </div>
+    <div class="++4 4">
+      <div class="example-label">++4 4</div>
+    </div>
+  </div>
+  <div class="grid section">
+    <div class="++3 3 3++">
+      <div class="example-label">++3 3 3++</div>
+    </div>
+    <div class="3">
+      <div class="example-label">3</div>
+    </div>
+  </div>
+  <div class="grid section">
+    <div class="++3 6">
+      <div class="example-label">++3 6</div>
+    </div>
+  </div>
+</example>
+
+<example>
+  <div class="grid">
+    <div class="9 3--">
+      <div class="example-label">9 3--</div>
+    </div>
+    <div class="--9 3">
+      <div class="example-label">--9 3</div>
+    </div>
+  </div>
+</example>
+
+<h4>Elastic</h4>
+
+<example>
+  <div class="elastic">
+    <div class="elastic_col">
+      <div class="example-label">elastic_col</div>
+    </div>
+    <div class="elastic_col __shrink">
+      <div class="example-label">elastic_col __shrink</div>
+    </div>
+  </div>
+</example>
+
+<example>
+  <div class="elastic">
+    <div class="elastic_col">
+      <input type="text" class="txbox">
+    </div>
+    <div class="elastic_col __shrink">
+      <button type="button" class="btn">Subscribe</button>
+    </div>
+  </div>
+</example>
+
+<example>
+  <div class="elastic __justify">
+    <div class="elastic_col">
+      <div class="example-label">elastic_col</div>
+    </div>
+    <div class="elastic_col">
+      <div class="example-label">elastic_col</div>
+    </div>
+    <div class="elastic_col">
+      <div class="example-label">elastic_col</div>
+    </div>
+  </div>
+</example>
+
+<example>
+  <div class="example-label">
+    <div class="elastic" style="height: 128px">
+      <div class="elastic_row">
+        <div class="example-label">elastic_row</div>
+      </div>
+      <div class="elastic_row __shrink">
+        <div class="example-label">elastic_row</div>
+      </div>
+    </div>
+  </div>
+</example>
+
+<h4>Clearfix</h4>
+
+<example>
+  <div class="example-label">
+    <div class="cf">
+      <div class="example-label" style="float: left">float: left</div>
+      <div class="example-label" style="float: left; margin-left: 8px">float: left</div>
+    </div>
+  </div>
+</example>
+
+<h4>Hidden</h4>
+
+<pre>&lt;div class=&quot;hidden&quot;&gt;I go unseen&lt;/div&gt;</pre>
+
+<h3>Button</h3>
+
+<example>
+  <p><button class="btn __xl">Extra large button</button></p>
+  <p><button class="btn __l">Large button</button></p>
+  <p><button class="btn">Default button</button></p>
+</example>
+
+<h3>Button group</h3>
+
+<example>
+  <div class="btn-group">
+    <button type="button" class="btn">Lock</button>
+    <button type="button" class="btn __active">Stock</button>
+    <button type="button" class="btn">Smoking barrel</button>
+    <button type="button" class="btn">Smoking barrel</button>
+  </div>
+</example>
+
+<h3>Choicebox</h3>
+
+<example>
+  <div class="checkbox-block">
+    <label>
+      <input type="checkbox">
+      I agree
+    </label>
+  </div>
+  <div class="radio-block">
+    <label>
+      <input type="radio">
+      Alfa
+    </label>
+  </div>
+  <div class="radio-block">
+    <label>
+      <input type="radio">
+      Bravo
+    </label>
+  </div>
+</example>
+
+<example>
+  <label class="checkbox-inline">
+    <input type="checkbox">
+    One
+  </label>
+  <label class="checkbox-inline">
+    <input type="checkbox">
+    Two
+  </label>
+  <label class="checkbox-inline">
+    <input type="checkbox">
+    Three
+  </label>
+</example>
+
+<h3>Form</h3>
+
+<example>
+  <form class="form">
+    <div class="grid section">
+      <label class="form_label 2" for="first_name">First name</label>
+      <div class="5">
+        <input type="text" class="txbox" id="first_name">
+      </div>
+    </div>
+    <div class="grid section">
+      <label class="form_label 2" for="last_name">Last name</label>
+      <div class="5">
+        <input type="text" class="txbox" id="last_name">
+      </div>
+    </div>
+    <div class="grid section">
+      <label class="form_label 2">Date of birth</label>
+      <div class="5">
+        <select id="month" ng-model="user.dob.month" ng-options="m for m in options.months" class="ng-pristine ng-valid"></select>
+        <select ng-model="user.dob.day" ng-options="d for d in options.days" class="ng-pristine ng-valid"></select>
+        <select ng-model="user.dob.year" ng-options="y for y in options.years" class="ng-pristine ng-valid"></select>
+      </div>
+    </div>
+    <div class="grid section">
+      <label class="form_label 2">Sex</label>
+      <div class="5">
+        <div class="btn-group">
+          <button type="button" class="btn ng-pristine ng-valid" btn-tickbox="'man'" ng-model="user.sex">Man</button>
+          <button type="button" class="btn ng-pristine ng-valid __active" btn-tickbox="'woman'" ng-model="user.sex">Woman</button>
+        </div>
+      </div>
+    </div>
+    <div class="grid section">
+      <div class="++2 5">
+        <label class="checkbox-inline">
+          <input type="checkbox">
+          I agree to the
+          <span class="link __blue">Terms and conditions</span>
+        </label>
+      </div>
+    </div>
+    <div class="grid section">
+      <div class="++2 5">
+        <button type="button" class="btn __xl">Proceed</button>
+        <i>
+          &nbsp;
+          or <span class="link __blue">cancel order</span>
+        </i>
+      </div>
+    </div>
+  </form>
+</example>
+
+<h3>Icon</h3>
+
+<example>
+  <i class="ic __startersquad"></i>
+</example>
+
+<example>
+  <button type="button" class="btn">
+    <i class="ic __startersquad"></i>
+    Beam up
+  </button>
+</example>
+
+<h3>Link</h3>
+
+<example>
+  <span class="link">Default link</span>
+  <span class="link __black">Black link</span>
+  <span class="link __white">White link</span>
+  <span class="link __dashed">Dashed link</span>
+  <span class="link __complex">
+    <u class="link_u">Complex link</u> →
+  </span>
+</example>
+
+<h3>Menu</h3>
+
+</div>
+
+<example>
+<ul class="menu">
+  <li class="menu_i __current">
+    <span class="menu_i_inner">Docs</span>
+  </li>
+  <li class="menu_i">
+    <span class="menu_i_inner link">Help</span>
+  </li>
+  <li class="menu_i">
+    <span class="menu_i_inner link">Account</span>
+  </li>
+</ul>
+</example>
+
+<example>
+<ul class="menu">
+  <li class="menu_i">
+    <span class="menu_i_inner link __complex">
+      ← <u class="link_u">Back</u>
+    </span>
+  </li>
+</ul>
+</example>
+
+<example>
+<ul class="menu">
+  <li class="menu_i">
+    <span class="menu_i_inner link __complex">
+      <u class="link_u">Docs</u>
+    </span>
+  </li>
+  <li class="menu_i __current">
+    <span class="menu_i_inner link __complex">
+      <u class="link_u">Help</u>
+    </span>
+  </li>
+  <li class="menu_i">
+    <span class="menu_i_inner link __complex">
+      <u class="link_u">Account</u>
+    </span>
+  </li>
+</ul>
+</example>
+
+<div class="rich">
+
+<h3>Rich text</h3>
+
+<example>
+  <h1>The lion goes from umbrella to umbrella</h1>
+  <p>
+    Remember outweigh <i>do he desirous no cheerful</i>. Do of doors
+    water ye guest. We if prosperous comparison middletons at. Park we
+    in lose like at no. An so to preferred convinced distrusts he
+    determine.
+  </p>
+  <blockquote>
+    <p>
+      Don’t believe everything you read on the Internet.
+    </p>
+  </blockquote>
+  <p>
+    In musical me my placing <i>clothes comfort pleased</i> hearing.
+    Any residence you satisfied and rapturous certainty two. Procured
+    outweigh as outlived so so. On in bringing graceful proposal
+    blessing of marriage outlived. Son rent face our loud near.
+  </p>
+  <p>
+    Acceptance middletons me if discretion boisterous travelling an.
+    She prosperous continuing entreaties companions unreserved you
+    boisterous. Middleton sportsmen sir now cordially ask additions
+    for. You ten occasional saw everything but conviction. Daughter
+    returned quitting few are day advanced branched.
+  </p>
+  <h2>Only a fool breaks the sunshine</h2>
+  <p>
+    Do enjoyment defective objection or we if favourite. At wonder
+    afford so danger cannot former seeing. Power visit charm money add
+    heard new other put. Attended no indulged marriage is to judgment
+    offering landlord.
+  </p>
+  <p>
+    Boy favourable day can introduced sentiments entreaties. Noisier
+    carried of in warrant because. So mr plate seems cause chief widen
+    first. <a href="#">Two differed husbands met screened</a> his. Bed
+    was form wife out ask draw. Wholly coming at we no enable.
+    Offending sir delivered questions now new met. Acceptance she
+    interested new <b>boisterous</b> day discretion celebrated.
+  </p>
+  <h2>The moon of the destiny</h2>
+  <p>
+    Delightful unreserved impossible few estimating men favourable see
+    entreaties. She propriety immediate was improving. He or entrance
+    humoured likewise moderate. Much nor game son say feel. Fat make
+    met can must form into gate. Me we offending prevailed discovery.
+  </p>
+  <ol>
+    <li>Take a hot shower or bath.</li>
+    <li>Dry yourself off and stay in the nude for 10 minutes.</li>
+    <li>
+      After 10 minutes, get dressed and feel the difference wearing
+      clothes.
+    </li>
+    <li>Sublist:
+      <ol>
+        <li>
+          Notice how your clothes feels different in contact with your
+          skin.
+        </li>
+        <li>
+          Notice how your clothes feels different in contact with your
+          skin.
+        </li>
+      </ol>
+    </li>
+  </ol>
+  <h3>The whatever sign means happy motoring</h3>
+  <p>
+    Oh acceptance apartments up sympathize astonished delightful.
+    Waiting him new lasting towards. Continuing melancholy especially
+    so to. Me unpleasing impossible in attachment announcing so
+    astonished. What ask leaf may nor upon door. Tended <b>remain</b>
+    my do stairs. Oh smiling amiable am so visited cordial in offices
+    hearted.
+  </p>
+  <p>
+    In show dull give need so held. <a href="#">One order all</a>
+    scale sense her gay style wrote. Incommode our not one ourselves
+    residence. Shall there whose those stand she end. So unaffected
+    partiality indulgence dispatched to of <i>celebrated
+    remarkably</i>. Unfeeling are had allowance own perceived
+    abilities.
+  </p>
+  <ul>
+    <li>1 (2 pound) pork tenderloin
+    </li>
+    <li>1 (1 ounce) envelope dry onion soup mix
+    </li>
+    <li>1 cup water
+      <ul>
+        <li>3/4 cup red wine
+        </li>
+        <li>3 tablespoons minced garlic
+        </li>
+        <li>3 tablespoons soy sauce
+        </li>
+        <li>freshly ground black pepper to taste
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p>
+    Extremely we promotion remainder eagerness enjoyment an. Ham her demands
+    removal brought minuter raising invited gay. Contented consisted continual
+    curiosity contained get sex. Forth child dried in in aware do. You had met
+    they song how feel lain evil near. Small she avoid six yet table china. And
+    bed make say been then <b>dine</b> mrs. To household rapturous fulfilled
+    attempted on so.
+  </p>
+  <p>
+    He do <i>subjects prepared bachelor</i> juvenile ye oh. He feelings removing
+    informed he as ignorant we prepared. Evening do forming observe spirits is
+    in. Country hearted be of justice sending. On so they as with room cold ye.
+    Be call four my went mean. Celebrated if remarkably especially an. Going eat
+    set she books found met aware.
+  </p>
+  <h4>You’re never alone with a designer</h4>
+  <p>
+    She suspicion dejection saw instantly. Well deny <a href="#">may real one
+    told</a> yet saw hard dear. Bed chief house rapid right the. Set noisy one
+    state tears which. No girl oh part must fact high my he. Simplicity in
+    excellence melancholy as remarkably discovered. Own partiality motionless was
+    old excellence she inquietude contrasted. Sister giving so wicket cousin of
+    an he rather marked. Of on game part body rich. Adapted mr savings venture it
+    or <b>comfort</b> affixed friends.
+  </p>
+  <p>
+    <img src="https://github-camo.global.ssl.fastly.net/4828f1a080d88c40be73f558e5951689b105b4f3/687474703a2f2f696d67332e646f7562616e2e636f6d2f766965772f70686f746f2f70686f746f2f7075626c69632f70313438373536333835302e6a7067">
+  </p>
+  <p>
+    Next his only boy meet the fat rose when. Do repair at we misery wanted
+    remove remain income. Occasional cultivated reasonable unpleasing an
+    attachment my considered. Having ask and coming object seemed put did admire
+    figure. <a href="#">Principles</a> travelling frequently far delightful its
+    especially acceptance. Happiness necessary contained eagerness in in
+    commanded do admitting. Favourable continuing difficulty had her solicitude
+    far. Nor doubt off widow all death aware offer. We will up able in both do
+    sing.
+  </p>
+  <hr>
+  <p>
+    Now seven world think timed while her. Spoil large oh he rooms on since an.
+    Am up unwilling eagerness perceived incommode. Are not windows set luckily
+    musical hundred can. Collecting if sympathize middletons be of of reasonably.
+    <a href="#">Horrible so kindness at thoughts</a> exercise no weddings
+    subjects. The mrs gay <b>removed</b> towards journey chapter females offered
+    not. Led distrusts otherwise who may newspaper but. Last he dull am none he
+    mile hold as.
+  </p>
+  <h5>The right <code>arrow</code> at the right time</h5>
+  <pre>&lt;meta charset="utf-8"&gt;
+&lt;title&gt;AngularJS + RequireJS Seed (0.2.1)&lt;/title&gt;
+&lt;link rel="stylesheet" href="assets/css/main.css?bust=v0.4.0"&gt;&lt;link rel="stylesheet" href="assets/css/main.css?bust=v0.4.0"&gt;</pre>
+  <p>
+    Two before narrow not relied how except moment myself. Dejection assurance
+    mrs led certainly. So gate at no only none open. Betrayed at properly it of
+    graceful on. Dinner abroad am depart ye turned hearts as me wished. Therefore
+    allowance too perfectly gentleman supposing man his now. Families goodness
+    all eat out bed steepest servants. Explained the incommode sir improving
+    northward immediate eat. Man denoting received you sex possible you. Shew
+    park own loud son door less yet.
+  </p>
+  <p>
+    Ever man are put down his very. <a href="#">And marry may table</a> him
+    avoid. Hard sell it were into it upon. He forbade affixed parties of assured
+    to me windows. Happiness him nor she disposing provision. Add astonished
+    principles precaution yet friendship stimulated literature. State thing might
+    stand one his plate. Offending or extremity therefore so difficult he on
+    provision. Tended depart turned not are.
+  </p>
+  <h6>Number wanted</h6>
+  <p>
+    It prepare is ye nothing blushes up brought. Or as gravity pasture limited
+    evening on. Wicket around beauty say she. Frankness resembled say not new
+    smallness you discovery. Noisier ferrars yet shyness weather ten colonel. Too
+    him himself engaged husband pursuit musical. Man age but him determine
+    consisted therefore. Dinner to <a href="#">beyond</a> regret wished an branch
+    he. Remain bed but expect suffer little repair.
+  </p>
+  <h6>River of Flying</h6>
+  <p>
+    Do in laughter securing smallest sensible no mr hastened. As perhaps proceed
+    in in brandon of limited unknown greatly. Distrusts fulfilled happiness
+    unwilling as explained of difficult. No landlord of peculiar ladyship
+    attended if contempt ecstatic. Loud wish made on is am as hard. Court so
+    avoid in plate hence. Of received mr breeding concerns peculiar securing
+    landlord. Spot to many it four bred soon well to. Or am promotion in no
+    departure abilities. Whatever landlord yourself at by pleasure of children
+    be.
+  </p>
+  <p>
+    So delightful up dissimilar by unreserved it connection frequently. Do an
+    high room so in paid. Up on cousin ye dinner should in. Sex stood tried walls
+    manor truth shy and three his. Their to years so child truth. Honoured
+    peculiar families sensible up likewise by on in.
+  </p>
+</example>
+
+<h3>Textbox</h3>
+
+<example>
+  <input type="text" class="txbox" placeholder="First name">
+</example>
+
+<example>
+  <textarea class="txbox" placeholder="Description" rows="4"></textarea>
+</example>
+
+<h3>Typography</h3>
+
+<h4>Half-space</h4>
+
+<example>
+  <p>100<span class="hs"></span>000</p>
+</example>
+
+<h4>Real half-space</h4>
+<example>
+  <p>$<span class="hsr">&nbsp;</span>39.99</p>
+</example>
+
+<h4>Small capitals</h4>
+<example>
+  <p>The <abbr class="small-caps">ICAO</abbr> and <abbr class="small-caps">FAA</abbr> use the standard number words of English with four altered pronunciations.</p>
+</example>
+
+<h4>Hanging punctuation</h4>
+<example>
+  <p style="font-size: 24px"><span class="hldquo">&ldquo;</span>Dr.<span class="hsr"> </span>Grant, my&nbsp;dear Dr.<span class="hsr"> </span>Sattler. Welcome to&nbsp;Jurassic Park.&rdquo; They turn around and look at&nbsp;the view again. It’s a&nbsp;beautiful vista, reminiscent of&nbsp;an&nbsp;African plain. A&nbsp;whole herd of&nbsp;dinosaurus crosses the plain, maybe a&nbsp;hundred that we&nbsp;see in&nbsp;a&nbsp;quick glance alone.<span class="sldquo"> </span><span class="hldquo">&ldquo;</span>Ellie, they’re absolutely&nbsp;&ndash; they’re moving in&nbsp;herds. The do&nbsp;move in&nbsp;herds!&rdquo;</p>
+</example>
