@@ -1,0 +1,53 @@
+// Textbox stack
+// =============
+
+.txbox-stack {
+
+  > .txbox,
+  > .txbox-group {
+    position: relative;
+  }
+
+  > .txbox {
+    position: relative;
+
+    &:focus {
+      z-index: 2;
+    }
+
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      margin-top: -1px;
+    }
+
+    &:not(:last-child) {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  > .txbox-group {
+
+    &:not(:first-child) {
+      margin-top: -1px;
+
+      .txbox-group_addon,
+      .txbox-group_btn > .btn,
+      .txbox-group_txbox {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    &:not(:last-child) {
+
+      .txbox-group_addon,
+      .txbox-group_btn > .btn,
+      .txbox-group_txbox {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+}
