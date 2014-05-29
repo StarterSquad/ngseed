@@ -8,7 +8,7 @@
 
 .header {
   @include position(fixed, 0 0 none);
-  background: #FFF;
+  background: #f7f7f7;
   padding: 24px 0;
 
   &_logo {}
