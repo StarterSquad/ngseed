@@ -19,6 +19,11 @@
     border-radius: 2px 2px 0 0;
     border: 1px solid #dadada;
     padding: 38px 10px 16px;
+
+    > .menu {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
   }
 }
 
