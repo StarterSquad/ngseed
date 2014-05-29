@@ -2,21 +2,21 @@ define(['angular'], function (angular) {
 
   var windowElement = angular.element(window);
 
-  angular.module('app.ui.button-tickbox', [])
-    .directive('btnTickbox', function () {
+  angular.module('app.ui.button-choicebox', [])
+    .directive('btnChoicebox', function () {
 
       return {
         require: 'ngModel',
         restrict: 'A',
         link: function (scope, element, attrs, ngModelCtrl) {
 
-          var isCheckbox = (attrs.btnTickbox === '');
+          var isCheckbox = (attrs.btnChoicebox === '');
 
           ngModelCtrl.$render = function () {
             if (isCheckbox) {
               element.toggleClass('__active', ngModelCtrl.$modelValue);
             } else {
-              element.toggleClass('__active', ngModelCtrl.$modelValue === scope.$eval(attrs.btnTickbox));
+              element.toggleClass('__active', ngModelCtrl.$modelValue === scope.$eval(attrs.btnChoicebox));
             }
           };
 
@@ -25,7 +25,7 @@ define(['angular'], function (angular) {
               if (isCheckbox) {
                 ngModelCtrl.$setViewValue(element.hasClass('__active'));
               } else {
-                ngModelCtrl.$setViewValue(scope.$eval(attrs.btnTickbox));
+                ngModelCtrl.$setViewValue(scope.$eval(attrs.btnChoicebox));
               }
               ngModelCtrl.$render();
             });

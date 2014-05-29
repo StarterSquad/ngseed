@@ -1,13 +1,13 @@
 define([
   'angular',
-  './button-tickbox/index',
+  './button-choicebox/index',
   './header/index',
   './menu/index'
 ], function (angular) {
   'use strict';
 
   return angular.module('app.ui', [
-    'app.ui.button-tickbox',
+    'app.ui.button-choicebox',
     'app.ui.header',
     'app.ui.menu'
   ]);
