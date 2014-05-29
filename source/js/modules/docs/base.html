@@ -31,7 +31,7 @@
 <h4>Grid</h4>
 
 <example>
-  <div class="grid section">
+  <div class="section grid">
     <div class="1"><div class="example-label">1</div></div>
     <div class="1"><div class="example-label">1</div></div>
     <div class="1"><div class="example-label">1</div></div>
@@ -45,23 +45,23 @@
     <div class="1"><div class="example-label">1</div></div>
     <div class="1"><div class="example-label">1</div></div>
   </div>
-  <div class="grid section">
+  <div class="section grid">
     <div class="8"><div class="example-label">8</div></div>
     <div class="4"><div class="example-label">4</div></div>
   </div>
-  <div class="grid section">
+  <div class="section grid">
     <div class="4"><div class="example-label">4</div></div>
     <div class="4"><div class="example-label">4</div></div>
     <div class="4"><div class="example-label">4</div></div>
   </div>
-  <div class="grid section">
+  <div class="section grid">
     <div class="6"><div class="example-label">6</div></div>
     <div class="6"><div class="example-label">6</div></div>
   </div>
 </example>
 
 <example>
-  <div class="grid section">
+  <div class="section grid">
     <div class="4">
       <div class="example-label">4</div>
     </div>
@@ -69,7 +69,7 @@
       <div class="example-label">++4 4</div>
     </div>
   </div>
-  <div class="grid section">
+  <div class="section grid">
     <div class="++3 3 3++">
       <div class="example-label">++3 3 3++</div>
     </div>
@@ -77,7 +77,7 @@
       <div class="example-label">3</div>
     </div>
   </div>
-  <div class="grid section">
+  <div class="section grid">
     <div class="++3 6">
       <div class="example-label">++3 6</div>
     </div>
@@ -168,9 +168,15 @@
 <h3>Button</h3>
 
 <example>
-  <p><button class="btn __xl">Extra large button</button></p>
-  <p><button class="btn __l">Large button</button></p>
-  <p><button class="btn">Default button</button></p>
+  <div class="section">
+    <button class="btn __xl">Extra large button</button>
+  </div>
+  <div class="section">
+    <button class="btn __l">Large button</button>
+  </div>
+  <div class="section">
+    <button class="btn">Default button</button>
+  </div>
 </example>
 
 <h3>Button group</h3>
@@ -226,19 +232,19 @@
 
 <example>
   <form class="form">
-    <div class="grid section">
+    <div class="section grid">
       <label class="form_label 2" for="first_name">First name</label>
       <div class="5">
         <input type="text" class="txbox" id="first_name">
       </div>
     </div>
-    <div class="grid section">
+    <div class="section grid">
       <label class="form_label 2" for="last_name">Last name</label>
       <div class="5">
         <input type="text" class="txbox" id="last_name">
       </div>
     </div>
-    <div class="grid section">
+    <div class="section grid">
       <label class="form_label 2">Date of birth</label>
       <div class="5">
         <select id="month" ng-model="user.dob.month" ng-options="m for m in options.months" class="ng-pristine ng-valid"></select>
@@ -246,7 +252,7 @@
         <select ng-model="user.dob.year" ng-options="y for y in options.years" class="ng-pristine ng-valid"></select>
       </div>
     </div>
-    <div class="grid section">
+    <div class="section grid">
       <label class="form_label 2">Sex</label>
       <div class="5">
         <div class="btn-group">
@@ -255,7 +261,7 @@
         </div>
       </div>
     </div>
-    <div class="grid section">
+    <div class="section grid">
       <div class="++2 5">
         <label class="checkbox-inline">
           <input type="checkbox">
@@ -264,7 +270,7 @@
         </label>
       </div>
     </div>
-    <div class="grid section">
+    <div class="section grid">
       <div class="++2 5">
         <button type="button" class="btn __xl">Proceed</button>
         <i>
@@ -568,20 +574,34 @@
 <h4>Half-space</h4>
 
 <example>
-  <p>100<span class="hs"></span>000</p>
+  <span class="example-label">
+    100<span class="hs"></span>000
+  </span>
 </example>
 
 <h4>Real half-space</h4>
 <example>
-  <p>$<span class="hsr">&nbsp;</span>39.99</p>
+  <span class="example-label">
+    $<span class="hsr">&nbsp;</span>39.99
+  </span>
 </example>
 
 <h4>Small capitals</h4>
 <example>
-  <p>The <abbr class="small-caps">ICAO</abbr> and <abbr class="small-caps">FAA</abbr> use the standard number words of English with four altered pronunciations.</p>
+  <span class="example-label">
+    The <abbr class="small-caps">ICAO</abbr> and <abbr class="small-caps">FAA</abbr>
+    use the standard number words of English with four altered pronunciations.
+  </span>
 </example>
 
 <h4>Hanging punctuation</h4>
 <example>
-  <p style="font-size: 24px"><span class="hldquo">&ldquo;</span>Dr.<span class="hsr"> </span>Grant, my&nbsp;dear Dr.<span class="hsr"> </span>Sattler. Welcome to&nbsp;Jurassic Park.&rdquo; They turn around and look at&nbsp;the view again. It’s a&nbsp;beautiful vista, reminiscent of&nbsp;an&nbsp;African plain. A&nbsp;whole herd of&nbsp;dinosaurus crosses the plain, maybe a&nbsp;hundred that we&nbsp;see in&nbsp;a&nbsp;quick glance alone.<span class="sldquo"> </span><span class="hldquo">&ldquo;</span>Ellie, they’re absolutely&nbsp;&ndash; they’re moving in&nbsp;herds. The do&nbsp;move in&nbsp;herds!&rdquo;</p>
+  <div class="example-label" style="font-size: 24px; text-align: left">
+    <span class="hldquo">“</span>Dr. Grant, my dear Dr. Sattler. Welcome to
+    Jurassic Park.” They turn around and look at the view again. It’s a
+    beautiful vista, reminiscent of an African plain. A whole herd of
+    dinosaurus crosses the plain, maybe a hundred that we see in a quick
+    glance alone.<span class="sldquo"> </span><span class="hldquo">“</span>Ellie,
+    they’re absolutely &ndash; they’re moving in herds. The do move in herds!”
+  </div>
 </example>
