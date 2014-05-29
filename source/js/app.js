@@ -6,6 +6,7 @@ define([
   'angular',
   'ui.router',
   './config',
+  './modules/docs/index',
   './modules/home/index',
   './modules/ui/index'
 ], function (ng) {
@@ -13,6 +14,7 @@ define([
 
   return ng.module('app', [
     'app.constants',
+    'app.docs',
     'app.home',
     'app.ui',
     'ui.router'
