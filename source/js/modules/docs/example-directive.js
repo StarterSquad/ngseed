@@ -24,7 +24,7 @@ define(['angular', './module'], function (angular, module) {
         transclude: true,
         link: function (scope, element) {
           var example = element.children('.example_main').clone();
-          example.find('.ng-scope').removeClass('ng-scope');
+          example.find('.ng-pristine, .ng-scope, .ng-valid').removeClass('ng-pristine ng-scope ng-valid');
           example.find('.example-label').each(function () {
             var item = $(this);
             if (item.children().length > 0) {
