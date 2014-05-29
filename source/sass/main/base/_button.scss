@@ -32,6 +32,11 @@
     padding: 5px 12px;
   }
 
+  &.__l {
+    @include font-height(16px, normal);
+    padding: 9px 16px;
+  }
+
   &.__xl {
     @include font-height(18px, 22px);
     padding: 12px 24px;
