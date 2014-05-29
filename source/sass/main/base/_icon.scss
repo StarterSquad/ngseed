@@ -8,6 +8,11 @@
   display: inline-block;
   line-height: 1;
 
+  .btn > & {
+    margin-left: -4px;
+    vertical-align: top;
+  }
+
   @each $icon in (
   ) {
     $icon-path: "base/icon/#{$icon}.png";
