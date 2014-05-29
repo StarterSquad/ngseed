@@ -13,8 +13,8 @@ $grid-gutter-half: $layout-gutter / 2;
 }
 
 %grid-columns-all {
-
   float: left;
+  min-height: 1px;
 
   @if $grid-gutter-half != 0 {
     padding-left: $grid-gutter-half;
