@@ -14,6 +14,7 @@
   }
 
   @each $icon in (
+    'startersquad'
   ) {
     $icon-path: "base/icon/#{$icon}.png";
     &.__#{$icon} {
