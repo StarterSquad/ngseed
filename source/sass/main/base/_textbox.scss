@@ -1,3 +1,4 @@
+
 // Textbox
 // =======
 
@@ -40,14 +41,23 @@
   }
 }
 
-// 1. Hack for Firefox to hide arrows in select inputs
+//
+// 1. Remove default arrow on WebKit
+// 2. Remove default arrow in Firefox
+// 3. Remove default arrow in IE 10/11
+//
+
 select.txbox {
   background: inline-asset('base/textbox/arrows.svg') no-repeat 100% 50%;
   cursor: default;
   border-radius: 3px;
-  -webkit-appearance: none;
-  text-indent: 0.01px; // 1
-  text-overflow: ""; // 1
+  -webkit-appearance: none; // 1
+  text-indent: 0.01px; // 2
+  text-overflow: ''; // 2
+
+  &::-ms-expand {
+    display: none; // 3
+  }
 }
 
 textarea.txbox {
