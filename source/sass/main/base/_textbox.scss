@@ -40,11 +40,14 @@
   }
 }
 
+// 1. Hack for Firefox to hide arrows in select inputs
 select.txbox {
   background: inline-asset('base/textbox/arrows.svg') no-repeat 100% 50%;
   cursor: default;
   border-radius: 3px;
   -webkit-appearance: none;
+  text-indent: 0.01px; // 1
+  text-overflow: ""; // 1
 }
 
 textarea.txbox {
