@@ -32,6 +32,7 @@
   // ### Colours
 
   &.__white {
+    background: #FFF;
     border-color: #999 #BBB #DDD;
     box-shadow:
       inset 0 1px 1px rgba(#000, 0.1),
@@ -40,7 +41,10 @@
 }
 
 select.txbox {
+  background: inline-asset('base/textbox/arrows.svg') no-repeat 100% 50%;
   cursor: default;
+  border-radius: 3px;
+  -webkit-appearance: none;
 }
 
 textarea.txbox {
