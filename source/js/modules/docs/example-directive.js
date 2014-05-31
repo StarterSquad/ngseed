@@ -1,4 +1,4 @@
-define(['angular', './module'], function (angular, module) {
+define(['angular', 'jquery', './module'], function (angular, $, module) {
 
   return module.directive('example', function () {
 

@@ -6,7 +6,7 @@ define(['angular'], function (angular) {
     .directive('header', function () {
       return {
         restrict: 'C',
-        link: function (scope, element, attrs) {
+        link: function (scope, element) {
           function update () {
             var factor = Math.min(1, window.scrollY / height);
             var padding = 24 - 18 * factor;
@@ -22,7 +22,8 @@ define(['angular'], function (angular) {
             element.find('.header_menu').css({
               marginTop: 9 - 8 * factor
             });
-          };
+          }
+
           var height = element.outerHeight();
           windowElement.bind('scroll', update);
           scope.$on('$destoy', function () {

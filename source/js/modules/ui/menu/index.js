@@ -19,7 +19,7 @@ define(['angular'], function (angular) {
         },
         templateUrl: '/js/modules/ui/menu/menu-item.html',
         transclude: true,
-        link: function (scope, element, attrs) {
+        link: function (scope) {
 
           function update() {
             scope.isCurrent = $state.includes(scope.sref);

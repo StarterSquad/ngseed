@@ -1,7 +1,5 @@
 define(['angular'], function (angular) {
 
-  var windowElement = angular.element(window);
-
   angular.module('app.ui.button-choicebox', [])
     .directive('btnChoicebox', function () {
 
@@ -14,19 +12,21 @@ define(['angular'], function (angular) {
 
           ngModelCtrl.$render = function () {
             if (isCheckbox) {
-              element.toggleClass('__active', ngModelCtrl.$modelValue);
+              var value = ngModelCtrl.$modelValue;
             } else {
-              element.toggleClass('__active', ngModelCtrl.$modelValue === scope.$eval(attrs.btnChoicebox));
+              value = ngModelCtrl.$modelValue === scope.$eval(attrs.btnChoicebox);
             }
+            element.toggleClass('__active', value);
           };
 
           element.bind('click', function () {
             scope.$apply(function () {
               if (isCheckbox) {
-                ngModelCtrl.$setViewValue(element.hasClass('__active'));
+                var value = element.hasClass('__active');
               } else {
-                ngModelCtrl.$setViewValue(scope.$eval(attrs.btnChoicebox));
+                value = scope.$eval(attrs.btnChoicebox);
               }
+              ngModelCtrl.$setViewValue(value);
               ngModelCtrl.$render();
             });
           });
