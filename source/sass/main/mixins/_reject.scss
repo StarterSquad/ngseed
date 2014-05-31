@@ -1,3 +1,6 @@
+// Reject
+// ======
+//
 // Include property only if it's value is not in the list of filters.
 
 @mixin reject($property, $value, $filters) {

@@ -1,5 +1,5 @@
 {
-  "name": "StarterSquad_AngularJS_RequireJS_Seed",
+  "name": "ngseed",
   "description": "Neat combination of Angular & Require intended for bulding complex frontend applications",
   "repository": "git@github.com:StarterSquad/angularjs-requirejs-seed.git",
   "version": "0.0.3",

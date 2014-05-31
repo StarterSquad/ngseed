@@ -2,13 +2,41 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>AngularJS + RequireJS Seed (0.2.1)</title>
+  <title>ngseed (0.2.1)</title>
   <link rel="stylesheet" href="assets/css/main.css?bust=v0.4.0">
 </head>
 <body>
 
+<!-- Header -->
+<div class="header">
+  <div class="wrap">
+    <div class="grid">
+      <div class="3">
+        <i class="header_logo logo"></i>
+      </div>
+      <div class="9">
+        <menu class="header_menu">
+          <menu-i sref="docs.base">Base</menu-i>
+          <menu-i sref="docs.project">Project</menu-i>
+          <menu-i sref="docs.cosmetic">Cosmetic</menu-i>
+          <menu-i sref="docs.functions">Functions</menu-i>
+          <menu-i sref="docs.mixins">Mixins</menu-i>
+        </menu>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="header-push"></div>
+
 <!-- Content -->
-<div data-ui-view></div>
+<div class="section __head __foot wrap">
+  <div class="grid">
+    <div class="3"></div>
+    <div class="9">
+      <div ui-view></div>
+    </div>
+  </div>
+</div>
 
 <!-- Scripts -->
 <script src="vendor/requirejs/require.js"></script>

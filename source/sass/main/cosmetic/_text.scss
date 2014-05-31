@@ -1,0 +1,8 @@
+// Text
+// ====
+
+@include cosmetic('text', 'text-align', left center right justify);
+
+.text-bound {
+  max-width: 48em;
+}

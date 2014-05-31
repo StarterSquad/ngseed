@@ -1,0 +1,25 @@
+// Icon
+// ====
+
+.ic {
+  @include position(relative, 1px none none);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: inline-block;
+  line-height: 1;
+
+  .btn > & {
+    margin-left: -4px;
+    vertical-align: top;
+  }
+
+  @each $icon in (
+    'startersquad'
+  ) {
+    $icon-path: "base/icon/#{$icon}.png";
+    &.__#{$icon} {
+      @include image-size($icon-path);
+      background-image: inline-asset($icon-path);
+    }
+  }
+}

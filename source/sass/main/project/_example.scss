@@ -1,0 +1,44 @@
+.example {
+  @include font-height(13px, 1.1);
+  position: relative;
+
+  &:after {
+    @include position(absolute, 12px none none 10px);
+    color: #CCC;
+    content: 'Example';
+  }
+
+  &_foot {
+    @extend .rich_pre;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: 0;
+  }
+
+  &_main {
+    border-radius: 2px 2px 0 0;
+    border: 1px solid #dadada;
+    padding: 38px 10px 16px;
+
+    > .menu {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+}
+
+.example-label {
+  background: #EEE;
+  border-radius: 2px;
+  color: #999;
+  padding: 8px;
+  text-align: center;
+
+  & & {
+    background: #DDD;
+  }
+}
+
+span.example-label {
+  display: inline-block;
+}

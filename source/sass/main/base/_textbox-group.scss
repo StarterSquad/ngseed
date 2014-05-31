@@ -1,0 +1,101 @@
+// Textbox group
+// =============
+
+.txbox-group {
+  border-collapse: separate;
+  display: table;
+  position: relative;
+  width: 100%;
+
+  &_addon,
+  &_btn,
+  &_txbox {
+    display: table-cell;
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+  }
+
+  &_addon,
+  &_btn {
+    vertical-align: middle;
+    width: 1%;
+  }
+
+  &_addon {
+    @include font-height(13px, 16px);
+    background: linear-gradient(#f5f5f5, #EEE);
+    border-color: #999 #BBB #DDD;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    color: #333;
+    padding: 5px 12px;
+    white-space: nowrap;
+  }
+
+  &_btn {
+    font-size: 0;
+    position: relative;
+    white-space: nowrap;
+
+    > .btn {
+      text-align: left;
+    }
+
+    &:first-child {
+
+      > .btn,
+      > .btn-group {
+        margin-right: -1px;
+      }
+    }
+
+    &:last-child {
+
+      > .btn,
+      > .btn-group {
+        margin-left: -1px;
+      }
+    }
+  }
+
+  &_txbox {
+    position: relative;
+
+    &:focus {
+      z-index: 2;
+    }
+  }
+
+  // Rounding
+
+  &_addon:first-child,
+  &_btn:first-child > .btn,
+  &_btn:first-child > .btn-group > .btn,
+  &_btn:last-child > .btn:not(:last-child):not(.dropdown_toggle),
+  &_btn:last-child > .btn-group:not(:last-child) > .btn,
+  &_txbox:first-child {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &_addon:first-child {
+    border-right: 0;
+  }
+
+  &_addon:last-child,
+  &_btn:last-child > .btn,
+  &_btn:last-child > .btn-group > .btn,
+  &_btn:first-child > .btn:not(:first-child),
+  &_btn:first-child > .btn-group:not(:first-child) > .btn,
+  &_txbox:last-child {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  &_addon:last-child {
+    border-left: 0;
+  }
+}

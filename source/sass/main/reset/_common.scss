@@ -1,0 +1,28 @@
+// Common
+// ======
+//
+// Optionated defaults.
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+html {
+  font: 13px/1.4 sans-serif;
+  overflow-y: scroll;
+}
+
+// Remove text-shadow in selection highlight: h5bp.com/i
+// The rest of styles matches ones Chrome has set by default.
+
+::selection {
+  background: rgba(#0073ff, 0.8);
+  color: #FFF;
+  text-shadow: none;
+}
+
+label[for] {
+  cursor: pointer;
+}

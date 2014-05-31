@@ -1,0 +1,65 @@
+
+// Textbox
+// =======
+
+.txbox {
+  @extend .txbox.__m, .txbox.__white;
+  border-style: solid;
+  border-width: 1px;
+  cursor: text;
+  display: block;
+  transition: 0.33s opacity;
+  width: 100%;
+
+  &:focus {
+    box-shadow: 0 0 6px 2px rgba($color-yellow, 0.7);
+    outline: 0;
+  }
+
+  &.__invalid:not(:focus) {
+    color: $color-red;
+  }
+
+  // Modifiers
+  // ---------
+
+  // ### Sizes
+
+  &.__m {
+    @include font-height(13px, 16px);
+    padding: 5px 10px;
+  }
+
+  // ### Colours
+
+  &.__white {
+    background: #FFF;
+    border-color: #999 #BBB #DDD;
+    box-shadow:
+      inset 0 1px 1px rgba(#000, 0.1),
+      0 1px 0 rgba(#FFF, 0.2);
+  }
+}
+
+//
+// 1. Remove default arrow on WebKit
+// 2. Remove default arrow in Firefox
+// 3. Remove default arrow in IE 10/11
+//
+
+select.txbox {
+  background: inline-asset('base/textbox/arrows.svg') no-repeat 100% 50%;
+  cursor: default;
+  border-radius: 3px;
+  -webkit-appearance: none; // 1
+  text-indent: 0.01px; // 2
+  text-overflow: ''; // 2
+
+  &::-ms-expand {
+    display: none; // 3
+  }
+}
+
+textarea.txbox {
+  resize: none;
+}

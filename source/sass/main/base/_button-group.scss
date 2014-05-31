@@ -1,0 +1,30 @@
+.btn-group {
+  display: inline-block;
+
+  > .btn {
+    float: left;
+    position: relative;
+
+    &:first-child:not(:last-child) {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+
+    &:last-child:not(:first-child) {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    &:focus {
+      z-index: 1;
+    }
+  }
+}

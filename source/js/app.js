@@ -6,13 +6,17 @@ define([
   'angular',
   'ui.router',
   './config',
-  './modules/home/index'
+  './modules/docs/index',
+  './modules/home/index',
+  './modules/ui/index'
 ], function (ng) {
   'use strict';
 
   return ng.module('app', [
     'app.constants',
+    'app.docs',
     'app.home',
+    'app.ui',
     'ui.router'
   ]).config(['$urlRouterProvider', function ($urlRouterProvider) {
     $urlRouterProvider.otherwise('/');

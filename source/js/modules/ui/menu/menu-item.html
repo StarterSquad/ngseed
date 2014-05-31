@@ -1,0 +1,6 @@
+<li class="menu_i" ng-class="{__current: isCurrent}">
+  <a class="menu_i_inner link __black __complex" ng-if="isLink" ui-sref="{{sref}}">
+    <u class="link_u" ng-transclude></u>
+  </a>
+  <span class="menu_i_inner" ng-if="!isLink" ng-transclude></span>
+</li>

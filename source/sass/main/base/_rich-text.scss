@@ -1,0 +1,120 @@
+// Rich-text
+// =========
+
+.rich {}
+
+// Headings
+// --------
+
+@include rich-selector(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.1;
+  margin: 36px 0 12px;
+}
+
+.rich:first-child h1:first-child,
+.rich:first-child h2:first-child,
+.rich:first-child h3:first-child,
+.rich:first-child h4:first-child,
+.rich:first-child h5:first-child,
+.rich:first-child h6:first-child,
+.rich_h1:first-child,
+.rich_h2:first-child,
+.rich_h3:first-child,
+.rich_h4:first-child,
+.rich_h5:first-child,
+.rich_h6:first-child {
+  margin-top: 0;
+}
+
+@include rich-selector(h1) {
+  font-size: 38px;
+}
+
+@include rich-selector(h2) {
+  font-size: 30px;
+}
+
+@include rich-selector(h3) {
+  font-size: 24px;
+}
+
+@include rich-selector(h4, h5, h6) {
+  font-size: 18px;
+}
+
+// Block elements
+// --------------
+
+@include rich-selector(p, blockquote, ul, ol, pre) {
+  margin: 0 0 12px;
+}
+
+@include rich-selector(blockquote) {
+  border-left: 4px solid #999;
+  color: #999;
+  margin: 0 0 12px;
+  padding-left: 12px;
+}
+
+@include rich-selector(ul, ol) {
+  padding-left: 36px;
+}
+
+@include rich-selector(ul) {
+  list-style: square;
+}
+
+@include rich-selector(li) {
+  margin-bottom: 4px;
+}
+
+.rich li ol,
+.rich li ul,
+.rich_li .rich_ol,
+.rich_li .rich_ul {
+  margin-top: 4px;
+  padding-left: 24px;
+}
+
+// Code
+// ----
+
+@include rich-selector(code, pre) {
+  background: #f8f8f8;
+  border-radius: 2px;
+  border: 1px solid #dadada;
+  color: #666;
+  font-family: $consolas;
+}
+
+@include rich-selector(code) {
+  font-size: 85%;
+  padding: 1px 2px;
+}
+
+@include rich-selector(pre) {
+  font-size: 12px;
+  overflow: auto;
+  padding: 6px 10px;
+  white-space: pre;
+}
+
+// Misc.
+// ----
+
+@include rich-selector(a) {
+  @extend .link, .link.__blue;
+}
+
+@include rich-selector(img) {
+  display: block;
+  max-width: 100%;
+}
+
+@include rich-selector(hr) {
+  border-color: #dadada;
+  border-style: solid;
+  border-width: 2px 0 0;
+  margin: 36px auto;
+  width: 15%;
+}

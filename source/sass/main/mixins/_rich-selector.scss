@@ -1,0 +1,23 @@
+// Rich selector
+// =============
+
+$rich-selector-id: 0;
+
+@mixin rich-selector($elements...) {
+
+  $rich-placeholder: unquote('%rich-placeholder-#{ $rich-selector-id }');
+
+  #{ $rich-placeholder } {
+    @content;
+  }
+
+  @each $elem in $elements {
+
+    .rich #{ $elem },
+    .rich_#{ $elem } {
+      @extend #{ $rich-placeholder } !optional;
+    }
+  }
+
+  $rich-selector-id: ($rich-selector-id + 1) !global;
+}

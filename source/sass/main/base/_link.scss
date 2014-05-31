@@ -1,0 +1,67 @@
+// Link
+// ====
+
+.link {
+  cursor: pointer;
+}
+
+.link,
+.link_u {
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  text-decoration: none;
+}
+
+// Modifiers
+// ---------
+
+.link {
+  @extend .link.__blue;
+
+  // ### Colors
+
+  &.__black,
+  &.__blue {
+
+    &:hover {
+      @include link-color($color-red);
+    }
+  }
+
+  &.__black{
+    @include link-color(#000);
+  }
+
+  &.__blue {
+    @include link-color($color-blue);
+  }
+
+  &.__white {
+    @include link-color(rgba(#FFF, 0.9));
+
+    &:hover {
+      @include link-color(#FFF);
+    }
+  }
+
+  // ### Styles
+  // These are left empty and exist here only for reference.
+  // Declarations are fully stated in the `link-color` mixin.
+
+  &.__dashed {}
+
+  // ### Complex link
+
+  &.__complex {
+    background-image: none !important;
+
+    // ### Expanded link
+
+    &.__expanded {
+      margin-bottom: -12px;
+      margin-top: -12px;
+      padding-bottom: 12px;
+      padding-top: 12px;
+    }
+  }
+}

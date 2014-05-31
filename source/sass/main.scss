@@ -3,12 +3,9 @@
 @import 'main/functions';
 @import 'main/mixins';
 
-// HTML5-ready alternative to CSS resets
-// http://necolas.github.io/normalize.css/
-@import 'main/normalize';
-
 // MCSS layers
 // http://operatino.github.io/MCSS/en/
+@import 'main/reset';
 @import 'main/base';
 @import 'main/project';
 @import 'main/cosmetic';
