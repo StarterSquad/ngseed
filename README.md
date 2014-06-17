@@ -1,5 +1,7 @@
-Angularjs Requirejs Seed
-========================
+ngseed
+======
+
+AngularJS/RequireJS seed project.
 
 Installation
 ------------
@@ -97,5 +99,5 @@ Checkout [Protractor docs](https://github.com/angular/protractor/blob/master/doc
 
 ## Future Releases
 
-You can checkout planned new features on the [Trello Board](https://trello.com/b/XXevXg3l/angular-require-seed).
+You can checkout planned new features on the [Trello Board](https://trello.com/b/XXevXg3l/ngseed).
 Also feel free to create feature requests on github issues.
