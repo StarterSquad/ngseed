@@ -9,6 +9,7 @@
     "event-stream": "latest",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
+    "gulp-gh-pages": "^0.3.2",
     "gulp-karma": "latest",
     "gulp-livereload": "latest",
     "gulp-protractor": "latest",

@@ -1,5 +1,6 @@
 var _ = require('underscore');
 var autoprefix = require('gulp-autoprefixer');
+var deploy = require('gulp-gh-pages');
 var es = require('event-stream');
 var gulp = require('gulp');
 var karma = require('gulp-karma');
@@ -80,6 +81,12 @@ gulp.task('copy', ['sass'], function () {
       .pipe(uglify().on('error', handleError))
       .pipe(gulp.dest('build/vendor/requirejs-domready'))
   );
+});
+
+// Publish to GitHub Pages
+gulp.task('gh-pages', ['js', 'copy'], function () {
+  return gulp.src("./build/**/*")
+    .pipe(deploy());
 });
 
 // JavaScript
