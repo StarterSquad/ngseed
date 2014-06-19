@@ -1,7 +1,7 @@
 ngseed
 ======
 
-AngularJS/RequireJS seed project.
+AngularJS/RequireJS seed project. [Documentation](https://github.com/StarterSquad/ngseed/wiki)
 
 Installation
 ------------
