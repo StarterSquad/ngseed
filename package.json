@@ -28,7 +28,6 @@
     "karma-requirejs": "latest",
     "karma-script-launcher": "latest",
     "protractor": "latest",
-    "tiny-lr": "latest",
     "underscore": "latest"
   }
 }

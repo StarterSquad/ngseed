@@ -5,7 +5,6 @@ var es = require('event-stream');
 var gulp = require('gulp');
 var karma = require('gulp-karma');
 var livereload = require('gulp-livereload');
-var lr = require('tiny-lr');
 var protractor = require('gulp-protractor').protractor;
 var replace = require('gulp-replace');
 var rjs = require('gulp-requirejs');
@@ -18,8 +17,6 @@ var handleError = function (err) {
   console.log(err.name, ' in ', err.plugin, ': ', err.message);
   this.emit('end');
 };
-
-var server = lr();
 
 // Bump version
 gulp.task('bump-version', function () {
@@ -103,8 +100,7 @@ gulp.task('js', function () {
   return gulp.src(['source/js/main.js'])
     .pipe(rjs(config).on('error', handleError))
     .pipe(uglify().on('error', handleError))
-    .pipe(gulp.dest('build/js/'))
-    .pipe(livereload(server));
+    .pipe(gulp.dest('build/js/'));
 });
 
 // Karma
@@ -137,7 +133,7 @@ gulp.task('sass', function () {
     }).on('error', handleError))
     .pipe(autoprefix().on('error', handleError))
     .pipe(gulp.dest('source/assets/css'))
-    .pipe(livereload(server));
+    .pipe(livereload());
 });
 
 // Protractor
@@ -160,18 +156,13 @@ gulp.task('watch', ['sass', 'karma'], function () {
   });
 
   // enable Livereload
-  server.listen(35729, function (err) {
-    if (err) {
-      return console.log(err);
-    }
-
-    gulp.watch([
-      'source/assets/*.css',
-      'source/index.html',
-      'source/js/**/*',
-      '!source/js/**/*.spec.js'
-    ]);
-  });
+  livereload.listen();
+  gulp.watch([
+    'source/assets/*.css',
+    'source/index.html',
+    'source/js/**/*',
+    '!source/js/**/*.spec.js'
+  ]).on('change', livereload.changed);
 });
 
 gulp.task('default', ['js', 'copy', 'karma-ci', 'protractor-ci']);
