@@ -1,11 +1,10 @@
 /**
  * Home controller definition
- * @scope Controllers
  */
-define(['./module'], function (controllers) {
+define(['./module'], function (module) {
   'use strict';
 
-  controllers.controller('HomeController', ['$scope', function ($scope) {
+  module.controller('HomeController', ['$scope', function ($scope) {
     $scope.twoTimesTwo = 2 * 2;
   }]);
 });
