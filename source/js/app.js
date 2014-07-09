@@ -1,6 +1,6 @@
 /**
- * loads sub modules and wraps them up into the main module
- * this should be used for top-level module definitions only
+ * loads sub modules and wraps them up into the main module.
+ * This should be used for top-level module definitions only.
  */
 define([
   'angular',
@@ -9,10 +9,10 @@ define([
   './modules/docs/index',
   './modules/home/index',
   './modules/ui/index'
-], function (ng) {
+], function (angular) {
   'use strict';
 
-  return ng.module('app', [
+  return angular.module('app', [
     'app.constants',
     'app.docs',
     'app.home',

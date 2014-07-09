@@ -1,5 +1,4 @@
 /**
- * Loader, contains list of Controllers module components
+ * Loader, contains list of Home module components
  */
-define(['./home-ctrl'], function () {
-});
+define(['./home-ctrl'], function () {});

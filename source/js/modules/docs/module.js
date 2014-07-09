@@ -2,10 +2,10 @@ define([
   'angular',
   'ui.router',
   '../../config'
-], function (ng) {
+], function (angular) {
   'use strict';
 
-  return ng.module('app.docs', [
+  return angular.module('app.docs', [
     'app.constants',
     'ui.router'
   ]).config(['$stateProvider', function ($stateProvider) {

@@ -1,8 +1,8 @@
 ﻿/**
- * defines constants for application
+ * Defines constants for application
  */
-define(['angular'], function (ng) {
+define(['angular'], function (angular) {
   'use strict';
-  return ng.module('app.constants', [])
+  return angular.module('app.constants', [])
     .constant('CONFIG', {});
 });
