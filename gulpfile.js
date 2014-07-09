@@ -11,7 +11,7 @@ var rjs = require('gulp-requirejs');
 var sass = require('gulp-ruby-sass');
 var spawn = require('child_process').spawn;
 var uglify = require('gulp-uglify');
-var webdriver = require('gulp-protractor').webdriver;
+var webdriver = require('gulp-protractor').webdriver_standalone;
 
 var handleError = function (err) {
   console.log(err.name, ' in ', err.plugin, ': ', err.message);
@@ -165,4 +165,7 @@ gulp.task('watch', ['sass', 'karma'], function () {
   ]).on('change', livereload.changed);
 });
 
-gulp.task('default', ['js', 'copy', 'karma-ci', 'protractor-ci']);
+gulp.task('default', ['js', 'copy'], function () {
+  gulp.run('karma-ci');
+  gulp.run('protractor-ci');
+});
