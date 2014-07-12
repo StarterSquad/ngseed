@@ -132,8 +132,7 @@ gulp.task('sass', function () {
       style: 'compressed'
     }).on('error', handleError))
     .pipe(autoprefix().on('error', handleError))
-    .pipe(gulp.dest('source/assets/css'))
-    .pipe(livereload());
+    .pipe(gulp.dest('source/assets/css'));
 });
 
 // Protractor
