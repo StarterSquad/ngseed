@@ -95,7 +95,7 @@ gulp.task('js', function () {
     name: 'main',
     wrap: true
   };
-  var config = _(configBuild).extend(configRequire);
+  var config = _(configRequire).extend(configBuild);
 
   return gulp.src(['source/js/main.js'])
     .pipe(rjs(config).on('error', handleError))
