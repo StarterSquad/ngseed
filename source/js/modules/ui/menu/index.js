@@ -17,7 +17,7 @@ define(['angular'], function (angular) {
         scope: {
           sref: '@'
         },
-        templateUrl: '/js/modules/ui/menu/menu-item.html',
+        templateUrl: 'js/modules/ui/menu/menu-item.html',
         transclude: true,
         link: function (scope) {
 

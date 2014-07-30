@@ -20,7 +20,7 @@ define(['angular', 'jquery', './module'], function (angular, $, module) {
         replace: true,
         restrict: 'E',
         scope: true,
-        templateUrl: '/js/modules/docs/example-directive.html',
+        templateUrl: 'js/modules/docs/example-directive.html',
         transclude: true,
         link: function (scope, element) {
           var example = element.children('.example_main').clone();

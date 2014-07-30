@@ -26,21 +26,21 @@ require(['base/source/js/config-require'], function (config) {
   'use strict';
 
   // improve config
-  config.baseUrl = 'base/';
+  config.baseUrl = 'base/source';
   config.deps = window.tests;
   config.callback = window.__karma__.start;
 
   // adapt paths to work with built app
   for (var i in config.paths) {
-    config.paths[i] = config.paths[i].replace('../vendor', './source/vendor');
+    config.paths[i] = config.paths[i].replace('../vendor', './vendor');
   }
 
   // add config for test dependencies
-  config.paths['angular-mocks'] = './source/vendor/angular-mocks/angular-mocks';
+  config.paths['angular-mocks'] = './vendor/angular-mocks/angular-mocks';
   config.shim['angular-mocks'] = ['angular'];
 
   // alias
-  config.paths['Source'] = './source/js';
+  config.paths['Source'] = './js';
 
   // apply config to require
   window.require.config(config);

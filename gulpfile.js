@@ -90,12 +90,12 @@ gulp.task('gh-pages', ['js', 'copy'], function () {
 gulp.task('js', function () {
   var configRequire = require('./source/js/config-require.js');
   var configBuild = {
-    baseUrl: 'source/js',
-    insertRequire: ['main'],
-    name: 'main',
+    baseUrl: 'source',
+    insertRequire: ['js/main'],
+    name: 'js/main',
     wrap: true
   };
-  var config = _(configBuild).extend(configRequire);
+  var config = _(configRequire).extend(configBuild);
 
   return gulp.src(['source/js/main.js'])
     .pipe(rjs(config).on('error', handleError))
