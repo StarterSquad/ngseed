@@ -21,7 +21,7 @@
     if (deps instanceof Array && typeof callback == "function") {
       for (var i = 0; i < deps.length; i++) {
         if (isAppFile.test(deps[i])) {
-          deps[i] = deps[i].replace('Source/', '');
+          deps[i] = deps[i].replace('Source/', 'js/');
         }
       }
     }
@@ -64,8 +64,8 @@ require(['base/source/js/config-require'], function (config) {
   'use strict';
 
   // improve config
-  config.baseUrl = 'base/';
-  config.deps = ['require', './build/js/main'];
+  config.baseUrl = 'base/build/';
+  config.deps = ['require', './js/main'];
 
   config.callback = function (require) {
     // to ensure that source is already loaded before tests are tried to run
@@ -79,11 +79,11 @@ require(['base/source/js/config-require'], function (config) {
 
   // adapt paths to work with built app
   for (var i in config.paths) {
-    config.paths[i] = config.paths[i].replace('../vendor', './build/vendor');
+    config.paths[i] = config.paths[i].replace('../vendor', './vendor');
   }
 
   // add config for test dependencies
-  config.paths['angular-mocks'] = './build/vendor/angular-mocks/angular-mocks';
+  config.paths['angular-mocks'] = './vendor/angular-mocks/angular-mocks';
   config.shim['angular-mocks'] = ['angular'];
 
   // apply config to require
