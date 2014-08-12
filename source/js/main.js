@@ -3,17 +3,14 @@
  * NOTE: the ng-app attribute should not be on the index.html when using ng.bootstrap
  */
 define([
-  'require',
   'angular',
   './app'
-], function (require, angular) {
+], function (angular) {
   'use strict';
 
   // You can place operations that need to initialize prior to app start here
   // using the `run` function on the top-level module
 
-  require(['domReady!'], function (document) {
-    // everything is loaded...go!
-    angular.bootstrap(document, ['app']);
-  });
+  // as script is at the very bottom of the page no waiting for domReady
+  angular.bootstrap(document, ['app']);
 });

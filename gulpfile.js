@@ -72,11 +72,7 @@ gulp.task('copy', ['sass'], function () {
     // minify requirejs
     gulp.src(['build/vendor/requirejs/require.js'])
       .pipe(uglify().on('error', handleError))
-      .pipe(gulp.dest('build/vendor/requirejs')),
-    // minify domReady
-    gulp.src(['build/vendor/requirejs-domready/domReady.js'])
-      .pipe(uglify().on('error', handleError))
-      .pipe(gulp.dest('build/vendor/requirejs-domready'))
+      .pipe(gulp.dest('build/vendor/requirejs'))
   );
 });
 
