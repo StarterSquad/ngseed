@@ -146,6 +146,9 @@ gulp.task('webdriver', webdriver);
 
 // Watch
 gulp.task('watch', ['sass', 'karma'], function () {
+  gulp.run('sass');
+  gulp.run('karma');
+
   gulp.watch('source/sass/**/*.scss', function () {
     gulp.run('sass');
   });
