@@ -8,13 +8,36 @@ define([
   return angular.module('app.home', [
     'app.constants',
     'ui.router'
-  ]).config(['$stateProvider', function ($stateProvider) {
+  ]).config(function ($stateProvider) {
     $stateProvider
       .state('home', {
         url: '/',
         templateUrl: 'js/modules/home/home.html',
-        controller: 'HomeController'
+        controller: function ($scope, $inject, $modal, UserManager) {
+          $modal.open({
+            template: 'template',
+            controller: function ($scope) {
+              console.log($scope);
+            },
+            resolve: {
+              foo: function ($stateParams) {
+                return $stateParams;
+              },
+              bar: function (someService) {
+                return someService;
+              }
+            }
+          })
+        },
+        resolve: {
+          foo: function ($stateParams) {
+            return $stateParams;
+          },
+          bar: function (someService) {
+            return someService;
+          }
+        }
       });
-  }]);
+  });
 
 });

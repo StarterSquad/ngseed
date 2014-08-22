@@ -8,7 +8,7 @@ define([
   return angular.module('app.docs', [
     'app.constants',
     'ui.router'
-  ]).config(['$stateProvider', function ($stateProvider) {
+  ]).config(function ($stateProvider) {
     $stateProvider
       .state('docs', {
         abstract: true,
@@ -34,6 +34,6 @@ define([
         url: '/mixins',
         templateUrl: 'js/modules/docs/mixins.html'
       })
-  }]);
+  });
 
 });

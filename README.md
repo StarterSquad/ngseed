@@ -61,6 +61,11 @@ To make development faster and more automated there are several Gulp tasks avail
 * `gulp watch`
 
   Listens to changes to stylesheets and scripts and reloads browser page during development.
+  
+Code style
+----------
+
+To make code prone to minification [ng-annotate](https://github.com/olov/ng-annotate) module is used.
 
 Vendor update
 -------------

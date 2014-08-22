@@ -5,6 +5,7 @@ var es = require('event-stream');
 var gulp = require('gulp');
 var karma = require('gulp-karma');
 var livereload = require('gulp-livereload');
+var ngAnnotate = require('gulp-ng-annotate');
 var protractor = require('gulp-protractor').protractor;
 var replace = require('gulp-replace');
 var rjs = require('gulp-requirejs');
@@ -89,12 +90,14 @@ gulp.task('js', function () {
     baseUrl: 'source',
     insertRequire: ['js/main'],
     name: 'js/main',
+    optimize: 'none',
     wrap: true
   };
   var config = _(configRequire).extend(configBuild);
 
   return gulp.src(['source/js/main.js'])
     .pipe(rjs(config).on('error', handleError))
+    .pipe(ngAnnotate())
     .pipe(uglify().on('error', handleError))
     .pipe(gulp.dest('build/js/'));
 });

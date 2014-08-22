@@ -18,8 +18,8 @@ define([
     'app.home',
     'app.ui',
     'ui.router'
-  ]).config(['$urlRouterProvider', function ($urlRouterProvider) {
+  ]).config(function ($urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
-  }]);
+  });
 
 });

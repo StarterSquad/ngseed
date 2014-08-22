@@ -10,7 +10,7 @@ define(['angular'], function (angular) {
       };
     })
 
-    .directive('menuI', ['$state', function ($state) {
+    .directive('menuI', function ($state) {
       return {
         replace: true,
         restrict: 'E',
@@ -30,5 +30,5 @@ define(['angular'], function (angular) {
           update();
         }
       };
-    }]);
+    });
 });

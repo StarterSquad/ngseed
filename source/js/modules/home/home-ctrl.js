@@ -4,7 +4,7 @@
 define(['./module'], function (module) {
   'use strict';
 
-  module.controller('HomeController', ['$scope', function ($scope) {
+  module.controller('HomeController', function ($scope) {
     $scope.twoTimesTwo = 2 * 2;
-  }]);
+  });
 });

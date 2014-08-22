@@ -1,7 +1,7 @@
 define(['./module'], function (module) {
   'use strict';
 
-  module.controller('ExampleController', ['$scope', function ($scope) {
+  module.controller('ExampleController', function ($scope) {
 
     $scope.options = {
       days: Array.apply(null, Array(30)).map(function (item, i) { return i + 1; }),
@@ -12,5 +12,5 @@ define(['./module'], function (module) {
     $scope.user = {
       sex: 'woman'
     };
-  }]);
+  });
 });
