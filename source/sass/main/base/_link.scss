@@ -7,8 +7,6 @@
 
 .link,
 .link_u {
-  background-position: 0 100%;
-  background-repeat: repeat-x;
   text-decoration: none;
 }
 
@@ -53,7 +51,7 @@
   // ### Complex link
 
   &.__complex {
-    background-image: none !important;
+    border-bottom: 0 !important;
 
     // ### Expanded link
 
