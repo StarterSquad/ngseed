@@ -1,4 +1,0 @@
-base_path: '.'
-asset_paths:
-  - 'source/assets/fonts/'
-  - 'source/assets/images/'
