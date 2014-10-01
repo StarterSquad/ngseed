@@ -5,12 +5,12 @@
 
   &,
   & .link_u {
-    background-image: inline-stroke(rgba($color, 0.2));
+    border-bottom: 1px solid rgba($color, 0.2);
     color: $color;
   }
 
   &.__dashed,
   &.__dashed .link_u {
-    background-image: inline-stroke(rgba($color, 0.2), 3px);
+    border-bottom: 1px dashed rgba($color, 0.2);
   }
 }

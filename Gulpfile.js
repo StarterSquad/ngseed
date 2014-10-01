@@ -125,7 +125,7 @@ gulp.task('sass', function () {
     .pipe(sass({
       bundleExec: true,
       require: [
-        './source/sass/sass_extensions.rb',
+        'arkush/extensions',
         'sass-globbing'
       ],
       style: 'compressed'

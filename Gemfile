@@ -1,8 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'chunky_png'
-gem 'cssesc'
-gem 'dimensions'
-gem 'mime-types'
-gem 'sass'
-gem 'sass-globbing'
+gem 'arkush-extensions'
+gem 'sass-globbing', '1.1.0'

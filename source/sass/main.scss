@@ -1,6 +1,14 @@
+@import 'arkush';
+@include configure(
+  $base-path: 'source/',
+  $load-path: (
+    'assets/fonts/',
+    'assets/images/',
+  )
+);
+
 // Meta
 @import 'main/variables';
-@import 'main/functions';
 @import 'main/mixins';
 
 // MCSS layers
