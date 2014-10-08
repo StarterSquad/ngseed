@@ -1,4 +1,4 @@
-@import 'arkush';
+@import 'arkush/extensions';
 @include configure(
   $base-path: 'source/',
   $load-path: (
