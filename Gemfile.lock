@@ -7,12 +7,11 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    arkush-extensions (0.9.1)
+    arkush-extensions (0.9.2)
       cssesc
       dimensions
       mime-types
       sass
-      therubyracer
     cssesc (0.1.0)
       activesupport
       cssesc-source
@@ -22,16 +21,11 @@ GEM
     execjs (2.2.1)
     i18n (0.6.11)
     json (1.8.1)
-    libv8 (3.16.14.7)
-    mime-types (2.3)
+    mime-types (2.4.1)
     minitest (5.4.2)
-    ref (1.0.5)
     sass (3.4.5)
     sass-globbing (1.1.0)
       sass (>= 3.1)
-    therubyracer (0.12.1)
-      libv8 (~> 3.16.14.0)
-      ref
     thread_safe (0.3.4)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
