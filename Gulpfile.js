@@ -148,13 +148,10 @@ gulp.task('protractor-ci', function () {
 gulp.task('webdriver', webdriver);
 
 // Watch
-gulp.task('watch', ['sass', 'karma'], function () {
-  gulp.run('sass');
+gulp.task('watch', ['sass'], function () {
   gulp.run('karma');
 
-  gulp.watch('source/sass/**/*.scss', function () {
-    gulp.run('sass');
-  });
+  gulp.watch('source/sass/**/*.scss', ['sass']);
 
   // enable Livereload
   livereload.listen();
