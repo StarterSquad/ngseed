@@ -11,7 +11,7 @@ define([
   ]).config(function ($stateProvider) {
     $stateProvider
       .state('home', {
-        url: '/',
+        url: '/home',
         templateUrl: 'js/modules/home/home.html',
         controller: function ($scope, $inject, $modal, UserManager) {
           $modal.open({

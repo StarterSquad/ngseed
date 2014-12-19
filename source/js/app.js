@@ -19,7 +19,7 @@ define([
     'app.ui',
     'ui.router'
   ]).config(function ($urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/base');
   });
 
 });
