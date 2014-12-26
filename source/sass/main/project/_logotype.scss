@@ -5,7 +5,7 @@
   $svg-height: 24px;
   $svg-width: 77px;
   @extend .logo.__m;
-  background-image: inline-asset('project/logo/logo.svg');
+  background-image: inline('project/logo/logo.svg');
   background-repeat: no-repeat;
   background-size: 100% auto;
   display: inline-block;

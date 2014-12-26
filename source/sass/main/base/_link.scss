@@ -7,6 +7,8 @@
 
 .link,
 .link_u {
+  border-style: solid;
+  border-width: 0 0 1px;
   text-decoration: none;
 }
 
@@ -43,15 +45,15 @@
   }
 
   // ### Styles
-  // These are left empty and exist here only for reference.
-  // Declarations are fully stated in the `link-color` mixin.
 
-  &.__dashed {}
+  &.__dashed {
+    border-style: dashed;
+  }
 
   // ### Complex link
 
   &.__complex {
-    border-bottom: 0 !important;
+    border-width: 0;
 
     // ### Expanded link
 

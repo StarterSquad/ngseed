@@ -1,0 +1,15 @@
+// Size
+// ====
+//
+// Shorthand notation for setting size of an element.
+//
+// The only parameter are space delimited `width` and `height`. If `height`
+// is omitted, it is considered to equal `width`.
+//
+// Dimensions passed as `none` are not being output.
+
+@mixin size($size) {
+  $size: unpack($size, 2);
+  @include reject(width, nth($size, 1), none);
+  @include reject(height, nth($size, 2), none);
+}
