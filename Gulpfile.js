@@ -1,15 +1,17 @@
 var _ = require('underscore');
-var autoprefix = require('gulp-autoprefixer');
+var assets  = require('postcss-assets');
+var autoprefixer = require('autoprefixer-core');
 var deploy = require('gulp-gh-pages');
 var es = require('event-stream');
 var gulp = require('gulp');
 var karma = require('gulp-karma');
 var livereload = require('gulp-livereload');
 var ngAnnotate = require('gulp-ng-annotate');
+var postcss = require('gulp-postcss');
 var protractor = require('gulp-protractor').protractor;
 var replace = require('gulp-replace');
 var rjs = require('gulp-requirejs');
-var sass = require('gulp-ruby-sass');
+var sass = require('gulp-sass');
 var spawn = require('child_process').spawn;
 var uglify = require('gulp-uglify');
 var webdriver = require('gulp-protractor').webdriver_standalone;
@@ -121,16 +123,19 @@ gulp.task('karma-ci', function () {
 
 // Sass
 gulp.task('sass', function () {
+  var processors = [
+    assets({
+      basePath: 'source/',
+      loadPaths: ['assets/fonts/', 'assets/images/']
+    }),
+    autoprefixer
+  ];
+
   return gulp.src(['source/sass/*.scss', '!source/sass/_*.scss'])
     .pipe(sass({
-      bundleExec: true,
-      require: [
-        'arkush/extensions',
-        'sass-globbing'
-      ],
-      style: 'compressed'
+      outputStyle: 'compressed'
     }).on('error', handleError))
-    .pipe(autoprefix().on('error', handleError))
+    .pipe(postcss(processors).on('error', handleError))
     .pipe(gulp.dest('source/assets/css'));
 });
 
