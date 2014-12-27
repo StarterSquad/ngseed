@@ -3,7 +3,8 @@
 // =======
 
 .txbox {
-  @extend .txbox.__m, .txbox.__white;
+  @extend .txbox.__m;
+  @extend .txbox.__white;
   border-style: solid;
   border-width: 1px;
   cursor: text;
@@ -48,7 +49,7 @@
 //
 
 select.txbox {
-  background: inline-asset('base/textbox/arrows.svg') no-repeat 100% 50%;
+  background: inline('base/textbox/arrows.svg') no-repeat 100% 50%;
   cursor: default;
   border-radius: 3px;
   -webkit-appearance: none; // 1

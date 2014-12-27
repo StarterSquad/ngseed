@@ -61,23 +61,7 @@
   <pre>font-size: 12px;
 line-height: 1.62;</pre>
 
-  <h3>hidpi-image($image-path)</h3>
-  <p>Includes <code>background-image</code> and <code>background-size</code> for the named <abbr class="small-caps">HIDPI</abbr> image.</p>
-  <pre>@include hidpi-image('flower-320x160.jpg');</pre>
-  <pre>width: 160px;
-height: 80px;
-background-image: url('/assets/images/flower-320x160.jpg');
-background-size: 160px 80px;</pre>
-
-  <h3>hidpi-inline($image-path)</h3>
-  <p>Embeds <code>background-image</code> and includes <code>background-size</code> for the provided <abbr class="small-caps">HIDPI</abbr> image.</p>
-  <pre>@include hidpi-image('flower-320x160.jpg');</pre>
-  <pre>width: 160px;
-height: 80px;
-background-image: url('data:image/jpg;base64,...');
-background-size: 160px 80px;</pre>
-
-  <h3>image-size($image-path, $factor: 1)</h3>
+  <h3>image-size($image-path, $density: 1)</h3>
   <p>Sets the <code>width</code> and the <code>height</code> of an element to the dimensions of the provided image.</p>
   <p>The second argument is a divisor which is applied onto both dimensions.</p>
   <pre>@include image-size('flower-320x160.jpg');</pre>

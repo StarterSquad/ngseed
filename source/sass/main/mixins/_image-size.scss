@@ -1,0 +1,12 @@
+// Image size
+// ==========
+//
+// Set the `width` and `height` of an element to the dimensions of the named
+// image.
+//
+// The second argument is a divisor which is applied onto both dimensions.
+
+@mixin image-size($image-path, $density: 1) {
+  width: width($image-path, $density);
+  height: height($image-path, $density);
+}

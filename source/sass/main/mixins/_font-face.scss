@@ -1,0 +1,34 @@
+// Allows easier custom fonts integration.
+//
+// ```scss
+// @include font-face('Open Sans', 'OpenSans-BoldItalic', bold, italic);
+// ```
+//
+// ```css
+// @font-face {
+//   font-family: 'Open Sans';
+//   src: url("/assets/fonts/OpenSans-BoldItalic.eot");
+//   src:
+//     url("/assets/fonts/OpenSans-BoldItalic.eot?#iefix") format('embedded-opentype'),
+//     url("/assets/fonts/OpenSans-BoldItalic.woff") format('woff'),
+//     url("/assets/fonts/OpenSans-BoldItalic.ttf") format('truetype'),
+//     url("/assets/fonts/OpenSans-BoldItalic.svg#Open+Sans") format('svg');
+//   font-weight: bold;
+//   font-style: italic;
+// }
+// ```
+
+@mixin font-face($family, $filename, $weight: normal, $style: normal) {
+
+  @font-face {
+    font-family: $family;
+    src: url("#{$filename}.eot");
+    src:
+      url("#{$filename}.eot?#iefix") format('embedded-opentype'),
+      url("#{$filename}.woff") format('woff'),
+      url("#{$filename}.ttf") format('truetype'),
+      url("#{$filename}.svg##{ $family }") format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}

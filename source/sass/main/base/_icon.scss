@@ -19,7 +19,7 @@
     $icon-path: "base/icon/#{$icon}.png";
     &.__#{$icon} {
       @include image-size($icon-path);
-      background-image: inline-asset($icon-path);
+      background-image: inline($icon-path);
     }
   }
 }

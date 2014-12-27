@@ -1,0 +1,9 @@
+// Font height
+// ===========
+//
+// Shorthand notation for setting font metrics of an element.
+
+@mixin font-height($font-size, $line-height) {
+  font-size: $font-size;
+  line-height: $line-height;
+}
