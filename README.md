@@ -19,8 +19,6 @@ Installation
     # to install PhantomJS:
     # http://phantomjs.org/download.html
 
-    # Get Ruby dependencies required to compile styles from Sass:
-    bundle install
 
 [Gulp](http://gulpjs.com/) flows
 ----------
@@ -61,7 +59,7 @@ To make development faster and more automated there are several Gulp tasks avail
 * `gulp watch`
 
   Listens to changes to stylesheets and scripts and reloads browser page during development.
-  
+
 Code style
 ----------
 
