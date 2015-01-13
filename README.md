@@ -32,7 +32,7 @@ To make development faster and more automated there are several Gulp tasks avail
 
 * `gulp bump-version`
 
-  Works with gitglow releases.
+  Works with gitflow releases.
   E.g. when you’re on `release/0.4.4` branch it will update cache beaters to follow version.
 
 * `gulp karma`
@@ -74,7 +74,7 @@ Vendor update
 
 ## Tests
 
-Tests use Jasmin for assertions.
+Tests use Jasmine for assertions.
 
 You can write tests in both Coffee and JS
 (see `/source/js/modules/home/home-ctrl.spec.js` and `/source/js/modules/home/home-ctrl.spec.coffee`).
