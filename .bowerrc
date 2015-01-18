@@ -1,4 +1,6 @@
 {
+  "analytics": false,
   "directory": "source/vendor",
+  "interactive": false,
   "json": "bower.json"
 }
