@@ -9,7 +9,6 @@ var livereload = require('gulp-livereload');
 var ngAnnotate = require('gulp-ng-annotate');
 var postcss = require('gulp-postcss');
 var protractor = require('gulp-protractor').protractor;
-var replace = require('gulp-replace');
 var rjs = require('gulp-requirejs');
 var sass = require('gulp-sass');
 var spawn = require('child_process').spawn;
@@ -18,7 +17,8 @@ var webdriver = require('gulp-protractor').webdriver_standalone;
 
 var handleError = function (err) {
   console.log(err.name, ' in ', err.plugin, ': ', err.message);
-  process.exit(1);
+  console.log(err.getStack());
+  this.emit('end');
 };
 
 // Bump version
