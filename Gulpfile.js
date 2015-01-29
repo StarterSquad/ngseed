@@ -18,7 +18,7 @@ var webdriver = require('gulp-protractor').webdriver_standalone;
 var handleError = function (err) {
   console.log(err.name, ' in ', err.plugin, ': ', err.message);
   console.log(err.getStack());
-  this.emit('end');
+  process.exit(1);
 };
 
 // Bump version
