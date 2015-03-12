@@ -170,5 +170,5 @@ gulp.task('watch', ['sass'], function () {
 
 gulp.task('default', ['js', 'copy'], function () {
   gulp.run('karma-ci');
-  gulp.run('protractor-ci');
+  // gulp.run('protractor-ci');
 });
