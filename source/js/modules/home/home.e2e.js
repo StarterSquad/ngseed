@@ -8,7 +8,8 @@ describe('E2E: Testing App', function () {
 
   describe('Home page', function () {
     it('should set test binding', function () {
-      expect(element(by.css('[ui-view]')).getText()).toEqual("It's as easy as 2 * 2 = 4");
+      // find first h2 on a page
+      expect(element(by.css('h2')).getText()).toEqual('Base layer');
     });
   });
 
