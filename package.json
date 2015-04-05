@@ -34,6 +34,7 @@
     "karma-requirejs": "=0.2.2",
     "karma-script-launcher": "=0.1.0",
     "postcss-assets": "=2.1.0",
+    "postcss-import": "=5.1.0",
     "protractor": "=2.0.0",
     "underscore": "=1.8.3"
   }

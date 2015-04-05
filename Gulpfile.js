@@ -146,6 +146,9 @@ gulp.task('sass', function () {
         basePath: 'source/',
         loadPaths: ['assets/fonts/', 'assets/images/']
       }),
+      require('postcss-import')({
+        path: 'source/'
+      }),
       require('autoprefixer-core'),
       require('csswring')({
         preserveHacks: true,
