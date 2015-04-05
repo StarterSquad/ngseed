@@ -9,6 +9,7 @@
     "autoprefixer-core": "latest",
     "coffee-script": "=1.9.1",
     "csswring": "=3.0.3",
+    "es6-promise": "=2.0.1",
     "event-stream": "=3.3.0",
     "gulp": "=3.8.11",
     "gulp-concat": "=2.5.2",
