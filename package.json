@@ -10,6 +10,7 @@
     "csswring": "=3.0.3",
     "event-stream": "=3.3.0",
     "gulp": "=3.8.11",
+    "gulp-css-globbing": "=0.1.7",
     "gulp-gh-pages": "=0.4.0",
     "gulp-karma": "=0.0.4",
     "gulp-livereload": "=3.8.0",

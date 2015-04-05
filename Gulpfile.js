@@ -131,11 +131,15 @@ gulp.task('karma-ci', function () {
 
 // Sass
 gulp.task('sass', function () {
+  var cssGlobbing = require('gulp-css-globbing');
   var postcss = require('gulp-postcss');
   var sass = require('gulp-sass');
 
   return gulp.src(['source/sass/*.scss', '!source/sass/_*.scss'])
     .pipe(plumber(handleError))
+    .pipe(cssGlobbing({
+      extensions: '.scss'
+    }))
     .pipe(sass())
     .pipe(postcss([
       require('postcss-assets')({
