@@ -84,23 +84,23 @@ gulp.task('gh-pages', ['js', 'copy'], function () {
 // JavaScript
 gulp.task('js', function () {
   var _ = require('underscore');
+  var amdOptimize = require('amd-optimize');
+  var concat = require('gulp-concat');
+  var insert = require('gulp-insert');
   var ngAnnotate = require('gulp-ng-annotate');
-  var rjs = require('gulp-requirejs');
   var uglify = require('gulp-uglify');
 
   var configRequire = require('./source/js/config-require.js');
   var configBuild = {
-    baseUrl: 'source',
-    insertRequire: ['js/main'],
-    name: 'js/main',
-    optimize: 'none',
-    wrap: true
+    baseUrl: 'source'
   };
   var config = _(configRequire).extend(configBuild);
 
   return gulp.src(['source/js/main.js'])
     .pipe(plumber(handleError))
-    .pipe(rjs(config))
+    .pipe(amdOptimize('js/main', config))
+    .pipe(concat('main.js'))
+    .pipe(insert.append(';require(["js/main"]);'))
     .pipe(ngAnnotate())
     .pipe(uglify())
     .pipe(gulp.dest('build/js/'));
