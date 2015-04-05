@@ -131,25 +131,21 @@ gulp.task('karma-ci', function () {
 
 // Sass
 gulp.task('sass', function () {
-  var assets  = require('postcss-assets');
-  var autoprefixer = require('autoprefixer-core');
   var postcss = require('gulp-postcss');
   var sass = require('gulp-sass');
-
-  var processors = [
-    assets({
-      basePath: 'source/',
-      loadPaths: ['assets/fonts/', 'assets/images/']
-    }),
-    autoprefixer
-  ];
 
   return gulp.src(['source/sass/*.scss', '!source/sass/_*.scss'])
     .pipe(plumber(handleError))
     .pipe(sass({
       outputStyle: 'compressed'
     }))
-    .pipe(postcss(processors))
+    .pipe(postcss([
+      require('postcss-assets')({
+        basePath: 'source/',
+        loadPaths: ['assets/fonts/', 'assets/images/']
+      }),
+      require('autoprefixer-core')
+    ]))
     .pipe(gulp.dest('source/assets/css'));
 });
 
