@@ -83,18 +83,14 @@ gulp.task('gh-pages', ['js', 'copy'], function () {
 
 // JavaScript
 gulp.task('js', function () {
-  var _ = require('underscore');
   var amdOptimize = require('amd-optimize');
   var concat = require('gulp-concat');
   var insert = require('gulp-insert');
   var ngAnnotate = require('gulp-ng-annotate');
   var uglify = require('gulp-uglify');
 
-  var configRequire = require('./source/js/config-require.js');
-  var configBuild = {
-    baseUrl: 'source'
-  };
-  var config = _(configRequire).extend(configBuild);
+  var config = require('./source/js/config-require.js');
+  config.baseUrl = 'source';
 
   return gulp.src(['source/js/main.js'])
     .pipe(plumber(handleError))
