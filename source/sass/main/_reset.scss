@@ -1,2 +1,12 @@
 @import '../../vendor/normalize-css/normalize.css';
-@import 'reset/common';
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  font: 13px/1.4 sans-serif;
+  overflow-y: scroll;
+}
