@@ -136,15 +136,17 @@ gulp.task('sass', function () {
 
   return gulp.src(['source/sass/*.scss', '!source/sass/_*.scss'])
     .pipe(plumber(handleError))
-    .pipe(sass({
-      outputStyle: 'compressed'
-    }))
+    .pipe(sass())
     .pipe(postcss([
       require('postcss-assets')({
         basePath: 'source/',
         loadPaths: ['assets/fonts/', 'assets/images/']
       }),
-      require('autoprefixer-core')
+      require('autoprefixer-core'),
+      require('csswring')({
+        preserveHacks: true,
+        removeAllComments: true
+      })
     ]))
     .pipe(gulp.dest('source/assets/css'));
 });
