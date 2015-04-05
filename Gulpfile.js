@@ -1,18 +1,4 @@
-var _ = require('underscore');
-var assets  = require('postcss-assets');
-var autoprefixer = require('autoprefixer-core');
-var deploy = require('gulp-gh-pages');
-var es = require('event-stream');
 var gulp = require('gulp');
-var karma = require('gulp-karma');
-var livereload = require('gulp-livereload');
-var ngAnnotate = require('gulp-ng-annotate');
-var postcss = require('gulp-postcss');
-var protractor = require('gulp-protractor').protractor;
-var rjs = require('gulp-requirejs');
-var sass = require('gulp-sass');
-var spawn = require('child_process').spawn;
-var uglify = require('gulp-uglify');
 var webdriver = require('gulp-protractor').webdriver_standalone;
 
 var handleError = function (err) {
@@ -23,6 +9,8 @@ var handleError = function (err) {
 
 // Bump version
 gulp.task('bump-version', function () {
+  var spawn = require('child_process').spawn;
+
   spawn('git', ['rev-parse', '--abbrev-ref', 'HEAD']).stdout.on('data', function (data) {
 
     // Get current branch name
@@ -55,6 +43,9 @@ gulp.task('bump-version', function () {
 
 // Copy
 gulp.task('copy', ['sass'], function () {
+  var es = require('event-stream');
+  var uglify = require('gulp-uglify');
+
   return es.concat(
     // update index.html to work when built
     gulp.src(['source/index.html'])
@@ -81,12 +72,19 @@ gulp.task('copy', ['sass'], function () {
 
 // Publish to GitHub Pages
 gulp.task('gh-pages', ['js', 'copy'], function () {
+  var deploy = require('gulp-gh-pages');
+
   return gulp.src("./build/**/*")
     .pipe(deploy());
 });
 
 // JavaScript
 gulp.task('js', function () {
+  var _ = require('underscore');
+  var ngAnnotate = require('gulp-ng-annotate');
+  var rjs = require('gulp-requirejs');
+  var uglify = require('gulp-uglify');
+
   var configRequire = require('./source/js/config-require.js');
   var configBuild = {
     baseUrl: 'source',
@@ -106,6 +104,8 @@ gulp.task('js', function () {
 
 // Karma
 gulp.task('karma', function () {
+  var karma = require('gulp-karma');
+
   return gulp.src(['no need to supply files because everything is in config file'])
     .pipe(karma({
       configFile: 'karma.conf.js',
@@ -114,6 +114,8 @@ gulp.task('karma', function () {
 });
 
 gulp.task('karma-ci', function () {
+  var karma = require('gulp-karma');
+
   return gulp.src(['no need to supply files because everything is in config file'])
     .pipe(karma({
       configFile: 'karma-compiled.conf.js',
@@ -123,6 +125,11 @@ gulp.task('karma-ci', function () {
 
 // Sass
 gulp.task('sass', function () {
+  var assets  = require('postcss-assets');
+  var autoprefixer = require('autoprefixer-core');
+  var postcss = require('gulp-postcss');
+  var sass = require('gulp-sass');
+
   var processors = [
     assets({
       basePath: 'source/',
@@ -141,11 +148,15 @@ gulp.task('sass', function () {
 
 // Protractor
 gulp.task('protractor', function () {
+  var protractor = require('gulp-protractor').protractor;
+
   return gulp.src('source/js/**/*.e2e.js')
     .pipe(protractor({ configFile: 'p.conf.js' }));
 });
 
 gulp.task('protractor-ci', function () {
+  var protractor = require('gulp-protractor').protractor;
+
   return gulp.src('source/js/**/*.e2e.js')
     .pipe(protractor({ configFile: 'p-compiled.conf.js' }));
 });
@@ -154,6 +165,8 @@ gulp.task('webdriver', webdriver);
 
 // Watch
 gulp.task('watch', ['sass'], function () {
+  var livereload = require('gulp-livereload');
+
   gulp.run('karma');
 
   gulp.watch('source/sass/**/*.scss', ['sass']);
