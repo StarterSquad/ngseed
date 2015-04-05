@@ -13,7 +13,7 @@
     "gulp-gh-pages": "=0.4.0",
     "gulp-karma": "=0.0.4",
     "gulp-livereload": "=3.8.0",
-    "gulp-postcss": "^4.0.3",
+    "gulp-postcss": "=4.0.3",
     "gulp-protractor": "=0.0.12",
     "gulp-requirejs": "git://github.com/StarterSquad/gulp-requirejs.git",
     "gulp-sass": "=1.3.3",
@@ -28,7 +28,7 @@
     "karma-phantomjs-launcher": "=0.1.4",
     "karma-requirejs": "=0.2.2",
     "karma-script-launcher": "=0.1.0",
-    "postcss-assets": "^2.1.0",
+    "postcss-assets": "=2.1.0",
     "protractor": "=1.8.0",
     "underscore": "=1.8.2"
   }
