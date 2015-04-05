@@ -1,10 +1,11 @@
 var gulp = require('gulp');
+var plumber = require('gulp-plumber');
 var webdriver = require('gulp-protractor').webdriver_standalone;
 
 var handleError = function (err) {
   console.log(err.name, ' in ', err.plugin, ': ', err.message);
   console.log(err.getStack());
-  process.exit(1);
+  this.emit('end');
 };
 
 // Bump version
@@ -52,7 +53,8 @@ gulp.task('copy', ['sass'], function () {
       .pipe(gulp.dest('build')),
     // copy config-require
     gulp.src(['source/js/config-require.js'])
-      .pipe(uglify().on('error', handleError))
+      .pipe(plumber(handleError))
+      .pipe(uglify())
       .pipe(gulp.dest('build/js')),
     // copy template files
     gulp.src(['source/js/**/*.html'])
@@ -65,7 +67,8 @@ gulp.task('copy', ['sass'], function () {
       .pipe(gulp.dest('build/assets')),
     // minify requirejs
     gulp.src(['build/vendor/requirejs/require.js'])
-      .pipe(uglify().on('error', handleError))
+      .pipe(plumber(handleError))
+      .pipe(uglify())
       .pipe(gulp.dest('build/vendor/requirejs'))
   );
 });
@@ -96,9 +99,10 @@ gulp.task('js', function () {
   var config = _(configRequire).extend(configBuild);
 
   return gulp.src(['source/js/main.js'])
-    .pipe(rjs(config).on('error', handleError))
+    .pipe(plumber(handleError))
+    .pipe(rjs(config))
     .pipe(ngAnnotate())
-    .pipe(uglify().on('error', handleError))
+    .pipe(uglify())
     .pipe(gulp.dest('build/js/'));
 });
 
@@ -107,20 +111,22 @@ gulp.task('karma', function () {
   var karma = require('gulp-karma');
 
   return gulp.src(['no need to supply files because everything is in config file'])
+    .pipe(plumber(handleError))
     .pipe(karma({
       configFile: 'karma.conf.js',
       action: 'watch'
-    }).on('error', handleError));
+    }));
 });
 
 gulp.task('karma-ci', function () {
   var karma = require('gulp-karma');
 
   return gulp.src(['no need to supply files because everything is in config file'])
+    .pipe(plumber(handleError))
     .pipe(karma({
       configFile: 'karma-compiled.conf.js',
       action: 'run'
-    }).on('error', handleError));
+    }));
 });
 
 // Sass
@@ -139,10 +145,11 @@ gulp.task('sass', function () {
   ];
 
   return gulp.src(['source/sass/*.scss', '!source/sass/_*.scss'])
+    .pipe(plumber(handleError))
     .pipe(sass({
       outputStyle: 'compressed'
-    }).on('error', handleError))
-    .pipe(postcss(processors).on('error', handleError))
+    }))
+    .pipe(postcss(processors))
     .pipe(gulp.dest('source/assets/css'));
 });
 
