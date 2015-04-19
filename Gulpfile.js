@@ -2,11 +2,7 @@ var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var webdriver = require('gulp-protractor').webdriver_standalone;
 
-var handleError = function (err) {
-  console.log(err.name, ' in ', err.plugin, ': ', err.message);
-  console.log(err.getStack());
-  this.emit('end');
-};
+var handleError;
 
 // Bump version
 gulp.task('bump-version', function () {
@@ -165,6 +161,11 @@ gulp.task('webdriver', webdriver);
 
 // Watch
 gulp.task('watch', ['sass'], function () {
+  handleError = function (err) {
+    console.log(err.name, ' in ', err.plugin, ': ', err.message);
+    console.log(err.getStack());
+    this.emit('end');
+  };
   var livereload = require('gulp-livereload');
 
   gulp.run('karma');
