@@ -73,14 +73,6 @@ gulp.task('copy', ['sass'], function () {
   );
 });
 
-// Publish to GitHub Pages
-gulp.task('gh-pages', ['js', 'copy'], function () {
-  var deploy = require('gulp-gh-pages');
-
-  return gulp.src("./build/**/*")
-    .pipe(deploy());
-});
-
 // JavaScript
 gulp.task('js', function () {
   var amdOptimize = require('amd-optimize');
