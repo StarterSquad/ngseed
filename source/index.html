@@ -39,21 +39,7 @@
 </div>
 
 <!-- Scripts -->
-<script src="vendor/requirejs/require.js"></script>
-<script>
-  // obtain requirejs config
-  require(['require', './js/config-require'], function (require, config) {
-
-    // set cache beater
-    config.urlArgs = 'bust=v0.4.0';
-
-    // update global require config
-    window.require.config(config);
-
-    // load app
-    require(['./js/main.js']);
-  });
-</script>
+<script src="js/main-compiled.js"></script>
 
 </body>
 </html>

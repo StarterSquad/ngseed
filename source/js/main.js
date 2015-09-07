@@ -1,14 +1,14 @@
-/**
- * Bootstraps angular onto the window.document node.
- * NOTE: the ng-app attribute should not be on the index.html when using ng.bootstrap
- */
-define([
-  'angular',
-  './app'
-], function (angular) {
-  // You can place operations that need to initialize prior to app start here
-  // using the `run` function on the top-level module
+require('angular/angular');
 
-  // as script is at the very bottom of the page no waiting for domReady
-  angular.bootstrap(document, ['app']);
-});
+angular.module('app', [
+  require('./constants'),
+  //require('./modules/docs/index'),
+  //require('./modules/home/index'),
+  //require('./modules/ui/index'),
+  require('angular-ui-router')
+])
+  .config(function ($urlRouterProvider) {
+    $urlRouterProvider.otherwise('/base');
+  });
+
+angular.bootstrap(document, ['app']);

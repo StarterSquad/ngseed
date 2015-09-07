@@ -1,14 +1,7 @@
-define([
-  'angular',
-  './button-choicebox/index',
-  './header/index',
-  './menu/index'
-], function (angular) {
+require('angular/angular');
 
-  return angular.module('app.ui', [
-    'app.ui.button-choicebox',
-    'app.ui.header',
-    'app.ui.menu'
-  ]);
-
-});
+module.exports = angular.module('app.ui', [
+  require('./button-choicebox/index'),
+  require('./header/index'),
+  require('./menu/index')
+]);

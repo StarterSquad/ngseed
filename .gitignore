@@ -1,11 +1,9 @@
 *.sublime-*
 .idea
 .sass-cache
-/build
-/coverage
-/selenium
-/source/vendor
 errors.log
 nginx.conf
 node_modules
 test-results-*.xml
+source/js/main-compiled.js
+source/js/main-compiled.js.map

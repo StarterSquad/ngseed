@@ -76,7 +76,7 @@ gulp.task('copy', ['sass'], function () {
 });
 
 // JavaScript
-gulp.task('js', function () {
+/*gulp.task('js', function () {
   var amdOptimize = require('amd-optimize');
   var concat = require('gulp-concat');
   var insert = require('gulp-insert');
@@ -94,6 +94,30 @@ gulp.task('js', function () {
     .pipe(ngAnnotate())
     .pipe(uglify())
     .pipe(gulp.dest('build/js/'));
+});*/
+
+gulp.task('js', function () {
+  const browserify = require('browserify');
+  const source = require('vinyl-source-stream');
+  const buffer = require('vinyl-buffer');
+  const ngAnnotate = require('gulp-ng-annotate');
+  const sourcemaps = require('gulp-sourcemaps');
+  const uglify = require('gulp-uglify');
+
+  return browserify('source/js/main.js', {
+    debug: true
+  })
+    .bundle()
+    //.on('error', handleError)
+    .pipe(source('main-compiled.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({
+      loadMaps: true
+    }))
+    .pipe(ngAnnotate())
+    .pipe(uglify())
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('source/js'));
 });
 
 gulp.task('lint', function () {
