@@ -1,5 +1,5 @@
 describe('E2E: Testing App', function () {
-  "use strict";
+  'use strict';
 
   beforeEach(function () {
     browser.get('/');

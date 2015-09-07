@@ -1,3 +1,5 @@
+/*eslint-disable no-console */
+
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var webdriver = require('gulp-protractor').webdriver_standalone;
@@ -7,6 +9,7 @@ var handleError;
 // Bump version
 gulp.task('bump-version', function () {
   var spawn = require('child_process').spawn;
+  var replace = require('gulp-replace');
 
   spawn('git', ['rev-parse', '--abbrev-ref', 'HEAD']).stdout.on('data', function (data) {
 
@@ -88,6 +91,15 @@ gulp.task('js', function () {
     .pipe(ngAnnotate())
     .pipe(uglify())
     .pipe(gulp.dest('build/js/'));
+});
+
+gulp.task('lint', function () {
+  var eslint = require('gulp-eslint');
+
+  return gulp.src(['Gulpfile.js', 'source/js/**/*.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failOnError());
 });
 
 // Karma

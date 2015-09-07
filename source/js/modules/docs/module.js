@@ -33,7 +33,7 @@ define([
       .state('docs.mixins', {
         url: '/mixins',
         templateUrl: 'js/modules/docs/mixins.html'
-      })
+      });
   });
 
 });

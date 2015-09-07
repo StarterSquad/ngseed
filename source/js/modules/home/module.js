@@ -13,7 +13,7 @@ define([
       .state('home', {
         url: '/home',
         templateUrl: 'js/modules/home/home.html',
-        controller: function ($scope, $inject, $modal, UserManager) {
+        controller: function ($scope, $inject, $modal) {
           $modal.open({
             template: 'template',
             controller: function ($scope) {
@@ -27,7 +27,7 @@ define([
                 return someService;
               }
             }
-          })
+          });
         },
         resolve: {
           foo: function ($stateParams) {
