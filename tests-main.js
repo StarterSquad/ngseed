@@ -23,8 +23,6 @@
 })(this);
 
 require(['base/source/js/config-require'], function (config) {
-  'use strict';
-
   // improve config
   config.baseUrl = 'base/source';
   config.deps = window.tests;

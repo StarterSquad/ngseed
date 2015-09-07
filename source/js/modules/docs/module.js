@@ -3,7 +3,6 @@ define([
   'ui.router',
   '../../config'
 ], function (angular) {
-  'use strict';
 
   return angular.module('app.docs', [
     'app.constants',

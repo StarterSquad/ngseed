@@ -61,8 +61,6 @@
 
 
 require(['base/source/js/config-require'], function (config) {
-  'use strict';
-
   // improve config
   config.baseUrl = 'base/build/';
   config.deps = ['require', './js/main'];

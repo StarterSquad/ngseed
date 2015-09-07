@@ -62,13 +62,13 @@ gulp.task('copy', ['sass'], function () {
     gulp.src(['source/js/**/*.html'])
       .pipe(gulp.dest('build/js')),
     // copy vendor files
-    gulp.src(['source/vendor/**/*'])
+    gulp.src(['source/vendor/**/*', '!source/vendor/requirejs/require.js'])
       .pipe(gulp.dest('build/vendor')),
     // copy assets
     gulp.src(['source/assets/**/*'])
       .pipe(gulp.dest('build/assets')),
     // minify requirejs
-    gulp.src(['build/vendor/requirejs/require.js'])
+    gulp.src(['source/vendor/requirejs/require.js'])
       .pipe(plumber(handleError))
       .pipe(uglify())
       .pipe(gulp.dest('build/vendor/requirejs'))

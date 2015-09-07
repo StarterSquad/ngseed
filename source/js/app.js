@@ -10,7 +10,6 @@ define([
   './modules/home/index',
   './modules/ui/index'
 ], function (angular) {
-  'use strict';
 
   return angular.module('app', [
     'app.constants',
