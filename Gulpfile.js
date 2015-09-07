@@ -169,9 +169,7 @@ gulp.task('sass', function () {
         basePath: 'source/',
         loadPaths: ['assets/fonts/', 'assets/images/']
       }),
-      require('postcss-import')({
-        path: 'source/'
-      }),
+      require('postcss-import'),
       require('autoprefixer'),
       require('csswring')({
         preserveHacks: true,
