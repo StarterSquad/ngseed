@@ -133,7 +133,7 @@ gulp.task('sass', function () {
       require('postcss-import')({
         path: 'source/'
       }),
-      require('autoprefixer-core'),
+      require('autoprefixer'),
       require('csswring')({
         preserveHacks: true,
         removeAllComments: true
