@@ -1,6 +1,4 @@
 define(['./module'], function (module) {
-  'use strict';
-
   module.controller('ExampleController', function ($scope) {
 
     $scope.options = {

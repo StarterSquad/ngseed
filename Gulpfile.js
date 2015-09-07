@@ -1,28 +1,19 @@
-var _ = require('underscore');
-var assets  = require('postcss-assets');
-var autoprefixer = require('autoprefixer-core');
-var deploy = require('gulp-gh-pages');
-var es = require('event-stream');
+/*eslint-disable no-console */
+
+// Promise polyfill needed to run PostCSS on node.js 0.10
+require('es6-promise').polyfill();
+
 var gulp = require('gulp');
-var karma = require('gulp-karma');
-var livereload = require('gulp-livereload');
-var ngAnnotate = require('gulp-ng-annotate');
-var postcss = require('gulp-postcss');
-var protractor = require('gulp-protractor').protractor;
-var rjs = require('gulp-requirejs');
-var sass = require('gulp-sass');
-var spawn = require('child_process').spawn;
-var uglify = require('gulp-uglify');
+var plumber = require('gulp-plumber');
 var webdriver = require('gulp-protractor').webdriver_standalone;
 
-var handleError = function (err) {
-  console.log(err.name, ' in ', err.plugin, ': ', err.message);
-  console.log(err.getStack());
-  process.exit(1);
-};
+var handleError;
 
 // Bump version
 gulp.task('bump-version', function () {
+  var spawn = require('child_process').spawn;
+  var replace = require('gulp-replace');
+
   spawn('git', ['rev-parse', '--abbrev-ref', 'HEAD']).stdout.on('data', function (data) {
 
     // Get current branch name
@@ -55,97 +46,128 @@ gulp.task('bump-version', function () {
 
 // Copy
 gulp.task('copy', ['sass'], function () {
+  var es = require('event-stream');
+  var uglify = require('gulp-uglify');
+
   return es.concat(
     // update index.html to work when built
     gulp.src(['source/index.html'])
       .pipe(gulp.dest('build')),
     // copy config-require
     gulp.src(['source/js/config-require.js'])
-      .pipe(uglify().on('error', handleError))
+      .pipe(plumber(handleError))
+      .pipe(uglify())
       .pipe(gulp.dest('build/js')),
     // copy template files
     gulp.src(['source/js/**/*.html'])
       .pipe(gulp.dest('build/js')),
     // copy vendor files
-    gulp.src(['source/vendor/**/*'])
+    gulp.src(['source/vendor/**/*', '!source/vendor/requirejs/require.js'])
       .pipe(gulp.dest('build/vendor')),
     // copy assets
     gulp.src(['source/assets/**/*'])
       .pipe(gulp.dest('build/assets')),
     // minify requirejs
-    gulp.src(['build/vendor/requirejs/require.js'])
-      .pipe(uglify().on('error', handleError))
+    gulp.src(['source/vendor/requirejs/require.js'])
+      .pipe(plumber(handleError))
+      .pipe(uglify())
       .pipe(gulp.dest('build/vendor/requirejs'))
   );
 });
 
-// Publish to GitHub Pages
-gulp.task('gh-pages', ['js', 'copy'], function () {
-  return gulp.src("./build/**/*")
-    .pipe(deploy());
-});
-
 // JavaScript
 gulp.task('js', function () {
-  var configRequire = require('./source/js/config-require.js');
-  var configBuild = {
-    baseUrl: 'source',
-    insertRequire: ['js/main'],
-    name: 'js/main',
-    optimize: 'none',
-    wrap: true
-  };
-  var config = _(configRequire).extend(configBuild);
+  var amdOptimize = require('amd-optimize');
+  var concat = require('gulp-concat');
+  var insert = require('gulp-insert');
+  var ngAnnotate = require('gulp-ng-annotate');
+  var uglify = require('gulp-uglify');
+
+  var config = require('./source/js/config-require.js');
+  config.baseUrl = 'source';
 
   return gulp.src(['source/js/main.js'])
-    .pipe(rjs(config).on('error', handleError))
+    .pipe(plumber(handleError))
+    .pipe(amdOptimize('js/main', config))
+    .pipe(concat('main.js'))
+    .pipe(insert.append(';require(["js/main"]);'))
     .pipe(ngAnnotate())
-    .pipe(uglify().on('error', handleError))
+    .pipe(uglify())
     .pipe(gulp.dest('build/js/'));
+});
+
+gulp.task('lint', function () {
+  var eslint = require('gulp-eslint');
+
+  return gulp.src(['Gulpfile.js', 'source/js/**/*.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failOnError());
 });
 
 // Karma
 gulp.task('karma', function () {
+  var karma = require('gulp-karma');
+
   return gulp.src(['no need to supply files because everything is in config file'])
+    .pipe(plumber(handleError))
     .pipe(karma({
       configFile: 'karma.conf.js',
       action: 'watch'
-    }).on('error', handleError));
+    }));
 });
 
 gulp.task('karma-ci', function () {
+  var karma = require('gulp-karma');
+
   return gulp.src(['no need to supply files because everything is in config file'])
+    .pipe(plumber(handleError))
     .pipe(karma({
       configFile: 'karma-compiled.conf.js',
       action: 'run'
-    }).on('error', handleError));
+    }));
 });
 
 // Sass
 gulp.task('sass', function () {
-  var processors = [
-    assets({
-      basePath: 'source/',
-      loadPaths: ['assets/fonts/', 'assets/images/']
-    }),
-    autoprefixer
-  ];
+  var cssGlobbing = require('gulp-css-globbing');
+  var postcss = require('gulp-postcss');
+  var sass = require('gulp-sass');
 
   return gulp.src(['source/sass/*.scss', '!source/sass/_*.scss'])
-    .pipe(sass({
-      outputStyle: 'compressed'
-    }).on('error', handleError))
-    .pipe(postcss(processors).on('error', handleError))
+    .pipe(plumber(handleError))
+    .pipe(cssGlobbing({
+      extensions: '.scss'
+    }))
+    .pipe(sass())
+    .pipe(postcss([
+      require('postcss-assets')({
+        basePath: 'source/',
+        loadPaths: ['assets/fonts/', 'assets/images/']
+      }),
+      require('postcss-import')({
+        path: 'source/'
+      }),
+      require('autoprefixer'),
+      require('csswring')({
+        preserveHacks: true,
+        removeAllComments: true
+      })
+    ]))
     .pipe(gulp.dest('source/assets/css'));
 });
 
 // Protractor
 gulp.task('protractor', function () {
+  var protractor = require('gulp-protractor').protractor;
+
   return gulp.src('source/js/**/*.e2e.js')
     .pipe(protractor({ configFile: 'p.conf.js' }));
 });
 
 gulp.task('protractor-ci', function () {
+  var protractor = require('gulp-protractor').protractor;
+
   return gulp.src('source/js/**/*.e2e.js')
     .pipe(protractor({ configFile: 'p-compiled.conf.js' }));
 });
@@ -154,6 +176,13 @@ gulp.task('webdriver', webdriver);
 
 // Watch
 gulp.task('watch', ['sass'], function () {
+  handleError = function (err) {
+    console.log(err.name, ' in ', err.plugin, ': ', err.message);
+    console.log(err.getStack());
+    this.emit('end');
+  };
+  var livereload = require('gulp-livereload');
+
   gulp.run('karma');
 
   gulp.watch('source/sass/**/*.scss', ['sass']);

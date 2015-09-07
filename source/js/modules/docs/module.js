@@ -3,7 +3,6 @@ define([
   'ui.router',
   '../../config'
 ], function (angular) {
-  'use strict';
 
   return angular.module('app.docs', [
     'app.constants',
@@ -33,7 +32,7 @@ define([
       .state('docs.mixins', {
         url: '/mixins',
         templateUrl: 'js/modules/docs/mixins.html'
-      })
+      });
   });
 
 });
