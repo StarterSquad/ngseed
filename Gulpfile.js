@@ -1,5 +1,8 @@
 /*eslint-disable no-console */
 
+// Promise polyfill needed to run PostCSS on node.js 0.10
+require('es6-promise').polyfill();
+
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var webdriver = require('gulp-protractor').webdriver_standalone;
