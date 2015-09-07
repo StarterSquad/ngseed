@@ -120,6 +120,47 @@ gulp.task('js', function () {
     .pipe(gulp.dest('source/js'));
 });
 
+gulp.task('watch-js', function () {
+  var browserify = require('browserify');
+  var _ = require('underscore');
+  var watchify = require('watchify');
+  var source = require('vinyl-source-stream');
+  var buffer = require('vinyl-buffer');
+  var ngAnnotate = require('gulp-ng-annotate');
+  var sourcemaps = require('gulp-sourcemaps');
+  var uglify = require('gulp-uglify');
+
+  var b = browserify('source/js/main.js', _.defaults({
+    debug: true
+  }, watchify.args));
+
+  var w = watchify(b);
+
+  var gutil = require('gulp-util');
+
+  var rebundle = function () {
+    var start = Date.now();
+    gutil.log('Bundling started...');
+    return w.bundle()
+      //.on('error', handleError)
+      .pipe(source('main-compiled.js'))
+      .pipe(buffer())
+      .pipe(sourcemaps.init({
+        loadMaps: true
+      }))
+      .pipe(ngAnnotate())
+      .pipe(uglify())
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest('source/js').on('end', function () {
+        var elapsed = (Date.now() - start) / 1000;
+        gutil.log('Bundled in', gutil.colors.magenta(elapsed.toFixed(2), 's'));
+      }));
+  };
+
+  w.on('update', rebundle);
+  return rebundle();
+});
+
 gulp.task('lint', function () {
   var eslint = require('gulp-eslint');
 
