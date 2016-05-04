@@ -34,7 +34,7 @@
     "karma-phantomjs-launcher": "=0.2.1",
     "karma-requirejs": "=0.2.2",
     "karma-script-launcher": "=0.1.0",
-    "postcss-assets": "=3.0.2",
+    "postcss-assets": "=3.0.3",
     "postcss-import": "=7.0.0",
     "protractor": "=2.2.0"
   }
